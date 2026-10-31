@@ -329,6 +329,10 @@ def main():
         line["end"] = round(start + fdur, 2)
         # exact word times: raw alignment, scaled by the tempo fit, offset to global
         raw_words = json.load(open(raw + ".words.json", encoding="utf-8"))
+        shown = line["text"].split()
+        if line.get("tts") and len(shown) == len(raw_words):
+            # a voice-only spelling ("Shegs", "thirteenth") still captions as written
+            raw_words = [{**w, "w": s} for w, s in zip(raw_words, shown)]
         line["words"] = [{"w": w["w"],
                           "start": round(start + w["start"] / tempo, 3),
                           "end": round(start + w["end"] / tempo, 3)} for w in raw_words]

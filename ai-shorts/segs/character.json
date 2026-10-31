@@ -48,5 +48,9 @@
     "sidecars": "character.gen.json, sheet.json",
     "post": "shirt recoloured from orange #EC8215 to Qodeup gold #F2B21B in the pixels (outlines and shading kept); sheet label redrawn as SEGS"
   },
-  "renamed": "was Aboki until 2026-10-31; Orezi named him Segs"
+  "renamed": "was Aboki until 2026-10-31; Orezi named him Segs",
+  "say_as": {
+    "Segs": "Shegs",
+    "note": "pronounced Shegs (Orezi, 31 Oct). Any line that speaks his name sets \"tts\" with Shegs; captions keep Segs."
+  }
 }

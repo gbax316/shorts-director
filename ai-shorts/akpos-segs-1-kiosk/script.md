@@ -3,7 +3,7 @@ created: 2026-10-31
 type: video script and frame plan
 video: Akpos and Segs 1, "Segs's kiosk" (Build With AI, a two-character skit)
 voice: Orezi's dialogue, dictated 31 Oct; Akpos is Timmy Adubi, Segs is Alex Oke (eleven_v4, the v6 settings); banner qodeup; kind own
-status: script written, voice take 1 made, awaiting Orezi's ear
+status: voice take 2 (Shegs, new line 8), awaiting Orezi's ear
 ---
 
 # Akpos and Segs 1: Segs's kiosk
@@ -25,7 +25,7 @@ Segs says he is too old to sit down and learn coding. Akpos tells him about Orez
 | 5 | Akpos | Hahaha. Well, guess what? Orezi is doing a training on the thirteenth and fourteenth of November. You should join. Na soap I dey cut for you so. | Laughs, head back. Then points at Segs, sly grin. |
 | 6 | Segs | Really? Ah, this will help if it works. But all these trainings, they go just hang you. | Eyebrow up, arms folded. |
 | 7 | Akpos | No, not Orezi. He breaks it down and he delivers. Bros, see the link below. Click it and register. | Shakes his head, then points down at the screen edge. |
-| 8 | Segs | Okay now. Akpos, Akpos. Correct guy. | Breaks into a big smile, slaps Akpos's hand over the counter. |
+| 8 | Segs | Okay now. Akpos, Akpooos, na correct guy you be. | Breaks into a big smile, slaps Akpos's hand over the counter. |
 
 End card, no voice, as in video 6: **Build With AI, the Qodeup Way.** / 13 and 14 November. Two
 live sessions. Beginners welcome. / Click the link to join. / qodeupafrica.com/build-with-ai.
@@ -39,6 +39,9 @@ live sessions. Beginners welcome. / Click the link to join. / qodeupafrica.com/b
 - **Line 5:** "You can should join" became "You should join". The pidgin is spelled "Na soap I
   dey cut for you so" for the voice; the dates are spoken as words.
 - **The laugh** is spoken as "Hahaha" at the top of line 5, so it shows in the captions too.
+- **Take 2 (Orezi's notes):** Segs is said "Shegs", so line 2 is voiced with that spelling and
+  captioned "Segs". Line 8 is his rewrite. In "Okay now" I kept the opening from the first
+  version; say if it should go.
 
 ## The setting
 
