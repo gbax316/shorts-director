@@ -48,3 +48,7 @@ read both before a new series.
    hue, scale the new colour by each pixel's brightness, and every outline and shade survives with
    no drift and no cost. Keep the old reference picture for style only and name the new colours
    in every prompt, or the model pulls the old ones back.
+6. `gen_voice.py` now voices dialogue: beats.json `"cast"` points each speaker at its
+   character.json, each line names its speaker in `"who"`, and `--pack GAP` lays lines end to end
+   from their real lengths. English Whisper flags pidgin ("na", "dey") and Nigerian names
+   ("Orezi" heard as "Orazzi") on almost every line; those are for the ear, a dropped word is not.

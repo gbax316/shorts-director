@@ -26,6 +26,13 @@ Voice, model and settings resolve in this order, last wins:
   --voice / --model
 Changing any of them re-bills only the lines they change (they are part of the cache key).
 
+DIALOGUE: a beats.json "cast" maps a speaker to a character.json path (its "voice" block is
+used) or to an inline {"id", "model", "settings"} block; a vo line with "who": "<speaker>" is
+voiced by that cast member, over the resolution above. --voice / --model still win.
+--pack GAP lays the lines end to end from their real lengths (GAP seconds between, a line's
+own "gap" overrides) instead of fitting them into estimated windows; no line is sped up, and
+format.durationSec grows if the voice runs past it.
+
 LINE CHECK: after generating, every line is transcribed with Whisper and compared word for
 word with what was sent. A DIFF is a flag for the ear, not a failure: Whisper mishears names
 too. Transcripts are cached beside each clip. --no-check skips it; WHISPER_MODEL picks the
@@ -91,6 +98,21 @@ def resolve_voice(env, beats, args):
     model = args.model or cfg.get("model") or env.get("ELEVENLABS_MODEL", "").strip() or DEFAULT_MODEL
     fmt = env.get("ELEVENLABS_TTS_FORMAT", "").strip() or "mp3_44100_128"
     return voice, model, settings, fmt
+
+
+def line_voice(base, beats, line, args):
+    """The resolved voice for one vo line: the short's voice, then its speaker's cast entry."""
+    who = line.get("who")
+    if not who:
+        return base
+    entry = (beats.get("cast") or {}).get(who)
+    if entry is None:
+        sys.exit(f"vo line speaker {who!r} is not in beats.json \"cast\"")
+    if isinstance(entry, str):
+        entry = json.load(open(os.path.join(ROOT, entry), encoding="utf-8")).get("voice") or {}
+    voice, model, settings, fmt = base
+    settings = {**settings, **(entry.get("settings") or {})}
+    return (args.voice or entry.get("id") or voice, args.model or entry.get("model") or model, settings, fmt)
 
 
 def words_of(text):
@@ -240,6 +262,8 @@ def main():
     ap.add_argument("--no-check", action="store_true", help="skip the Whisper line check")
     ap.add_argument("--force-line", type=int, action="append",
                     help="regenerate just this line index (repeatable), e.g. after a LINE CHECK flag")
+    ap.add_argument("--pack", type=float, metavar="GAP",
+                    help="lay lines end to end from their real lengths, GAP seconds apart (dialogue)")
     args = ap.parse_args()
 
     beats_path = os.path.abspath(args.beats)
@@ -253,16 +277,24 @@ def main():
     key = env.get("ELEVENLABS_API_KEY")
     if not key and not args.dry_run:
         sys.exit("ELEVENLABS_API_KEY not found (environment or .env)")
-    voice, model, settings, fmt = resolve_voice(env, beats, args)
-    print(f"voice {voice} · model {model} · {fmt} · settings {json.dumps(settings)}")
+    base = resolve_voice(env, beats, args)
+    voices = list({json.dumps(v, sort_keys=True): v for v in (line_voice(base, beats, line, args) for line in vo)}.values())
+    for v in voices:
+        print(f"voice {v[0]} · model {v[1]} · {v[3]} · settings {json.dumps(v[2])}")
 
     fitted = []  # (path, start_sec, fitted_dur)
     sent = []    # (index, tts_text, raw mp3) for the line check
+    cursor = float(vo[0]["start"]) if vo else 0.0  # --pack: where the next line begins
     print(f"{'line':4s} {'start':>6s} {'window':>6s} {'clip':>6s} {'tempo':>5s}  text")
     for i, line in enumerate(vo):
+        voice, model, settings, fmt = line_voice(base, beats, line, args)
+        if args.pack is not None:
+            if i > 0:
+                cursor += float(line.get("gap", args.pack))
+            line["start"] = round(cursor, 2)
         start = float(line["start"])
         next_start = float(vo[i + 1]["start"]) if i + 1 < len(vo) else total - 0.3
-        window = next_start - start - 0.05
+        window = 999.0 if args.pack is not None else next_start - start - 0.05
         tts_text = line.get("tts", line["text"])  # optional tagged/phonetic variant for TTS
         sig = f"{voice}|{model}|{tts_text}"
         if (voice, model, settings, fmt) != (DEFAULT_VOICE, DEFAULT_MODEL, DEFAULT_SETTINGS, "mp3_44100_128"):
@@ -301,9 +333,14 @@ def main():
                           "start": round(start + w["start"] / tempo, 3),
                           "end": round(start + w["end"] / tempo, 3)} for w in raw_words]
         fitted.append((fit, start, fdur))
+        cursor = start + fdur
 
     if args.dry_run:
         return
+    if args.pack is not None and cursor + 0.3 > total:
+        total = round(cursor + 0.3, 2)
+        beats["format"]["durationSec"] = total
+        print(f"voice runs to {cursor:.2f}s; durationSec raised to {total}")
 
     if not args.no_check:
         diffs = check_lines(sent, env.get("WHISPER_MODEL", "").strip() or "small")
@@ -329,7 +366,7 @@ def main():
          "-map", "[out]", "-ar", "44100", "-ac", "2", voice_wav])
     print(f"voice track -> {os.path.relpath(voice_wav, ROOT)}")
 
-    beats["voiceStatus"] = f"elevenlabs:{voice}:{model}"
+    beats["voiceStatus"] = " ".join(sorted({f"elevenlabs:{v[0]}:{v[1]}" for v in voices}))
     json.dump(beats, open(beats_path, "w", encoding="utf-8"), indent=2, ensure_ascii=False)
     print(f"actual line timings + word maps written back -> {os.path.relpath(beats_path, ROOT)}")
 
