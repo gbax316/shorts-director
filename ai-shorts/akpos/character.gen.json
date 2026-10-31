@@ -1,0 +1,13 @@
+{
+  "model": "nano-banana-pro (kie.ai)",
+  "prompt": "Using the reference image, draw ONLY the character on the LEFT (the one in the red cap and yellow t-shirt), alone. Keep his design identical to the reference: a very large round off-white head with a thick black outline; a red-orange baseball cap (#CE4928) worn tilted, brim pointing to his right, small dark strap opening visible on the back; big round cartoon eyes with heavy half-closed upper lids giving a cheeky sly look; a wide toothy grin; a short-sleeved mustard-yellow t-shirt (#EDC542) that hangs straight to the hips; thin black stick arms and long thin black stick legs; solid black mitten-like hands with defined fingers; flat black oval shoes. Head is about one third of his total height. Flat 2D cartoon stick-figure style exactly matching the reference image: thick clean black outlines of even weight, flat colour fills, one soft grey crescent of shading on the side of the round head, no gradients, no texture, no 3D. Plain warm off-white paper backdrop (#E5DDD2), seamless, nothing else in the scene, small soft grey contact shadow under the feet. Full body, whole character in frame with generous margin, standing centred, front three-quarter view, relaxed neutral standing pose with both arms hanging at his sides. EXACTLY ONE character in the image. No text, no watermark, no border.",
+  "aspect_ratio": "9:16",
+  "resolution": "2K",
+  "refs": [
+    "ai-shorts/skit-duo/reference.jpg"
+  ],
+  "task_id": "027286664c128c3aca8f84629dac2272",
+  "credits": 18.0,
+  "created": "2026-10-31T21:48:15",
+  "post": "mirrored horizontally so he faces right like the reference (cap brim and head shading on the left)"
+}

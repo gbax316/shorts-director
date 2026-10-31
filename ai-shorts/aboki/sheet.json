@@ -1,0 +1,12 @@
+{
+  "model": "nano-banana-pro (kie.ai)",
+  "prompt": "A character model sheet of the exact character in the reference image: the bald stick figure in the orange t-shirt. Same bald round head, small dot eyes, thin eyebrows, small mouth, shirt, stick limbs, black mitten hands and black shoes in every drawing; nothing added, no hair, no hat.\nTop row, four full-body turnaround drawings, same size, standing side by side on one baseline: front view, three-quarter view, side profile, back view.\nBottom row, six head-and-shoulders expression drawings of the same character: 1) quietly sceptical with one eyebrow raised and a small \"o\" mouth (his default), 2) arms folded, unimpressed, flat mouth, 3) shocked, eyes huge, mouth dropped open, 4) confused, head tilted, squiggle mouth, 5) won over, big happy smile, 6) rubbing his eyes with both fists in disbelief.\nLabel \"ABOKI\" in plain black capital letters centred at the top. Flat 2D cartoon style identical to the reference image: thick clean even black outlines, flat colour fills, one soft grey crescent of shading on the side of the head, no gradients, no 3D. Plain warm off-white paper background (#E5DDD2). Clean animation model sheet layout. The ONLY text allowed is the name label at the top. No other text, no numbers, no arrows, no watermark.",
+  "aspect_ratio": "16:9",
+  "resolution": "2K",
+  "refs": [
+    "ai-shorts/aboki/character.png"
+  ],
+  "task_id": "e9cd16f44ee714d29fd9b57341ba8375",
+  "credits": 18.0,
+  "created": "2026-10-31T21:50:45"
+}

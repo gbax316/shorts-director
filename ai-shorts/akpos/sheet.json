@@ -1,0 +1,13 @@
+{
+  "model": "nano-banana-pro (kie.ai)",
+  "prompt": "A character model sheet of the exact character in the first reference image (the stick figure in the backwards red cap and yellow t-shirt; he is also the LEFT character in the second reference). HIS FOUR SIGNATURE TRAITS MUST APPEAR IN EVERY SINGLE DRAWING: (1) two BIG round cartoon eyes that bulge past the outline of his head, each with a heavy half-closed upper lid, small black pupils; (2) a wide toothy grin showing a row of teeth; (3) a muted brick-red cap (#CE4928, not bright orange) worn tilted BACKWARDS and sideways, brim sticking out over one side of his head, the strap opening with its little holes visible above his forehead; (4) a mustard-yellow t-shirt (#EDC542). Draw him exactly like the first reference image, which shows him. Same stick arms and legs, black mitten hands, black oval shoes in every drawing.\nTop row, four full-body turnaround drawings, same size, standing on one baseline: front view, three-quarter view, side profile, back view.\nBottom row, four full-body action poses, each with the cap, big lidded eyes and toothy grin: 1) pointing forward with one finger, sly grin, 2) shouting with excitement, both arms up, mouth wide open showing teeth, 3) laughing, head tipped back, 4) proud, fists on hips, chest out.\nLabel \"AKPOS\" in plain black capital letters centred at the top. Flat 2D cartoon identical in style to the references: thick even black outlines, flat fills, a soft grey crescent of shading on the left side of the head, plain warm off-white paper background (#E5DDD2). The only text is the name label. No numbers, no arrows, no watermark.",
+  "aspect_ratio": "16:9",
+  "resolution": "2K",
+  "refs": [
+    "ai-shorts/akpos/character.png",
+    "ai-shorts/skit-duo/reference.jpg"
+  ],
+  "task_id": "ca1f62e5ef6644840e45a1a8ffe72f7d",
+  "credits": 18.0,
+  "created": "2026-10-31T21:54:00"
+}

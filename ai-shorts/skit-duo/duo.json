@@ -1,0 +1,14 @@
+{
+  "model": "nano-banana-pro (kie.ai)",
+  "prompt": "Redraw the second reference image (the original two characters together) using the two character references to keep each design exact. On the LEFT, facing right: the character in the first reference. HIS FOUR SIGNATURE TRAITS MUST APPEAR IN EVERY SINGLE DRAWING: (1) two BIG round cartoon eyes that bulge past the outline of his head, each with a heavy half-closed upper lid, small black pupils; (2) a wide toothy grin showing a row of teeth; (3) a muted brick-red cap (#CE4928, not bright orange) worn tilted BACKWARDS and sideways, brim sticking out over one side of his head, the strap opening with its little holes visible above his forehead; (4) a mustard-yellow t-shirt (#EDC542). Draw him exactly like the first reference image, which shows him. On the RIGHT, facing left: the bald character in the orange t-shirt from the third reference, exactly as drawn there: small black dot eyes, one thin eyebrow raised higher than the other, a small round \"o\" mouth, curious and sceptical, NOT angry, no frown. Both the SAME height and head size, on the same baseline, about one body-width apart, arms relaxed at their sides, full bodies in frame with generous margin. Flat 2D cartoon, thick even black outlines, flat fills, plain warm off-white paper background (#E5DDD2), soft grey contact shadows. EXACTLY TWO characters. No text, no watermark.",
+  "aspect_ratio": "9:16",
+  "resolution": "2K",
+  "refs": [
+    "ai-shorts/akpos/character.png",
+    "ai-shorts/skit-duo/reference.jpg",
+    "ai-shorts/aboki/character.png"
+  ],
+  "task_id": "3c02121a2b84d0ec70d477547b7d1305",
+  "credits": 18.0,
+  "created": "2026-10-31T21:53:28"
+}

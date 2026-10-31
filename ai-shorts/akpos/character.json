@@ -1,0 +1,52 @@
+{
+  "name": "Akpos",
+  "role": "THE LOCKED REFERENCE for the Aboki and Akpos skit series",
+  "rule": "NEVER generate this character from text twice. Every still that needs him uses --ref character.png (add sheet.png for a turn or an expression, and skit-duo/duo.png when both are in frame); every clip is image-to-video from a frame that already contains him.",
+  "image": "character.png",
+  "sheet": "sheet.png",
+  "pair": "../skit-duo/duo.png",
+  "locked": null,
+  "status": "awaiting Orezi's eye (generated 2026-10-31)",
+  "role_in_skit": "the hype man: found the class, sells it, cheeky and sure of himself",
+  "style": {
+    "look": "flat 2D cartoon stick figure, thick even black outlines, flat colour fills, one soft grey crescent of shading on the side of the head, no gradients, no 3D",
+    "backdrop": "#E5DDD2 warm off-white paper (sampled from the reference)",
+    "shared_build": "very large round off-white head (about a third of total height), short-sleeved t-shirt hanging straight to the hips, thin black stick arms and legs, solid black mitten hands with defined fingers, flat black oval shoes",
+    "style_reference": "ai-shorts/skit-duo/reference.jpg (Orezi's pick, 31 Oct 2026)"
+  },
+  "design": {
+    "identity_markers": "must appear in every shot: (1) two BIG round eyes bulging past the head outline, heavy half-closed upper lids; (2) wide toothy grin; (3) brick-red cap worn backwards and tilted, brim over one side, strap opening with holes above the forehead; (4) mustard-yellow t-shirt",
+    "default_expression": "sly confident grin",
+    "faces": "right when paired; stands on the LEFT of frame",
+    "palette": {
+      "cap": "#CE4928",
+      "shirt": "#EDC542"
+    }
+  },
+  "voice": {
+    "id": "UXyapCwN1QltDgDxgF4m",
+    "name": "Timmy Adubi (shared Nigerian voice, 'Skit' in the ElevenLabs account)",
+    "model": "eleven_v4",
+    "settings": {
+      "stability": 0.4,
+      "similarity_boost": 0.8,
+      "style": 0.35,
+      "use_speaker_boost": true,
+      "speed": 1.05
+    },
+    "source": "build-with-ai-videos v6-magic, approved take a (hype role); shared/audio/config.json cast.v6.a.hype"
+  },
+  "drift_seen": "the first sheet attempt dropped the big lidded eyes and turned the cap bright orange and forwards. Fixed by passing reference.jpg as a second ref and naming the four markers in the prompt. Do the same on every start frame.",
+  "generation": {
+    "model": "nano-banana-pro (kie.ai)",
+    "prompt": "Using the reference image, draw ONLY the character on the LEFT (the one in the red cap and yellow t-shirt), alone. Keep his design identical to the reference: a very large round off-white head with a thick black outline; a red-orange baseball cap (#CE4928) worn tilted, brim pointing to his right, small dark strap opening visible on the back; big round cartoon eyes with heavy half-closed upper lids giving a cheeky sly look; a wide toothy grin; a short-sleeved mustard-yellow t-shirt (#EDC542) that hangs straight to the hips; thin black stick arms and long thin black stick legs; solid black mitten-like hands with defined fingers; flat black oval shoes. Head is about one third of his total height. Flat 2D cartoon stick-figure style exactly matching the reference image: thick clean black outlines of even weight, flat colour fills, one soft grey crescent of shading on the side of the round head, no gradients, no texture, no 3D. Plain warm off-white paper backdrop (#E5DDD2), seamless, nothing else in the scene, small soft grey contact shadow under the feet. Full body, whole character in frame with generous margin, standing centred, front three-quarter view, relaxed neutral standing pose with both arms hanging at his sides. EXACTLY ONE character in the image. No text, no watermark, no border.",
+    "aspect_ratio": "9:16",
+    "resolution": "2K",
+    "refs": [
+      "ai-shorts/skit-duo/reference.jpg"
+    ],
+    "created": "2026-10-31T21:48:15",
+    "sidecars": "character.gen.json, sheet.json",
+    "post": "character.png mirrored horizontally after generation so he faces right like the reference"
+  }
+}

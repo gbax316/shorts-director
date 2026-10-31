@@ -28,3 +28,19 @@ read both before a new series.
    Pieces drawn as shapes do not depend on the font.
 9. A search for `ground:` also matched every `background:`. Anchor a search for a config key to
    the start of the line.
+
+## 2026-10-31, locking Aboki and Akpos (2D stick-figure duo)
+
+1. The direct Gemini key can run dry (402, prepaid credits depleted). The same model is on kie.ai
+   as `nano-banana-pro` (`image_input` takes a list of urls, `resolution` 2K, 18 credits a
+   still), paid from the kie balance. `gen_image.py` has no kie route yet; this run used a
+   one-off script on `gen_clip.py`'s `kie_upload` and `kie_req`.
+2. A model sheet redraws a character many times at small size, and the model drops the traits
+   that make him who he is first: Akpos lost his big lidded eyes and the cap turned bright orange
+   and forwards. Passing the original style picture as a second reference and naming the
+   identity markers "in every single drawing" fixed it in one re-roll. Name them on every start
+   frame too.
+3. A generated character can come out mirrored. When nothing on him is one-sided, flip the PNG
+   instead of paying for a re-roll.
+4. `gen_voice.py` voices a short with one voice. A two-person skit needs a voice per line before
+   it can use the cast's `voice` blocks in each character.json.

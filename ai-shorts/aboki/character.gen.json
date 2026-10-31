@@ -1,0 +1,12 @@
+{
+  "model": "nano-banana-pro (kie.ai)",
+  "prompt": "Using the reference image, draw ONLY the character on the RIGHT (the bald one in the orange t-shirt), alone. Keep his design identical to the reference: a very large round off-white bald head with a thick black outline and no hair, no hat; two small solid black dot eyes; one thin eyebrow raised higher than the other; a small round \"o\" mouth, a quietly sceptical expression; a short-sleeved orange t-shirt (#EC8215) that hangs straight to the hips; thin black stick arms and long thin black stick legs; solid black mitten-like hands with defined fingers; flat black oval shoes. Same height and same head size as the other character in the reference. Head is about one third of his total height. Flat 2D cartoon stick-figure style exactly matching the reference image: thick clean black outlines of even weight, flat colour fills, one soft grey crescent of shading on the side of the round head, no gradients, no texture, no 3D. Plain warm off-white paper backdrop (#E5DDD2), seamless, nothing else in the scene, small soft grey contact shadow under the feet. Full body, whole character in frame with generous margin, standing centred, front three-quarter view, relaxed neutral standing pose with both arms hanging at his sides. EXACTLY ONE character in the image. No text, no watermark, no border.",
+  "aspect_ratio": "9:16",
+  "resolution": "2K",
+  "refs": [
+    "ai-shorts/skit-duo/reference.jpg"
+  ],
+  "task_id": "30f068ca1f67a78e2156850875dc8ace",
+  "credits": 18.0,
+  "created": "2026-10-31T21:47:39"
+}
