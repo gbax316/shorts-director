@@ -10,20 +10,24 @@ import {
   Files, Search, GitBranch, Play, LayoutGrid, Folder, Settings, FileText, Braces,
   Image as ImageIcon, Info, MoreHorizontal, Lock, SplitSquareHorizontal, Clock, X,
 } from 'lucide-react';
-import { COLORS, EASINGS, RADIUS, SHADOW } from '../brand';
+import { BRAND_GROUND, COLORS, EASINGS, RADIUS, SHADOW } from '../brand';
 import { FONT_DISPLAY, FONT_BODY, FONT_MONO, FONT_SERIF } from '../fonts';
 
 export const CLAMP = { extrapolateLeft: 'clamp' as const, extrapolateRight: 'clamp' as const };
 export const lib = (name: string) => staticFile(`${name}`);
 
-// ---- brand backdrop: paper + soft color glow + faint dotted grid -------------
-export const BrandBg: React.FC<{ glow?: string }> = ({ glow = COLORS.accent }) => (
-  <>
-    <AbsoluteFill style={{ backgroundColor: COLORS.paper }} />
-    <AbsoluteFill style={{ background: `radial-gradient(1300px 700px at 50% -12%, ${glow}22, transparent 60%)` }} />
-    <AbsoluteFill style={{ backgroundImage: `radial-gradient(${COLORS.line} 1.5px, transparent 1.5px)`, backgroundSize: '46px 46px', opacity: 0.45 }} />
-  </>
-);
+// ---- brand backdrop: ground + soft color glow + faint dotted grid -------------
+// ground follows BRAND_GROUND unless a shot passes one.
+export const BrandBg: React.FC<{ glow?: string; ground?: 'day' | 'night' }> = ({ glow = COLORS.accent, ground = BRAND_GROUND }) => {
+  const night = ground === 'night';
+  return (
+    <>
+      <AbsoluteFill style={{ background: night ? `linear-gradient(180deg, ${COLORS.navy}, ${COLORS.night} 70%)` : COLORS.paper }} />
+      <AbsoluteFill style={{ background: `radial-gradient(1300px 700px at 50% -12%, ${glow}${night ? '33' : '22'}, transparent 60%)` }} />
+      <AbsoluteFill style={{ backgroundImage: `radial-gradient(${night ? COLORS.lineNight : COLORS.line} 1.5px, transparent 1.5px)`, backgroundSize: '46px 46px', opacity: 0.45 }} />
+    </>
+  );
+};
 
 // rise-in (fade + translateY), driven by the current frame
 export const useRise = () => {

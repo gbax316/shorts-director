@@ -4,6 +4,7 @@
 import React from 'react';
 import { AbsoluteFill, Easing, useCurrentFrame, useVideoConfig } from 'remotion';
 import { FONT_BODY, FONT_DISPLAY } from '../fonts';
+import { COLORS } from '../brand'; // defaults below follow the brand; a shot can still pass its own
 
 export const SHORT = { W: 1080, H: 1920, FPS: 30 } as const;
 // Zones covered by Shorts/Reels/TikTok UI — keep critical info (esp. captions) OUT.
@@ -69,7 +70,7 @@ export const Captions: React.FC<{
   accent?: string;
   maxWords?: number;
   plate?: boolean; // dark pill behind the words — for compositions with light scenes
-}> = ({ lines, y = 1280, size = 58, accent = '#f5d76e', maxWords = 4, plate = false }) => {
+}> = ({ lines, y = 1280, size = 58, accent = COLORS.warn, maxWords = 4, plate = false }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   const t = frame / fps;
@@ -122,7 +123,7 @@ export const Captions: React.FC<{
               lineHeight: 1.15,
               textTransform: 'uppercase',
               letterSpacing: 0.5,
-              color: isActive ? accent : '#ffffff',
+              color: isActive ? accent : COLORS.onNight,
               opacity: 0.3 + 0.7 * started,
               transform: `scale(${0.92 + 0.08 * EASE_OUT(started) + (isActive ? 0.05 : 0)})`,
               textShadow: '0 3px 26px rgba(0,0,0,0.65), 0 1px 4px rgba(0,0,0,0.5)',
@@ -140,7 +141,7 @@ export const Captions: React.FC<{
 // =============================================================================
 // PROGRESS BAR — thin top bar over the whole composition.
 // =============================================================================
-export const ProgressBar: React.FC<{ color?: string }> = ({ color = '#f5d76e' }) => {
+export const ProgressBar: React.FC<{ color?: string }> = ({ color = COLORS.warn }) => {
   const frame = useCurrentFrame();
   const { durationInFrames } = useVideoConfig();
   return (
@@ -153,12 +154,13 @@ export const ProgressBar: React.FC<{ color?: string }> = ({ color = '#f5d76e' })
 // =============================================================================
 // KICKER — small beat-label pill, top center.
 // =============================================================================
-export const Kicker: React.FC<{ text: string; color?: string; y?: number; at?: number; until?: number }> = ({
+export const Kicker: React.FC<{ text: string; color?: string; y?: number; at?: number; until?: number; bg?: string }> = ({
   text,
-  color = '#f5d76e',
+  color = COLORS.warn,
   y = 180,
   at = 0,
   until,
+  bg = 'rgba(0,0,0,0.35)', // pass a light fill on the day ground
 }) => {
   const frame = useCurrentFrame();
   const p = prog(frame, at, at + 10);
@@ -189,7 +191,7 @@ export const Kicker: React.FC<{ text: string; color?: string; y?: number; at?: n
           border: `2px solid ${color}55`,
           borderRadius: 999,
           padding: '12px 30px',
-          background: 'rgba(0,0,0,0.35)',
+          background: bg,
         }}
       >
         {text}
@@ -223,7 +225,7 @@ export const BigTitle: React.FC<{
               lineHeight: 1.06,
               textTransform: 'uppercase',
               letterSpacing: 1,
-              color: l.color ?? '#ffffff',
+              color: l.color ?? COLORS.onNight,
               opacity: 0.35 + 0.65 * p,
               transform: `translateY(${(1 - p) * 16}px)`,
               textShadow: '0 4px 30px rgba(0,0,0,0.6)',
@@ -263,7 +265,7 @@ export const Stamp: React.FC<{
   y?: number;
   size?: number;
   rotate?: number;
-}> = ({ text, at = 0, until, color = '#e8879f', x = 540, y = 940, size = 96, rotate = -8 }) => {
+}> = ({ text, at = 0, until, color = COLORS.danger, x = 540, y = 940, size = 96, rotate = -8 }) => {
   const frame = useCurrentFrame();
   const p = prog(frame, at, at + 9);
   const out = until === undefined ? 1 : 1 - prog(frame, until - 10, until);
@@ -304,7 +306,7 @@ export const PauseCard: React.FC<{ title?: string; subtitle?: string; durSec: nu
   title = 'PAUSE',
   subtitle = 'can you find it?',
   durSec,
-  accent = '#f5d76e',
+  accent = COLORS.warn,
   y = 900,
 }) => {
   const frame = useCurrentFrame();
@@ -351,7 +353,7 @@ export const PauseCard: React.FC<{ title?: string; subtitle?: string; durSec: nu
         <polygon points="46,38 46,72 76,55" fill={accent} />
       </svg>
       <div>
-        <div style={{ fontFamily: FONT_DISPLAY, fontWeight: 700, fontSize: 64, letterSpacing: 4, color: '#fff' }}>{title}</div>
+        <div style={{ fontFamily: FONT_DISPLAY, fontWeight: 700, fontSize: 64, letterSpacing: 4, color: COLORS.onNight }}>{title}</div>
         <div style={{ fontFamily: FONT_BODY, fontWeight: 500, fontSize: 38, color: accent, marginTop: 6 }}>{subtitle}</div>
       </div>
     </div>
@@ -369,7 +371,7 @@ export const StatChip: React.FC<{
   y: number;
   w?: number;
   at?: number;
-}> = ({ label, value, color = '#f5d76e', x, y, w = 440, at = 0 }) => {
+}> = ({ label, value, color = COLORS.warn, x, y, w = 440, at = 0 }) => {
   const frame = useCurrentFrame();
   const p = EASE_OUT(prog(frame, at, at + 12));
   if (p <= 0.01) return null;
@@ -392,7 +394,7 @@ export const StatChip: React.FC<{
       <div style={{ fontFamily: FONT_BODY, fontWeight: 600, fontSize: 27, letterSpacing: 3, color, textTransform: 'uppercase' }}>
         {label}
       </div>
-      <div style={{ fontFamily: FONT_DISPLAY, fontWeight: 600, fontSize: 34, color: '#fff', marginTop: 8, lineHeight: 1.25 }}>
+      <div style={{ fontFamily: FONT_DISPLAY, fontWeight: 600, fontSize: 34, color: COLORS.onNight, marginTop: 8, lineHeight: 1.25 }}>
         {value}
       </div>
     </div>
@@ -402,7 +404,7 @@ export const StatChip: React.FC<{
 // =============================================================================
 // BACKDROP — dark stage + vignette, shared look for shorts (per-niche theme later).
 // =============================================================================
-export const ShortsBackdrop: React.FC<{ base?: string; glow?: string }> = ({ base = '#0f1216', glow = '#1d2430' }) => (
+export const ShortsBackdrop: React.FC<{ base?: string; glow?: string }> = ({ base = COLORS.night, glow = COLORS.navy }) => (
   <AbsoluteFill>
     <AbsoluteFill style={{ background: base }} />
     <AbsoluteFill

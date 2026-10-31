@@ -250,7 +250,9 @@ Always set `margin: 0` on text elements — browser defaults push layouts off-ce
 
 ## Style presets
 
-When the user names a style, load its palette and characteristics from **`references/style-presets.md`** and drop the `COLORS` object into the skeleton. The six presets are: **minimalist** (default), **memphis**, **neo-brutalism**, **glassmorphism**, **neon/cyberpunk**, and **corporate**. If no style is named, use minimalist.
+**In this repo the default is the house brand, not a preset.** Shots import `COLORS`, `GRADIENT`, `RADIUS`, `SHADOW`, `EASINGS` from `remotion/src/brand.ts` and `FONT_HEADLINE`, `FONT_DISPLAY`, `FONT_BODY`, `FONT_MONO` from `remotion/src/fonts.ts` instead of the skeleton's local `COLORS`/`TYPOGRAPHY` blocks, and follow `brand.md`. `FONT_HEADLINE` (Instrument Serif) has one weight: never give it `fontWeight`.
+
+When the user names a style, load its palette and characteristics from **`references/style-presets.md`** and drop the `COLORS` object into the skeleton. The six presets are: **minimalist**, **memphis**, **neo-brutalism**, **glassmorphism**, **neon/cyberpunk**, and **corporate**. If no style is named, use the house brand above.
 
 ---
 

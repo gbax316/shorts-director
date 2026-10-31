@@ -13,8 +13,8 @@ The shape: a **declarative plan** (`sfx-plan.json`) is the source of truth → a
 (`tools/mix_sfx.py`) → a **library** grows (`media/library/sfx/`) → a **hard USER-AUDIT gate**
 before anything is mixed.
 
-Sound taste is a brand contract — read **`brand.md` §7** every time. The house style is calm/premium
-(Linear / Anthropic / Vercel), felt-not-heard, always under the voice. NOT MrBeast-loud.
+Sound taste is a brand contract — read **`brand.md` §7** every time. The house style is premium,
+like a high-end product launch, felt-not-heard, always under the voice. NOT MrBeast-loud.
 
 ## Inputs (read these first, every session)
 
