@@ -14,12 +14,17 @@
     "akpos": "ai-shorts/akpos/character.json",
     "segs": "ai-shorts/segs/character.json"
   },
-  "endCard": [
-    "Build With AI, the Qodeup Way.",
-    "13 and 14 November. Two live sessions. Beginners welcome.",
-    "Click the link to join.",
-    "qodeupafrica.com/build-with-ai"
-  ],
+  "endCard": {
+    "logo": "library/logos/qodeup-logo-dark.png (LOGO.onDay)",
+    "lines": [
+      "Build With AI",
+      "13 and 14 November. Two live sessions.",
+      "Sign up now"
+    ],
+    "url": "qodeupafrica.com/build-with-ai/blueprint",
+    "href": "https://qodeupafrica.com/build-with-ai/blueprint",
+    "note": "Orezi 31 Oct: last frame is the Qodeup logo with a call to sign up and this link (checked live, 200)."
+  },
   "voiceStatus": "elevenlabs:JvYVKHK9a3ohjGBudnKo:eleven_v4 elevenlabs:UXyapCwN1QltDgDxgF4m:eleven_v4",
   "notes": "Two-character skit, Orezi's dictation 31 Oct. Voice with gen_voice.py --pack 0.3 (lines end to end from real lengths); each line's voice comes from its speaker's character.json. Shot windows follow the real line times. End card has no voice and runs about 5 s after the last line.",
   "vo": [

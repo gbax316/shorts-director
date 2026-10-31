@@ -27,8 +27,9 @@ Segs says he is too old to sit down and learn coding. Akpos tells him about Orez
 | 7 | Akpos | No, not Orezi. He breaks it down and he delivers. Bros, see the link below. Click it and register. | Shakes his head, then points down at the screen edge. |
 | 8 | Segs | Okay now. Akpos, Akpooos, na correct guy you be. | Breaks into a big smile, slaps Akpos's hand over the counter. |
 
-End card, no voice, as in video 6: **Build With AI, the Qodeup Way.** / 13 and 14 November. Two
-live sessions. Beginners welcome. / Click the link to join. / qodeupafrica.com/build-with-ai.
+End card, no voice (Orezi, 31 Oct): the **Qodeup logo**, then **Build With AI** / 13 and 14 November.
+Two live sessions. / **Sign up now** / **qodeupafrica.com/build-with-ai/blueprint**. The link was
+checked live. It replaces the video 6 link (qodeupafrica.com/build-with-ai).
 
 ## Where I made a call
 
