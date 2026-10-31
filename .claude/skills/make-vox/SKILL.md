@@ -101,3 +101,6 @@ The user's ear is the audit gate.
 script.md scenes each name their layers · all layers generated + sidecars in media/projects ·
 composition QA'd at cues and from the final mp4 · contrast rule honored · voice + SFX when
 requested · kit additions generic.
+· `tools/check_text.py` clean on the spoken and on-screen text · phone copy made with
+`tools/export_phone.py` · a dated entry in `LESSONS.md` (and the skill updated, in general terms,
+if the lesson changes how it works).

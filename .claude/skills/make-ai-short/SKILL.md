@@ -96,3 +96,6 @@ media/projects/<name>/        — THE clip copies for staticFile() (committed �
 character consistent in every frame of every clip (frame-by-frame QA'd) · loop verified
 (last frame vs frame 0 side-by-side) · captions on real word times · costs stated before each
 spend and totalled after · SFX audition rendered, awaiting the user's ear · no CTA outro.
+· `tools/check_text.py` clean on the spoken and on-screen text · phone copy made with
+`tools/export_phone.py` · a dated entry in `LESSONS.md` (and the skill updated, in general terms,
+if the lesson changes how it works).

@@ -1,9 +1,10 @@
-// Brand reference frame: one Qodeup hook laid out on a given ground, built only from the
-// shorts kit and the brand tokens. Not a shot itself; BrandSampleNight/Day in shots/brand
+// Brand reference frame: one hook in the house brand laid out on a given ground, built only from
+// the shorts kit and the brand tokens. Not a shot itself; BrandSampleNight/Day in shots/brand
 // render it so a brand change can be judged on a real frame, not a swatch board.
+// The hook copy below is the brand's own: rewrite VO and STEPS when the brand changes.
 import React from 'react';
 import { AbsoluteFill, Img, staticFile } from 'remotion';
-import { COLORS, RADIUS, SHADOW } from '../brand';
+import { COLORS, LOGO, RADIUS, SHADOW } from '../brand';
 import { FONT_BODY, FONT_HEADLINE, FONT_MONO } from '../fonts';
 import { BrandBg } from './kit';
 import { Captions, Kicker, ProgressBar, SAFE, ShortsBackdrop, VoLine } from './shorts';
@@ -28,7 +29,7 @@ export const BrandSample: React.FC<{ ground: 'day' | 'night' }> = ({ ground }) =
   return (
     <AbsoluteFill>
       {night ? <ShortsBackdrop /> : <BrandBg ground="day" />}
-      <Img src={staticFile(`library/logos/qodeup-logo-${night ? 'light' : 'dark'}.png`)}
+      <Img src={staticFile(night ? LOGO.onNight : LOGO.onDay)}
         style={{ position: 'absolute', left: SAFE.left, top: 70, height: 64 }} />
       <Kicker text="FOR BUSINESS OWNERS" y={230} color={hot} bg={night ? undefined : '#ffffff'} />
       <div style={{ position: 'absolute', left: 90, right: SAFE.right + 20, top: 360,

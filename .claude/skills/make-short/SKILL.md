@@ -87,12 +87,12 @@ python tools/gen_voice.py --beats shorts/short-N-<niche>/beats.json \
     --emit-ts remotion/src/shots/short-N/vo.gen.ts
 ```
 - Voice, model and settings come from `.env` (`ELEVENLABS_VOICE_ID`, `ELEVENLABS_MODEL`,
-  `ELEVENLABS_VOICE_SETTINGS`); in this checkout that is Orezi's clone on `eleven_v4`. A short
+  `ELEVENLABS_VOICE_SETTINGS`); whose voice that is belongs to the checkout, not the skill. A short
   that needs another voice says so in its beats.json: `"voice": {"id": ..., "model": ..., "settings": {...}}`.
 - **LINE CHECK** runs after generation: Whisper transcribes every line and the run prints any line
   heard differently from the script. Read those flags out to the user and let them listen before
-  anything is rendered on top. A brand name or proper noun flagged on its own ("Qodeup" heard as
-  "code up") is usually Whisper; a dropped, added or swapped word is usually the voice. Re-roll a
+  anything is rendered on top. A brand name or proper noun flagged on its own (a company name
+  heard as two ordinary words) is usually Whisper; a dropped, added or swapped word is usually the voice. Re-roll a
   bad line alone with `--force-line N`. Words a voice misreads get a `tts` field beside `text`
   (spoken variant only, captions keep `text`).
 - Per-line TTS with `/with-timestamps` → REAL per-word times (tempo-scaled, global) written
@@ -134,3 +134,6 @@ Library beds in `media/library/music/` (gen_music.py to grow). Audition over the
 script.md + beats.json authored (facts verified) · composition QA'd frame-by-frame · rendered
 at scale 1 · voice generated with word-exact captions and muxed · SFX plan authored + audition
 mixed (~−15.5 LUFS, awaiting the user's ear) · library used_in updated · IDEAS.md queue updated.
+· `tools/check_text.py` clean on the spoken and on-screen text · phone copy made with
+`tools/export_phone.py` · a dated entry in `LESSONS.md` (and the skill updated, in general terms,
+if the lesson changes how it works).

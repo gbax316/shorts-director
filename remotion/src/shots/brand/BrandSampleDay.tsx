@@ -1,4 +1,4 @@
-// Qodeup brand reference, day ground. Render a still at frame 45 to judge a brand change.
+// House brand reference, day ground. Render a still at frame 78 to judge a brand change.
 import React from 'react';
 import { BrandSample } from '../../lib/brandSample';
 

@@ -37,6 +37,7 @@ page — check before generating; state the cost when proposing a clip in a vide
 import json
 import os
 import sys
+sys.stdout.reconfigure(encoding="utf-8")  # Windows consoles default to cp1252 and mangle dashes
 import time
 import urllib.error
 import urllib.request

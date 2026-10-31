@@ -26,6 +26,7 @@ import os
 import re
 import subprocess
 import sys
+sys.stdout.reconfigure(encoding="utf-8")  # Windows consoles default to cp1252 and mangle dashes
 import urllib.request
 import urllib.error
 

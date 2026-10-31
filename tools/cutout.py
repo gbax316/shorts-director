@@ -29,6 +29,7 @@ Usage:
 import argparse
 import os
 import sys
+sys.stdout.reconfigure(encoding="utf-8")  # Windows consoles default to cp1252 and mangle dashes
 
 from PIL import Image, ImageFilter
 

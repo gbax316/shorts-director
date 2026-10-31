@@ -25,6 +25,7 @@ explicit (no default face kit here — that's gen_thumbnail.py's behavior).
 import json
 import os
 import sys
+sys.stdout.reconfigure(encoding="utf-8")  # Windows consoles default to cp1252 and mangle dashes
 import time
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))

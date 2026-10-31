@@ -43,6 +43,13 @@ export const COLORS = {
   d300: '#D9D3C8',
 } as const;
 
+// logo files, relative to media/ (use with staticFile). Never recolour them.
+export const LOGO = {
+  onDay: 'library/logos/qodeup-logo-dark.png',
+  onNight: 'library/logos/qodeup-logo-light.png',
+  mark: 'library/logos/qodeup-q-icon.png',
+} as const;
+
 // signature gradient: gold -> orange, the run of colour through the Q mark
 export const GRADIENT = `linear-gradient(120deg, ${COLORS.warn}, ${COLORS.accent})`;
 
