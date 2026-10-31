@@ -54,6 +54,10 @@ media/projects/<name>/        — THE clip copies for staticFile() (committed �
    such as George `JBFqnCBsd6RMkjVDRZzb` with eleven_v3 tags; act on the LINE CHECK flags as in
    make-short Stage 4 before any clip is generated). Real word times decide the
    shot windows; Seedance takes integer 4-12s durations, so round shot lengths UP from windows.
+   **Dialogue (two or more characters):** beats.json `"cast"` maps each speaker to its
+   `character.json` (whose `"voice"` block is used), each vo line names its speaker in `"who"`,
+   and `--pack 0.3` lays the lines end to end from their real lengths instead of squeezing them
+   into estimated windows. One voice per character lives in its character.json, nowhere else.
 3. **Start frames** — one per shot, `python tools/gen_image.py --model pro --aspect 9:16 --ref character.png`
    (+ the shot-1 scene still as a 2nd ref when a location/prop must match across shots).
    **QA every PNG before any video call** — this is where drift is cheap to fix.
