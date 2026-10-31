@@ -56,3 +56,10 @@ read both before a new series.
    spelled as said, spelled as said on the older model) and Orezi picked "spelled as said" on
    eleven_v4 for all three. Seat a picked audition clip under the cache name gen_voice expects,
    or the next run rolls a fresh take that nobody heard.
+8. Seedance 1.5 Pro at 720p ($0.026 a second, against $0.058 at 1080p) holds a flat 2D cartoon
+   well: eight clips kept the kiosk, both faces and both shirt colours. The one failure was a walk:
+   "two steps toward the kiosk" walked Akpos behind it and out of shot. Ask for one small step and
+   "stays fully in view, never walks behind or past" whenever a character moves near scenery.
+9. The start frames needed two fixes the character sheets did not: real brand logos on shelf stock
+   (say "unbranded, solid single-colour labels") and Segs borrowing Akpos's big eyes in a two-shot
+   (spell out "small dot eyes, never like Akpos's").

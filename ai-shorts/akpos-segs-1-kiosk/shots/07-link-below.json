@@ -1,15 +1,15 @@
 {
-  "model": "nano-banana-pro (kie.ai)",
-  "prompt": "Use the fourth reference image for the exact kiosk, awning, shelves, street, colours and camera position; only the characters' poses change. SHOT: Akpos points downward toward the bottom of the frame with one finger, a confident toothy grin, big lidded eyes looking at the viewer. Segs looks down where he points. CHARACTERS, exactly as in the references. AKPOS (first reference): big round off-white head, two BIG round eyes bulging past the head outline with heavy half-closed upper lids, a wide toothy grin, a brick-red cap worn backwards and tilted with the brim over one side and the strap opening above his forehead, a TEAL t-shirt (#218D87), thin black stick arms and legs, black mitten hands, black oval shoes. SEGS (second reference): big round off-white bald head with no hair and no hat, small black dot eyes, thin eyebrows, a small mouth, a GOLD t-shirt (#F2B21B), thin black stick arms, black mitten hands. Both have exactly the same head size, as in the third reference. Akpos stands outside the kiosk on the LEFT, facing right. Segs stands inside the kiosk behind the counter on the RIGHT, facing left, seen from the waist up over the counter. EXACTLY TWO characters in the scene, nobody else, no passers-by. THE KIOSK fills the right half of the frame: a small, freshly painted wooden street kiosk with cream walls, a striped red-and-white awning and a clean front counter; shelves behind Segs neatly stocked with plain unbranded soft-drink bottles, snack packs, biscuit packs and sachet water. It reads as a busy, well-kept small business. Behind, a lively downtown street drawn in simple flat shapes: two or three buildings and a yellow bus far away, lighter and simpler than the characters. Flat 2D cartoon in exactly the style of the character references: thick clean even black outlines, flat colour fills, one soft grey crescent of shading on each round head, no gradients, no 3D, no texture. Warm off-white paper tone (#E5DDD2) for the sky. Vertical 9:16 frame: the characters sit in the middle band; the bottom quarter is plain pavement and the top sixth is plain sky, with nothing important in either. No readable text, no letters, numbers or signs anywhere, no logos, no watermark. ALL PRODUCTS ARE UNBRANDED: plain bottles and packs with solid single-colour labels and no logos, no brand marks, no words. AKPOS'S EYES ARE THE MOST IMPORTANT DETAIL: two big round white eyes side by side, together wider than half his face, bulging out past the outline of his head, each with a heavy upper eyelid drawn as a line across the top half of the eye, small black pupils; a lazy, sly look. NOT narrow eyes, NOT slanted angry eyebrows. Copy them exactly from the first reference.",
-  "aspect_ratio": "9:16",
-  "resolution": "2K",
-  "refs": [
-    "ai-shorts/akpos/character.png",
-    "ai-shorts/segs/character.png",
-    "ai-shorts/skit-duo/duo.png",
-    "ai-shorts/akpos-segs-1-kiosk/shots/01-how-far.png"
-  ],
-  "task_id": "035109b49c2f6eea1583a2640132d08c",
-  "credits": 18.0,
-  "created": "2026-10-31T22:41:33"
+  "model": "fal-ai/bytedance/seedance/v1.5/pro/image-to-video",
+  "payload": {
+    "prompt": "Akpos shakes his head once, then talks with a confident toothy grin and points down toward the bottom of the frame, his mouth moving. Segs looks down where he points. EXACTLY TWO characters in the scene for the entire shot; nobody else appears, no clones. Static locked-off camera: no zoom, no pan, no cut. The kiosk, shelves and street stay exactly as in the image. Both characters keep their exact designs, colours and proportions throughout; no morphing, no extra limbs, no new objects, no text. Akpos keeps his backwards brick-red cap, big round lidded eyes, toothy grin and teal shirt; Segs keeps his bald head, small black dot eyes and gold shirt. Akpos stays on the left, Segs stays behind the counter on the right. Flat 2D cartoon animation, thick black outlines, flat colours, smooth, simple, bouncy cartoon motion.",
+    "aspect_ratio": "auto",
+    "image_url": "https://v3b.fal.media/files/b/0ab0a361/TzWdr_jKc7MhiPhuL6P8D_07-link-below.png",
+    "duration": "9",
+    "resolution": "720p",
+    "generate_audio": false,
+    "camera_fixed": true
+  },
+  "request_id": "01a193ee-9e04-7f20-9b4f-34c8f8abe002",
+  "source_url": "https://v3b.fal.media/files/b/0ab0a36d/zfFbad6QKqHw-Q0uxKgmf_video.mp4",
+  "created": "2026-10-31T22:49:06"
 }
