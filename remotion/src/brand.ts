@@ -2,11 +2,17 @@
 // so all videos stay consistent; change a value here and every shot updates.
 // Brand: Qodeup. Source of truth is the live site (qodeup-web src/app/(site)/site.css) and the
 // logo (media/library/logos/qodeup-q-icon.png); the logo colours were sampled from the file.
+import { createContext, useContext } from 'react';
 import { Easing } from 'remotion';
 
-// Which ground a short sits on by default: 'night' (near-black and navy, gold on navy, the
-// site's signature) or 'day' (the site's light edition). BrandBg follows it; a shot can override.
-export const BRAND_GROUND: 'day' | 'night' = 'night';
+// Which ground a short sits on: 'day' (the site's light edition, the channel default since
+// 2026-10-31) or 'night' (near-black and navy, gold on navy). A composition picks its own with
+// `ground: 'night'` in its compositionConfig; Root.tsx provides it, and every kit component
+// (shorts.tsx, BrandBg) reads it through useGround() to choose its default colours.
+export type Ground = 'day' | 'night';
+export const BRAND_GROUND: Ground = 'day';
+export const GroundContext = createContext<Ground>(BRAND_GROUND);
+export const useGround = () => useContext(GroundContext);
 
 export const COLORS = {
   // roles

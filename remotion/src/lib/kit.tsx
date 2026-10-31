@@ -10,16 +10,17 @@ import {
   Files, Search, GitBranch, Play, LayoutGrid, Folder, Settings, FileText, Braces,
   Image as ImageIcon, Info, MoreHorizontal, Lock, SplitSquareHorizontal, Clock, X,
 } from 'lucide-react';
-import { BRAND_GROUND, COLORS, EASINGS, RADIUS, SHADOW } from '../brand';
+import { COLORS, EASINGS, Ground, RADIUS, SHADOW, useGround } from '../brand';
 import { FONT_DISPLAY, FONT_BODY, FONT_MONO, FONT_SERIF } from '../fonts';
 
 export const CLAMP = { extrapolateLeft: 'clamp' as const, extrapolateRight: 'clamp' as const };
 export const lib = (name: string) => staticFile(`${name}`);
 
 // ---- brand backdrop: ground + soft color glow + faint dotted grid -------------
-// ground follows BRAND_GROUND unless a shot passes one.
-export const BrandBg: React.FC<{ glow?: string; ground?: 'day' | 'night' }> = ({ glow = COLORS.accent, ground = BRAND_GROUND }) => {
-  const night = ground === 'night';
+// ground follows the shot's ground (useGround) unless a shot passes one.
+export const BrandBg: React.FC<{ glow?: string; ground?: Ground }> = ({ glow = COLORS.accent, ground }) => {
+  const shotGround = useGround();
+  const night = (ground ?? shotGround) === 'night';
   return (
     <>
       <AbsoluteFill style={{ background: night ? `linear-gradient(180deg, ${COLORS.navy}, ${COLORS.night} 70%)` : COLORS.paper }} />

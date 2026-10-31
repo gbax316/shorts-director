@@ -4,6 +4,7 @@ import { BrandSample } from '../../lib/brandSample';
 
 export const compositionConfig = {
   id: 'BrandSampleNight',
+  ground: 'night',
   durationInSeconds: 4,
   fps: 30,
   width: 1080,

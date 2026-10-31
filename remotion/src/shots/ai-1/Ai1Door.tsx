@@ -19,6 +19,7 @@ import { VO } from './vo.gen';
 // exact still so frame 0 == last frame is pixel-true.
 // =============================================================================
 export const compositionConfig = {
+  ground: 'night', // designed on a dark stage; new shorts default to the brand's day ground
   id: 'Ai1Door',
   durationInSeconds: 36.4,
   fps: 30,

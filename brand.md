@@ -43,8 +43,11 @@ Teal, blue and red were sampled from the Q mark itself. **Never recolour the log
 multicolour (teal, blue, gold, orange, red). Use `qodeup-logo-light.png` on night and
 `qodeup-logo-dark.png` on day (`media/library/logos/`).
 
-**Ground:** night by default (`BRAND_GROUND` in brand.ts). Day is the site's light edition and is
-available per shot; on day, kickers take a white fill and captions sit on their dark plate.
+**Ground:** day by default (Orezi's pick, 31 Oct 2026; `BRAND_GROUND` in brand.ts), the site's
+light edition: paper ground, ink text, orange for words, kickers in a white pill, captions on
+their dark plate with the bright orange active word. A short that wants night says
+`ground: 'night'` in its `compositionConfig`, and every kit component switches with it. The 14
+example compositions are pinned to night because they were designed on a dark stage.
 
 **Signature gradient:** gold to orange (`GRADIENT`), the run of colour through the Q mark.
 

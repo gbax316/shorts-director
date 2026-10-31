@@ -18,6 +18,7 @@ import {
 // Beats + VO contract: vox/vox-1-coffee/beats.json. Facts verified 2026-07-14.
 // =============================================================================
 export const compositionConfig = {
+  ground: 'night', // designed on a dark stage; new shorts default to the brand's day ground
   id: 'Vox1Coffee',
   durationInSeconds: 40.5,
   fps: 30,

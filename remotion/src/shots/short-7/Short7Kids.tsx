@@ -10,6 +10,7 @@ import { VO } from './vo.gen';
 // emotion-tagged VO (George). Beats align 1:1 to the VO lines.
 // =============================================================================
 export const compositionConfig = {
+  ground: 'night', // designed on a dark stage; new shorts default to the brand's day ground
   id: 'Short7Kids',
   durationInSeconds: 55,
   fps: 30,

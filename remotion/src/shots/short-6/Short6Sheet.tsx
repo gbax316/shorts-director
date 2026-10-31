@@ -16,6 +16,7 @@ import { VO } from './vo.gen';
 // COMPOSITION CONFIG
 // =============================================================================
 export const compositionConfig = {
+  ground: 'night', // designed on a dark stage; new shorts default to the brand's day ground
   id: 'Short6Sheet',
   durationInSeconds: 38,
   fps: 30,

@@ -9,6 +9,7 @@ import { VO } from './vo.gen';
 // COMPOSITION CONFIG
 // =============================================================================
 export const compositionConfig = {
+  ground: 'night', // designed on a dark stage; new shorts default to the brand's day ground
   id: 'Short8Phish',
   durationInSeconds: 43,
   fps: 30,

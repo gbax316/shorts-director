@@ -4,7 +4,7 @@
 import React from 'react';
 import { AbsoluteFill, Easing, useCurrentFrame, useVideoConfig } from 'remotion';
 import { FONT_BODY, FONT_DISPLAY } from '../fonts';
-import { COLORS } from '../brand'; // defaults below follow the brand; a shot can still pass its own
+import { COLORS, useGround } from '../brand'; // defaults follow the brand and the shot's ground; a shot can still pass its own
 
 export const SHORT = { W: 1080, H: 1920, FPS: 30 } as const;
 // Zones covered by Shorts/Reels/TikTok UI — keep critical info (esp. captions) OUT.
@@ -69,8 +69,11 @@ export const Captions: React.FC<{
   size?: number;
   accent?: string;
   maxWords?: number;
-  plate?: boolean; // dark pill behind the words — for compositions with light scenes
-}> = ({ lines, y = 1280, size = 58, accent = COLORS.warn, maxWords = 4, plate = false }) => {
+  plate?: boolean; // dark pill behind the words — on by default on the day ground
+}> = ({ lines, y = 1280, size = 58, accent, maxWords = 4, plate }) => {
+  const day = useGround() === 'day';
+  const acc = accent ?? (day ? COLORS.accent : COLORS.warn);
+  const usePlate = plate ?? day;
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   const t = frame / fps;
@@ -100,7 +103,7 @@ export const Captions: React.FC<{
           columnGap: size * 0.28,
           rowGap: size * 0.14,
           maxWidth: '100%',
-          ...(plate
+          ...(usePlate
             ? {
                 background: 'rgba(13,17,23,0.86)',
                 borderRadius: 22,
@@ -123,7 +126,7 @@ export const Captions: React.FC<{
               lineHeight: 1.15,
               textTransform: 'uppercase',
               letterSpacing: 0.5,
-              color: isActive ? accent : COLORS.onNight,
+              color: isActive ? acc : COLORS.onNight,
               opacity: 0.3 + 0.7 * started,
               transform: `scale(${0.92 + 0.08 * EASE_OUT(started) + (isActive ? 0.05 : 0)})`,
               textShadow: '0 3px 26px rgba(0,0,0,0.65), 0 1px 4px rgba(0,0,0,0.5)',
@@ -141,12 +144,13 @@ export const Captions: React.FC<{
 // =============================================================================
 // PROGRESS BAR — thin top bar over the whole composition.
 // =============================================================================
-export const ProgressBar: React.FC<{ color?: string }> = ({ color = COLORS.warn }) => {
+export const ProgressBar: React.FC<{ color?: string }> = ({ color }) => {
+  const day = useGround() === 'day';
   const frame = useCurrentFrame();
   const { durationInFrames } = useVideoConfig();
   return (
-    <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 6, background: 'rgba(255,255,255,0.12)' }}>
-      <div style={{ width: `${(frame / Math.max(1, durationInFrames - 1)) * 100}%`, height: '100%', background: color }} />
+    <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 6, background: day ? 'rgba(11,13,16,0.08)' : 'rgba(255,255,255,0.12)' }}>
+      <div style={{ width: `${(frame / Math.max(1, durationInFrames - 1)) * 100}%`, height: '100%', background: color ?? (day ? COLORS.accent : COLORS.warn) }} />
     </div>
   );
 };
@@ -156,12 +160,15 @@ export const ProgressBar: React.FC<{ color?: string }> = ({ color = COLORS.warn 
 // =============================================================================
 export const Kicker: React.FC<{ text: string; color?: string; y?: number; at?: number; until?: number; bg?: string }> = ({
   text,
-  color = COLORS.warn,
+  color: colorProp,
   y = 180,
   at = 0,
   until,
-  bg = 'rgba(0,0,0,0.35)', // pass a light fill on the day ground
+  bg: bgProp,
 }) => {
+  const day = useGround() === 'day';
+  const color = colorProp ?? (day ? COLORS.accentOnDay : COLORS.warn);
+  const bg = bgProp ?? (day ? '#ffffff' : 'rgba(0,0,0,0.35)');
   const frame = useCurrentFrame();
   const p = prog(frame, at, at + 10);
   const out = until === undefined ? 1 : 1 - prog(frame, until - 8, until);
@@ -210,6 +217,7 @@ export const BigTitle: React.FC<{
   size?: number;
   warm?: boolean; // true = fully composed at frame 0 (hook rule), animations pre-rolled
 }> = ({ lines, subtitle, y = 190, size = 92, warm = false }) => {
+  const day = useGround() === 'day';
   const frame = useCurrentFrame() + (warm ? 24 : 0);
   return (
     <div style={{ position: 'absolute', top: y, left: 40, right: 40, textAlign: 'center' }}>
@@ -225,10 +233,10 @@ export const BigTitle: React.FC<{
               lineHeight: 1.06,
               textTransform: 'uppercase',
               letterSpacing: 1,
-              color: l.color ?? COLORS.onNight,
+              color: l.color ?? (day ? COLORS.ink : COLORS.onNight),
               opacity: 0.35 + 0.65 * p,
               transform: `translateY(${(1 - p) * 16}px)`,
-              textShadow: '0 4px 30px rgba(0,0,0,0.6)',
+              textShadow: day ? 'none' : '0 4px 30px rgba(0,0,0,0.6)',
             }}
           >
             {l.text}
@@ -242,7 +250,7 @@ export const BigTitle: React.FC<{
             fontFamily: FONT_BODY,
             fontWeight: 500,
             fontSize: 40,
-            color: 'rgba(255,255,255,0.82)',
+            color: day ? COLORS.muted : 'rgba(255,255,255,0.82)',
             opacity: EASE_OUT(prog(frame, 10, 24)),
           }}
         >
@@ -266,6 +274,7 @@ export const Stamp: React.FC<{
   size?: number;
   rotate?: number;
 }> = ({ text, at = 0, until, color = COLORS.danger, x = 540, y = 940, size = 96, rotate = -8 }) => {
+  const day = useGround() === 'day';
   const frame = useCurrentFrame();
   const p = prog(frame, at, at + 9);
   const out = until === undefined ? 1 : 1 - prog(frame, until - 10, until);
@@ -289,8 +298,8 @@ export const Stamp: React.FC<{
         border: `7px solid ${color}`,
         borderRadius: 18,
         padding: '10px 34px',
-        background: 'rgba(10,10,14,0.72)',
-        boxShadow: '0 10px 60px rgba(0,0,0,0.55)',
+        background: day ? '#ffffff' : 'rgba(10,10,14,0.72)',
+        boxShadow: day ? '0 10px 40px rgba(11,13,16,0.15)' : '0 10px 60px rgba(0,0,0,0.55)',
         whiteSpace: 'nowrap',
       }}
     >
@@ -306,9 +315,11 @@ export const PauseCard: React.FC<{ title?: string; subtitle?: string; durSec: nu
   title = 'PAUSE',
   subtitle = 'can you find it?',
   durSec,
-  accent = COLORS.warn,
+  accent: accentProp,
   y = 900,
 }) => {
+  const day = useGround() === 'day';
+  const accent = accentProp ?? (day ? COLORS.accentOnDay : COLORS.warn);
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   const total = durSec * fps;
@@ -326,18 +337,18 @@ export const PauseCard: React.FC<{ title?: string; subtitle?: string; durSec: nu
         top: y,
         transform: `translateY(-50%) scale(${0.94 + 0.06 * enter})`,
         opacity: enter * exit,
-        background: 'rgba(12,14,20,0.92)',
+        background: day ? '#ffffff' : 'rgba(12,14,20,0.92)',
         border: `2px solid ${accent}66`,
         borderRadius: 28,
         padding: '38px 44px',
         display: 'flex',
         alignItems: 'center',
         gap: 36,
-        boxShadow: '0 20px 80px rgba(0,0,0,0.6)',
+        boxShadow: day ? '0 20px 60px rgba(11,13,16,0.12)' : '0 20px 80px rgba(0,0,0,0.6)',
       }}
     >
       <svg width={110} height={110} viewBox="0 0 110 110">
-        <circle cx={55} cy={55} r={R} fill="none" stroke="rgba(255,255,255,0.15)" strokeWidth={9} />
+        <circle cx={55} cy={55} r={R} fill="none" stroke={day ? 'rgba(11,13,16,0.12)' : 'rgba(255,255,255,0.15)'} strokeWidth={9} />
         <circle
           cx={55}
           cy={55}
@@ -353,7 +364,7 @@ export const PauseCard: React.FC<{ title?: string; subtitle?: string; durSec: nu
         <polygon points="46,38 46,72 76,55" fill={accent} />
       </svg>
       <div>
-        <div style={{ fontFamily: FONT_DISPLAY, fontWeight: 700, fontSize: 64, letterSpacing: 4, color: COLORS.onNight }}>{title}</div>
+        <div style={{ fontFamily: FONT_DISPLAY, fontWeight: 700, fontSize: 64, letterSpacing: 4, color: day ? COLORS.ink : COLORS.onNight }}>{title}</div>
         <div style={{ fontFamily: FONT_BODY, fontWeight: 500, fontSize: 38, color: accent, marginTop: 6 }}>{subtitle}</div>
       </div>
     </div>
@@ -371,7 +382,9 @@ export const StatChip: React.FC<{
   y: number;
   w?: number;
   at?: number;
-}> = ({ label, value, color = COLORS.warn, x, y, w = 440, at = 0 }) => {
+}> = ({ label, value, color: colorProp, x, y, w = 440, at = 0 }) => {
+  const day = useGround() === 'day';
+  const color = colorProp ?? (day ? COLORS.accentOnDay : COLORS.warn);
   const frame = useCurrentFrame();
   const p = EASE_OUT(prog(frame, at, at + 12));
   if (p <= 0.01) return null;
@@ -384,17 +397,18 @@ export const StatChip: React.FC<{
         width: w,
         opacity: p,
         transform: `translateY(${(1 - p) * 18}px)`,
-        background: 'rgba(12,14,20,0.9)',
+        background: day ? '#ffffff' : 'rgba(12,14,20,0.9)',
         border: `2px solid ${color}66`,
         borderLeft: `10px solid ${color}`,
         borderRadius: 18,
         padding: '20px 26px',
+        boxShadow: day ? '0 10px 40px rgba(11,13,16,0.08)' : undefined,
       }}
     >
       <div style={{ fontFamily: FONT_BODY, fontWeight: 600, fontSize: 27, letterSpacing: 3, color, textTransform: 'uppercase' }}>
         {label}
       </div>
-      <div style={{ fontFamily: FONT_DISPLAY, fontWeight: 600, fontSize: 34, color: COLORS.onNight, marginTop: 8, lineHeight: 1.25 }}>
+      <div style={{ fontFamily: FONT_DISPLAY, fontWeight: 600, fontSize: 34, color: day ? COLORS.ink : COLORS.onNight, marginTop: 8, lineHeight: 1.25 }}>
         {value}
       </div>
     </div>
@@ -402,23 +416,26 @@ export const StatChip: React.FC<{
 };
 
 // =============================================================================
-// BACKDROP — dark stage + vignette, shared look for shorts (per-niche theme later).
+// BACKDROP — the shot's ground (day paper or night stage) + glow + vignette, shared look for shorts.
 // =============================================================================
-export const ShortsBackdrop: React.FC<{ base?: string; glow?: string }> = ({ base = COLORS.night, glow = COLORS.navy }) => (
-  <AbsoluteFill>
-    <AbsoluteFill style={{ background: base }} />
-    <AbsoluteFill
-      style={{
-        background: `radial-gradient(ellipse 90% 55% at 50% 42%, ${glow} 0%, transparent 70%)`,
-      }}
-    />
-    <AbsoluteFill
-      style={{
-        background: 'radial-gradient(ellipse 120% 90% at 50% 50%, transparent 55%, rgba(0,0,0,0.55) 100%)',
-      }}
-    />
-  </AbsoluteFill>
-);
+export const ShortsBackdrop: React.FC<{ base?: string; glow?: string }> = ({ base, glow }) => {
+  const day = useGround() === 'day';
+  return (
+    <AbsoluteFill>
+      <AbsoluteFill style={{ background: base ?? (day ? COLORS.paper : COLORS.night) }} />
+      <AbsoluteFill
+        style={{
+          background: `radial-gradient(ellipse 90% 55% at 50% 42%, ${glow ?? (day ? `${COLORS.accent}1A` : COLORS.navy)} 0%, transparent 70%)`,
+        }}
+      />
+      <AbsoluteFill
+        style={{
+          background: `radial-gradient(ellipse 120% 90% at 50% 50%, transparent 55%, ${day ? 'rgba(11,13,16,0.06)' : 'rgba(0,0,0,0.55)'} 100%)`,
+        }}
+      />
+    </AbsoluteFill>
+  );
+};
 
 // Dev-only safe-area guides — never mount in a final render.
 export const SafeAreaGuides: React.FC = () => (
