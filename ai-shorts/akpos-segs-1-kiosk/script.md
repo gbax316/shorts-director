@@ -3,7 +3,7 @@ created: 2026-10-31
 type: video script and frame plan
 video: Akpos and Segs 1, "Segs's kiosk" (Build With AI, a two-character skit)
 voice: Orezi's dialogue, dictated 31 Oct; Akpos is Timmy Adubi, Segs is Alex Oke (eleven_v4, the v6 settings); banner qodeup; kind own
-status: voice take 2 (Shegs, new line 8), awaiting Orezi's ear
+status: voice final 31 Oct (take 2 plus Orezi's picks: lines 5, 6, 8 spelled as said); next, start frames
 ---
 
 # Akpos and Segs 1: Segs's kiosk
@@ -50,3 +50,9 @@ recharge cards), a lively street behind. It reads as a going business that just 
 presence, never as poverty. Same flat 2D style and paper backdrop tones as the character sheets.
 
 This one names the dates, so it stops being usable after 14 November.
+
+## Voice, final
+
+Lines 5, 6 and 8 use the spelled-as-said take Orezi picked by ear (31 Oct): "Nah soap I deh cut
+for you so", "dey go jus hang you", "Akpoooos, nah correct guy you be". Captions show the written
+words. Whisper flags these lines; that is English Whisper on pidgin, not a fault in the take.

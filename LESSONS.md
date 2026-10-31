@@ -52,3 +52,7 @@ read both before a new series.
    character.json, each line names its speaker in `"who"`, and `--pack GAP` lays lines end to end
    from their real lengths. English Whisper flags pidgin ("na", "dey") and Nigerian names
    ("Orezi" heard as "Orazzi") on almost every line; those are for the ear, a dropped word is not.
+7. Pidgin is settled by ear, not by spelling theory: three takes per pidgin line (as written,
+   spelled as said, spelled as said on the older model) and Orezi picked "spelled as said" on
+   eleven_v4 for all three. Seat a picked audition clip under the cache name gen_voice expects,
+   or the next run rolls a fresh take that nobody heard.
