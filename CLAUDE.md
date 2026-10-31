@@ -39,7 +39,10 @@ IDEAS.md          the TSX-shorts idea bank + niche ranking
   needs extras: `pip install pillow rembg` (cutout.py) and `pip install playwright &&
   playwright install chromium` (capture_web.py). `ffmpeg`/`ffprobe` and `node`/`npx` on PATH.
 - **API keys** live in `.env` at the repo root (copy `.env.example`). Never commit `.env`.
-  ELEVENLABS_API_KEY = voice/SFX/music · FAL_KEY = AI clips + images · GEMINI_API_KEY = images.
+  ELEVENLABS_API_KEY = voice/SFX/music · FAL_KEY = AI clips + images · GEMINI_API_KEY = images
+  · KIE_API_KEY = AI clips on kie.ai. Keys set as Windows user environment variables are read
+  even by apps started before they were set (tools/userenv.py). Voice, model and clip provider
+  defaults are settings in .env too, never code.
 - **Registry is generated:** after adding/renaming a shot, `cd remotion && npm run gen`
   (frames.mjs/render-all.mjs do NOT run it themselves).
 - **Media rules:** `media/library/` is for CROSS-VIDEO reusable assets only (each with a

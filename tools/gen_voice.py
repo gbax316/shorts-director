@@ -16,21 +16,37 @@ Usage:
   python tools/gen_voice.py --beats ... --mux remotion/out/Short1Chess.mp4   # + voiced preview
   python tools/gen_voice.py --beats ... --dry-run                            # plan only
 
-Needs ELEVENLABS_API_KEY in .env. ffmpeg/ffprobe on PATH.
-Default voice: ElevenLabs premade "Liam".
+Needs ELEVENLABS_API_KEY (environment or .env). ffmpeg/ffprobe on PATH.
+
+Voice, model and settings resolve in this order, last wins:
+  built-in defaults (premade "Liam", eleven_multilingual_v2)
+  .env: ELEVENLABS_VOICE_ID, ELEVENLABS_MODEL, ELEVENLABS_VOICE_SETTINGS (JSON object),
+        ELEVENLABS_TTS_FORMAT
+  beats.json: "voice": {"id": ..., "model": ..., "settings": {...}}   (one short)
+  --voice / --model
+Changing any of them re-bills only the lines they change (they are part of the cache key).
+
+LINE CHECK: after generating, every line is transcribed with Whisper and compared word for
+word with what was sent. A DIFF is a flag for the ear, not a failure: Whisper mishears names
+too. Transcripts are cached beside each clip. --no-check skips it; WHISPER_MODEL picks the
+model (default small).
 """
 import argparse
+import difflib
 import hashlib
 import json
 import os
+import re
 import subprocess
 import sys
 import urllib.error
 import urllib.request
 
+sys.stdout.reconfigure(encoding="utf-8")
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DEFAULT_VOICE = "TX3LPaxmHKxFdv7VOQHJ"  # ElevenLabs premade "Liam"
 DEFAULT_MODEL = "eleven_multilingual_v2"
+DEFAULT_SETTINGS = {"stability": 0.5, "similarity_boost": 0.75, "style": 0.3, "use_speaker_boost": True}
 MAX_ATEMPO = 1.3  # never speed a line up more than 30%
 
 
@@ -44,7 +60,8 @@ def load_env():
                 continue
             k, v = line.split("=", 1)
             env[k.strip()] = v.strip().strip('"').strip("'")
-    return {**env, **os.environ}
+    from userenv import windows_user_env  # keys set after this app started
+    return {**env, **windows_user_env(), **os.environ}
 
 
 def run(cmd):
@@ -60,7 +77,68 @@ def probe_duration(path):
     return float(out.strip())
 
 
-def tts_line(key, voice, model, text, prev_text, next_text, out_path):
+def resolve_voice(env, beats, args):
+    """-> (voice_id, model, settings, output_format) per the order in the file header."""
+    cfg = beats.get("voice") or {}
+    settings = dict(DEFAULT_SETTINGS)
+    if env.get("ELEVENLABS_VOICE_SETTINGS", "").strip():
+        try:
+            settings.update(json.loads(env["ELEVENLABS_VOICE_SETTINGS"]))
+        except json.JSONDecodeError as e:
+            sys.exit(f"ELEVENLABS_VOICE_SETTINGS is not valid JSON: {e}")
+    settings.update(cfg.get("settings") or {})
+    voice = args.voice or cfg.get("id") or env.get("ELEVENLABS_VOICE_ID", "").strip() or DEFAULT_VOICE
+    model = args.model or cfg.get("model") or env.get("ELEVENLABS_MODEL", "").strip() or DEFAULT_MODEL
+    fmt = env.get("ELEVENLABS_TTS_FORMAT", "").strip() or "mp3_44100_128"
+    return voice, model, settings, fmt
+
+
+def words_of(text):
+    """Spoken words only: drop [audio tags], punctuation and case, so 'Hello, world!' == 'hello world'."""
+    text = re.sub(r"\[[^\]]*\]", " ", text.lower().replace("’", "'"))
+    return re.findall(r"[a-z0-9']+", text)
+
+
+def check_lines(lines, model_name):
+    """Transcribe each (index, sent_text, mp3) with Whisper; cache to <mp3>.heard.json.
+    Returns [(index, sent_words, heard_words)] for lines that differ."""
+    diffs, todo = [], []
+    for i, sent, mp3 in lines:
+        cache = mp3 + ".heard.json"
+        if os.path.exists(cache):
+            heard = json.load(open(cache, encoding="utf-8"))["text"]
+            if words_of(heard) != words_of(sent):
+                diffs.append((i, words_of(sent), words_of(heard)))
+        else:
+            todo.append((i, sent, mp3))
+    if todo:
+        try:
+            import whisper
+        except ImportError:
+            print("  (line check skipped: openai-whisper is not installed; pip install openai-whisper)")
+            return diffs
+        print(f"checking {len(todo)} line(s) with Whisper {model_name}...")
+        model = whisper.load_model(model_name)
+        for i, sent, mp3 in todo:
+            heard = model.transcribe(mp3, language="en", fp16=False)["text"].strip()
+            with open(mp3 + ".heard.json", "w", encoding="utf-8") as f:
+                json.dump({"model": model_name, "text": heard}, f, ensure_ascii=False)
+            if words_of(heard) != words_of(sent):
+                diffs.append((i, words_of(sent), words_of(heard)))
+    return sorted(diffs)
+
+
+def show_diff(sent, heard):
+    out = []
+    for op, a1, a2, b1, b2 in difflib.SequenceMatcher(a=sent, b=heard).get_opcodes():
+        if op == "equal":
+            out.append(" ".join(sent[a1:a2]))
+        else:
+            out.append(f"[{' '.join(sent[a1:a2]) or '+'} -> {' '.join(heard[b1:b2]) or '-'}]")
+    return " ".join(out)
+
+
+def tts_line(key, voice, model, settings, fmt, text, prev_text, next_text, out_path):
     """TTS with character-level timestamps -> writes the mp3 AND <out_path>.words.json
     (per-word start/end seconds in the RAW clip) so captions can sync exactly.
 
@@ -71,8 +149,7 @@ def tts_line(key, voice, model, text, prev_text, next_text, out_path):
     if not model.startswith("eleven_v3"):
         # v3 rejects the classic settings block AND previous/next context stitching;
         # server defaults are right for it
-        body["voice_settings"] = {"stability": 0.5, "similarity_boost": 0.75, "style": 0.3,
-                                  "use_speaker_boost": True}
+        body["voice_settings"] = settings
         if prev_text:
             body["previous_text"] = prev_text
         if next_text:
@@ -90,7 +167,7 @@ def tts_line(key, voice, model, text, prev_text, next_text, out_path):
 
     base = f"https://api.elevenlabs.io/v1/text-to-speech/{voice}"
     try:
-        resp = call(f"{base}/with-timestamps?output_format=mp3_44100_128")
+        resp = call(f"{base}/with-timestamps?output_format={fmt}")
         audio = base64.b64decode(resp["audio_base64"])
         align = resp.get("alignment") or {}
         words = chars_to_words(align.get("characters", []),
@@ -101,7 +178,7 @@ def tts_line(key, voice, model, text, prev_text, next_text, out_path):
         if e.code in (400, 404, 422):  # model may not support timestamps — plain fallback
             print(f"    (with-timestamps not available: {e.code}; falling back to plain TTS)")
             try:
-                audio = call(f"{base}?output_format=mp3_44100_128")
+                audio = call(f"{base}?output_format={fmt}")
                 words = []
             except urllib.error.HTTPError as e2:
                 sys.exit(f"ElevenLabs TTS failed ({e2.code}) for: {text!r}\n{e2.read().decode()[:500]}")
@@ -154,12 +231,15 @@ def emit_ts(vo, path):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--beats", required=True, help="path to the short's beats.json")
-    ap.add_argument("--voice", default=DEFAULT_VOICE)
-    ap.add_argument("--model", default=DEFAULT_MODEL)
+    ap.add_argument("--voice", help="voice id (overrides beats.json and .env)")
+    ap.add_argument("--model", help="TTS model id (overrides beats.json and .env)")
     ap.add_argument("--mux", help="optional rendered mp4 to mux the voice onto (-voiced.mp4)")
     ap.add_argument("--emit-ts", help="write the VO (with exact word times) as a TS module, e.g. remotion/src/shots/short-2/vo.gen.ts")
     ap.add_argument("--force", action="store_true")
     ap.add_argument("--dry-run", action="store_true")
+    ap.add_argument("--no-check", action="store_true", help="skip the Whisper line check")
+    ap.add_argument("--force-line", type=int, action="append",
+                    help="regenerate just this line index (repeatable), e.g. after a LINE CHECK flag")
     args = ap.parse_args()
 
     beats_path = os.path.abspath(args.beats)
@@ -169,18 +249,25 @@ def main():
     vdir = os.path.join(os.path.dirname(beats_path), "voice")
     os.makedirs(vdir, exist_ok=True)
 
-    key = load_env().get("ELEVENLABS_API_KEY")
+    env = load_env()
+    key = env.get("ELEVENLABS_API_KEY")
     if not key and not args.dry_run:
-        sys.exit("ELEVENLABS_API_KEY not found in .env")
+        sys.exit("ELEVENLABS_API_KEY not found (environment or .env)")
+    voice, model, settings, fmt = resolve_voice(env, beats, args)
+    print(f"voice {voice} · model {model} · {fmt} · settings {json.dumps(settings)}")
 
     fitted = []  # (path, start_sec, fitted_dur)
+    sent = []    # (index, tts_text, raw mp3) for the line check
     print(f"{'line':4s} {'start':>6s} {'window':>6s} {'clip':>6s} {'tempo':>5s}  text")
     for i, line in enumerate(vo):
         start = float(line["start"])
         next_start = float(vo[i + 1]["start"]) if i + 1 < len(vo) else total - 0.3
         window = next_start - start - 0.05
         tts_text = line.get("tts", line["text"])  # optional tagged/phonetic variant for TTS
-        h = hashlib.sha1(f"{args.voice}|{args.model}|{tts_text}".encode()).hexdigest()[:8]
+        sig = f"{voice}|{model}|{tts_text}"
+        if (voice, model, settings, fmt) != (DEFAULT_VOICE, DEFAULT_MODEL, DEFAULT_SETTINGS, "mp3_44100_128"):
+            sig += "|" + json.dumps(settings, sort_keys=True) + "|" + fmt  # defaults keep the old cache names
+        h = hashlib.sha1(sig.encode()).hexdigest()[:8]
         raw = os.path.join(vdir, f"line-{i:02d}-{h}.mp3")
         fit = os.path.join(vdir, f"line-{i:02d}-{h}-fit.wav")
 
@@ -188,16 +275,20 @@ def main():
             print(f"{i:4d} {start:6.2f} {window:6.2f}      ?     ?  {tts_text}")
             continue
 
-        if args.force or not os.path.exists(raw) or not os.path.exists(raw + ".words.json"):
+        redo = args.force or i in (args.force_line or [])
+        if redo or not os.path.exists(raw) or not os.path.exists(raw + ".words.json"):
             prev_text = vo[i - 1].get("tts", vo[i - 1]["text"]) if i > 0 else None
             next_text = vo[i + 1].get("tts", vo[i + 1]["text"]) if i + 1 < len(vo) else None
-            tts_line(key, args.voice, args.model, tts_text, prev_text, next_text, raw)
+            tts_line(key, voice, model, settings, fmt, tts_text, prev_text, next_text, raw)
+            if os.path.exists(raw + ".heard.json"):
+                os.remove(raw + ".heard.json")  # new take, new transcript
+        sent.append((i, tts_text, raw))
 
         dur = probe_duration(raw)
         tempo = 1.0
         if dur > window:
             tempo = min(MAX_ATEMPO, dur / window)
-        if args.force or not os.path.exists(fit):
+        if redo or not os.path.exists(fit):
             run(["ffmpeg", "-y", "-v", "error", "-i", raw,
                  "-filter:a", f"atempo={tempo:.4f}", "-ar", "44100", "-ac", "2", fit])
         fdur = probe_duration(fit)
@@ -214,6 +305,16 @@ def main():
     if args.dry_run:
         return
 
+    if not args.no_check:
+        diffs = check_lines(sent, env.get("WHISPER_MODEL", "").strip() or "small")
+        if diffs:
+            print(f"\nLINE CHECK: {len(diffs)} line(s) heard differently. Listen to these before anyone else does;")
+            print("a name can be a mishearing, a dropped or added word usually is not. Re-roll one with --force-line N.")
+            for i, s, hd in diffs:
+                print(f"  line {i:2d}: {show_diff(s, hd)}")
+        else:
+            print(f"\nLINE CHECK: all {len(sent)} lines heard as written.")
+
     # assemble: delay each line to its start, sum (lines never overlap), pad to length
     voice_wav = os.path.join(vdir, "voice.wav")
     inputs, parts = [], []
@@ -228,7 +329,7 @@ def main():
          "-map", "[out]", "-ar", "44100", "-ac", "2", voice_wav])
     print(f"voice track -> {os.path.relpath(voice_wav, ROOT)}")
 
-    beats["voiceStatus"] = f"elevenlabs:{args.voice}"
+    beats["voiceStatus"] = f"elevenlabs:{voice}:{model}"
     json.dump(beats, open(beats_path, "w", encoding="utf-8"), indent=2, ensure_ascii=False)
     print(f"actual line timings + word maps written back -> {os.path.relpath(beats_path, ROOT)}")
 

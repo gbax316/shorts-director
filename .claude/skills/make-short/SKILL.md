@@ -84,14 +84,23 @@ node scripts/render-all.mjs ShortNName --scale=1     # -> remotion/out/ShortNNam
 
 ```
 python tools/gen_voice.py --beats shorts/short-N-<niche>/beats.json \
-    --voice TX3LPaxmHKxFdv7VOQHJ --emit-ts remotion/src/shots/short-N/vo.gen.ts
+    --emit-ts remotion/src/shots/short-N/vo.gen.ts
 ```
+- Voice, model and settings come from `.env` (`ELEVENLABS_VOICE_ID`, `ELEVENLABS_MODEL`,
+  `ELEVENLABS_VOICE_SETTINGS`); in this checkout that is Orezi's clone on `eleven_v4`. A short
+  that needs another voice says so in its beats.json: `"voice": {"id": ..., "model": ..., "settings": {...}}`.
+- **LINE CHECK** runs after generation: Whisper transcribes every line and the run prints any line
+  heard differently from the script. Read those flags out to the user and let them listen before
+  anything is rendered on top. A brand name or proper noun flagged on its own ("Qodeup" heard as
+  "code up") is usually Whisper; a dropped, added or swapped word is usually the voice. Re-roll a
+  bad line alone with `--force-line N`. Words a voice misreads get a `tts` field beside `text`
+  (spoken variant only, captions keep `text`).
 - Per-line TTS with `/with-timestamps` → REAL per-word times (tempo-scaled, global) written
   into beats.json AND `vo.gen.ts`. The shot imports `{ VO } from './vo.gen'` — captions then
   highlight on the exact spoken word. Never estimate when a voice track exists.
 - Clips are cached by text-hash: rewriting one line only re-bills that line.
-- Voice: the examples use ElevenLabs premade "Liam" (`TX3LPaxmHKxFdv7VOQHJ`); swap in any voice
-  (including your own clone) with the `--voice` flag + regen.
+- The 12 example shorts were voiced with ElevenLabs premade "Liam" (`TX3LPaxmHKxFdv7VOQHJ`);
+  regenerating one now uses the `.env` voice unless its beats.json or `--voice` says otherwise.
 - Then re-render the composition (captions retimed) and mux:
   `ffmpeg -i remotion/out/<Id>.mp4 -i shorts/.../voice/voice.wav -map 0:v -map 1:a -c:v copy
    -c:a aac -b:a 192k -t 42 remotion/out/<Id>-voiced.mp4`

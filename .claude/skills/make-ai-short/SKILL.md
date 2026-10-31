@@ -50,7 +50,9 @@ media/projects/<name>/        — THE clip copies for staticFile() (committed �
    (blue-man #1: "arrival is a myth" → ending = walking toward the same door). ~80-100 words,
    2.5-2.7 wps windows. **No engagement-CTA outro, ever** — end on the payoff, loop is the ending.
 2. **Voice FIRST** — `python tools/gen_voice.py --beats ... --emit-ts remotion/src/shots/ai-N/vo.gen.ts`
-   (George JBFqnCBsd6RMkjVDRZzb + eleven_v3 tags for narrators). Real word times decide the
+   (voice and model from `.env`, or a beats.json `"voice"` block when a series wants a narrator
+   such as George `JBFqnCBsd6RMkjVDRZzb` with eleven_v3 tags; act on the LINE CHECK flags as in
+   make-short Stage 4 before any clip is generated). Real word times decide the
    shot windows; Seedance takes integer 4-12s durations, so round shot lengths UP from windows.
 3. **Start frames** — one per shot, `python tools/gen_image.py --model pro --aspect 9:16 --ref character.png`
    (+ the shot-1 scene still as a 2nd ref when a location/prop must match across shots).

@@ -58,7 +58,8 @@ def load_env():
                 continue
             k, v = line.split("=", 1)
             env[k.strip()] = v.strip().strip('"').strip("'")
-    return {**env, **os.environ}
+    from userenv import windows_user_env  # keys set after this app started
+    return {**env, **windows_user_env(), **os.environ}
 
 
 def get_arg(args, name, default=None):
