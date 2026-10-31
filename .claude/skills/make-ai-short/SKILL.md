@@ -64,6 +64,12 @@ media/projects/<name>/        — THE clip copies for staticFile() (committed �
    (`--set image_url=<fal storage url> --set 'duration="N"' --set resolution=1080p
    --set generate_audio=false`, final shot `--set end_image_url=<frame0 url>`). Upload refs
    once via `bakeoff_clip.upload_ref`; keep urls in shots/upload-urls.json.
+   **On kie.ai (this checkout's default, `CLIP_PROVIDER=kie`):** field names follow the kie model,
+   not fal. For `bytedance/seedance-2`: `--aspect none --set first_frame_url=@ai-shorts/<name>/shots/NN-slug.png
+   --set duration=N --set resolution=1080p --set generate_audio=false`, final shot
+   `--set last_frame_url=@<frame0.png>`. `@path` uploads the local file (kie keeps it 24h, so
+   upload-urls.json reuse only holds within a day). Cost: kie.ai/pricing, not the fal table;
+   the run prints credits used. `bakeoff_clip.py` is still fal-only.
    Prompt every clip with: exact character phrase + "EXACTLY ONE character in the scene for
    the entire shot" (clones are the #1 failure) + camera move + "no morphing" + style line.
 5. **Clip QA, frame by frame** — start/mid/end strip per clip + a side-by-side of the final
