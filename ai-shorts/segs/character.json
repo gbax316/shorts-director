@@ -5,8 +5,8 @@
   "image": "character.png",
   "sheet": "sheet.png",
   "pair": "../skit-duo/duo.png",
-  "locked": null,
-  "status": "awaiting Orezi's eye (generated 2026-10-31)",
+  "locked": "2026-10-31",
+  "status": "locked: approved by Orezi 2026-10-31 (teal and gold shirts)",
   "role_in_skit": "the doubter: burned by YouTube courses before, sceptical, won over by the end",
   "style": {
     "look": "flat 2D cartoon stick figure, thick even black outlines, flat colour fills, one soft grey crescent of shading on the side of the head, no gradients, no 3D",
