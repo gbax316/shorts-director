@@ -29,7 +29,7 @@ read both before a new series.
 9. A search for `ground:` also matched every `background:`. Anchor a search for a config key to
    the start of the line.
 
-## 2026-10-31, locking Aboki and Akpos (2D stick-figure duo)
+## 2026-10-31, locking Akpos and Segs (2D stick-figure duo; Segs was first named Aboki)
 
 1. The direct Gemini key can run dry (402, prepaid credits depleted). The same model is on kie.ai
    as `nano-banana-pro` (`image_input` takes a list of urls, `resolution` 2K, 18 credits a
@@ -44,3 +44,7 @@ read both before a new series.
    instead of paying for a re-roll.
 4. `gen_voice.py` voices a short with one voice. A two-person skit needs a voice per line before
    it can use the cast's `voice` blocks in each character.json.
+5. A colour change on a flat-fill character is a pixel job, not a re-generation: mask the shirt by
+   hue, scale the new colour by each pixel's brightness, and every outline and shade survives with
+   no drift and no cost. Keep the old reference picture for style only and name the new colours
+   in every prompt, or the model pulls the old ones back.
