@@ -14,7 +14,7 @@ Provider: --provider kie|fal, else CLIP_PROVIDER in .env, else kie.
        v1-pro: image_url), so read the model's docs page. A --set value of @path/to/file
        uploads that local file to kie.ai and sends its url (kie deletes uploads after 24h).
        Needs KIE_API_KEY. Prices: https://kie.ai/pricing (not the fal tables in IDEAS.md).
-  fal  the original path below, unchanged.
+  fal  the original path below; default model FAL_VIDEO_MODEL in .env, else fal-ai/veo3.1/fast.
   --aspect none   omit aspect_ratio (some image-to-video models reject it)
 
 Usage:
@@ -196,7 +196,8 @@ def main():
     args = sys.argv[1:]
     env = load_env()
     provider = get_arg(args, "--provider", env.get("CLIP_PROVIDER", "kie")).strip()
-    default_model = env.get("KIE_VIDEO_MODEL", "").strip() if provider == "kie" else DEFAULT_MODEL
+    default_model = (env.get("KIE_VIDEO_MODEL", "").strip() if provider == "kie"
+                     else env.get("FAL_VIDEO_MODEL", "").strip() or DEFAULT_MODEL)
     model = get_arg(args, "--model", default_model)
     prompt = get_arg(args, "--prompt")
     out = get_arg(args, "--out")

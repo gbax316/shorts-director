@@ -64,7 +64,8 @@ media/projects/<name>/        â€” THE clip copies for staticFile() (committed â€
    (`--set image_url=<fal storage url> --set 'duration="N"' --set resolution=1080p
    --set generate_audio=false`, final shot `--set end_image_url=<frame0 url>`). Upload refs
    once via `bakeoff_clip.upload_ref`; keep urls in shots/upload-urls.json.
-   **On kie.ai (this checkout's default, `CLIP_PROVIDER=kie`):** field names follow the kie model,
+   The fal form above is this checkout's default (`CLIP_PROVIDER=fal`, `FAL_VIDEO_MODEL` in .env).
+   **On kie.ai instead (`--provider kie`):** field names follow the kie model,
    not fal. For `bytedance/seedance-2`: `--aspect none --set first_frame_url=@ai-shorts/<name>/shots/NN-slug.png
    --set duration=N --set resolution=1080p --set generate_audio=false`, final shot
    `--set last_frame_url=@<frame0.png>`. `@path` uploads the local file (kie keeps it 24h, so
