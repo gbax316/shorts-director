@@ -48,5 +48,18 @@
     "created": "2026-10-31T21:48:15",
     "sidecars": "character.gen.json, sheet.json",
     "post": "character.png mirrored horizontally after generation so he faces right like the reference; shirt recoloured from mustard #EDC542 to Qodeup teal #218D87 in the pixels (outlines and shading kept)"
+  },
+  "mouth": {
+    "side": "left",
+    "radius": 95,
+    "zone": [
+      0.25,
+      0.45,
+      1.5,
+      0.8
+    ],
+    "style": "grin",
+    "note": "tools/mouth_sync.py redraws this mouth on generated clips: closed toothy grin when silent, open with top teeth when talking. zone = mouth centre and search box in head radii.",
+    "keep_above": 0.15
   }
 }

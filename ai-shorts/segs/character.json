@@ -52,5 +52,23 @@
   "say_as": {
     "Segs": "Shegs",
     "note": "pronounced Shegs (Orezi, 31 Oct). Any line that speaks his name sets \"tts\" with Shegs; captions keep Segs."
+  },
+  "mouth": {
+    "side": "right",
+    "radius": 78,
+    "zone": [
+      -0.1,
+      0.6,
+      1.1,
+      0.6
+    ],
+    "style": "small",
+    "rest": "smile",
+    "note": "tools/mouth_sync.py redraws this mouth: a short curve when silent (mood per line), a small oval when talking. The zone starts below his nose so the nose survives.",
+    "mood": {
+      "3": "frown",
+      "5": "flat"
+    },
+    "keep_above": 0.32
   }
 }

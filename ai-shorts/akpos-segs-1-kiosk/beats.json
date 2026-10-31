@@ -809,5 +809,59 @@
       ],
       "tts": "Okay now. Akpos, Akpoooos, nah correct guy you be."
     }
-  ]
+  ],
+  "shots": [
+    {
+      "clip": "shots/01-how-far.mp4",
+      "start": 0.0,
+      "dur": 2.44,
+      "in": 0.125,
+      "why_in": "the clip opens on two frames of the start picture, then the model jumps Akpos off-screen"
+    },
+    {
+      "clip": "shots/02-small-kiosk.mp4",
+      "start": 2.44,
+      "dur": 4.7
+    },
+    {
+      "clip": "shots/03-phone.mp4",
+      "start": 7.14,
+      "dur": 8.53
+    },
+    {
+      "clip": "shots/04-old-age.mp4",
+      "start": 15.67,
+      "dur": 8.53,
+      "keep_above": {
+        "segs": 0.15
+      },
+      "why": "Segs faces camera with a wide scream mouth that rides high; his eyes stay up here"
+    },
+    {
+      "clip": "shots/05a-laugh.mp4",
+      "start": 24.2,
+      "dur": 2.5
+    },
+    {
+      "clip": "shots/05b-talk.mp4",
+      "start": 26.7,
+      "dur": 8.04
+    },
+    {
+      "clip": "shots/06-hang-you.mp4",
+      "start": 34.74,
+      "dur": 6.46
+    },
+    {
+      "clip": "shots/07-link-below.mp4",
+      "start": 41.2,
+      "dur": 8.38
+    },
+    {
+      "clip": "shots/08-correct-guy.mp4",
+      "start": 49.58,
+      "dur": 5.79
+    }
+  ],
+  "mouthMood": "Segs's resting mouth per line lives in segs/character.json mouth.mood"
 }

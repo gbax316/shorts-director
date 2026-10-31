@@ -1,0 +1,15 @@
+{
+  "model": "fal-ai/bytedance/seedance/v1.5/pro/image-to-video",
+  "payload": {
+    "prompt": "Akpos bursts out laughing for about one second only, then quickly straightens up, stops laughing and stands still, smiling at Segs with his mouth closed for the rest of the shot. Segs watches him, puzzled, mouth closed. EXACTLY TWO characters in the scene for the entire shot; nobody else appears, no clones. Static locked-off camera: no zoom, no pan, no cut. The kiosk, shelves and street stay exactly as in the image. Both characters keep their exact designs, colours and proportions throughout; no morphing, no extra limbs, no new objects, no text. Akpos keeps his backwards brick-red cap, big round lidded eyes, toothy grin and teal shirt; Segs keeps his bald head, small black dot eyes and gold shirt. Akpos stays on the left, Segs stays behind the counter on the right. Flat 2D cartoon animation, thick black outlines, flat colours, smooth, simple, bouncy cartoon motion.",
+    "aspect_ratio": "auto",
+    "image_url": "https://v3b.fal.media/files/b/0ab0a360/70ZRx8KZ2UqqCBgLeGWPu_05-laugh.png",
+    "duration": "4",
+    "resolution": "720p",
+    "generate_audio": false,
+    "camera_fixed": true
+  },
+  "request_id": "01a193fb-613a-7c40-867b-4c1b13a720a9",
+  "source_url": "https://v3b.fal.media/files/b/0ab0a3bd/342SCkX5eD5LCEqxD_yGG_video.mp4",
+  "created": "2026-10-31T23:02:21"
+}

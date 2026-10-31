@@ -63,3 +63,15 @@ read both before a new series.
 9. The start frames needed two fixes the character sheets did not: real brand logos on shelf stock
    (say "unbranded, solid single-colour labels") and Segs borrowing Akpos's big eyes in a two-shot
    (spell out "small dot eyes, never like Akpos's").
+10. Video models do not lip-sync dialogue: in an eight-clip, two-character skit the listener
+    talked, the speaker froze and a one-second "Hahaha" became five seconds of laughing over the
+    next sentence. Re-rolling does not fix it. `tools/mouth_sync.py` does: it erases the model's
+    mouths and draws each character's own from the voice loudness. What it took to make it
+    hold: break thin face lines before splitting shapes (an eye joined to the mouth reads as
+    one shape), protect whatever is centred in the upper face, treat big solid-black shapes as
+    hands, take skin from the head's most common colour, and accept a circle as a head only
+    if dark outline rings at least 58% of it (measured: real heads 67% and up, false circles
+    42% at most). A head that tilts down drops its eyes; a face turned to camera lifts its
+    mouth; one shot may need its own "keep_above".
+11. A Seedance clip can open on two frames of the start picture and then jump. Trim with a
+    shot "in" point instead of letting that flash play.

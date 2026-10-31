@@ -58,6 +58,14 @@ media/projects/<name>/        — THE clip copies for staticFile() (committed �
    `character.json` (whose `"voice"` block is used), each vo line names its speaker in `"who"`,
    and `--pack 0.3` lays the lines end to end from their real lengths instead of squeezing them
    into estimated windows. One voice per character lives in its character.json, nowhere else.
+   **Mouths in dialogue:** the video model does not know who is speaking; it makes listeners
+   talk, freezes speakers and stretches a laugh across the next sentence. After the clips, run
+   `python tools/mouth_sync.py ai-shorts/<name>` (beats.json `"shots"` gives each clip its
+   global start and length; each character.json `"mouth"` block gives side, radius, zone,
+   style and `keep_above`). It erases the model's mouths and draws each character's own from
+   the voice track's loudness. QA it the same way: both faces every half second against who is
+   speaking. A change of action inside one line (laugh, then talk) is two clips, the second
+   started from the first's frame at the cut.
 3. **Start frames** — one per shot, `python tools/gen_image.py --model pro --aspect 9:16 --ref character.png`
    (+ the shot-1 scene still as a 2nd ref when a location/prop must match across shots).
    **QA every PNG before any video call** — this is where drift is cheap to fix.
