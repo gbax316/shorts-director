@@ -28,7 +28,8 @@ Changing any of them re-bills only the lines they change (they are part of the c
 
 DIALOGUE: a beats.json "cast" maps a speaker to a character.json path (its "voice" block is
 used) or to an inline {"id", "model", "settings"} block; a vo line with "who": "<speaker>" is
-voiced by that cast member, over the resolution above. --voice / --model still win.
+voiced by that cast member, over the resolution above; a line's own "voice" block (model or
+settings) goes over that. --voice / --model still win.
 --pack GAP lays the lines end to end from their real lengths (GAP seconds between, a line's
 own "gap" overrides) instead of fitting them into estimated windows; no line is sped up, and
 format.durationSec grows if the voice runs past it.
@@ -102,17 +103,19 @@ def resolve_voice(env, beats, args):
 
 def line_voice(base, beats, line, args):
     """The resolved voice for one vo line: the short's voice, then its speaker's cast entry."""
-    who = line.get("who")
-    if not who:
-        return base
-    entry = (beats.get("cast") or {}).get(who)
-    if entry is None:
-        sys.exit(f"vo line speaker {who!r} is not in beats.json \"cast\"")
-    if isinstance(entry, str):
-        entry = json.load(open(os.path.join(ROOT, entry), encoding="utf-8")).get("voice") or {}
     voice, model, settings, fmt = base
-    settings = {**settings, **(entry.get("settings") or {})}
-    return (args.voice or entry.get("id") or voice, args.model or entry.get("model") or model, settings, fmt)
+    who = line.get("who")
+    if who:
+        entry = (beats.get("cast") or {}).get(who)
+        if entry is None:
+            sys.exit(f"vo line speaker {who!r} is not in beats.json \"cast\"")
+        if isinstance(entry, str):
+            entry = json.load(open(os.path.join(ROOT, entry), encoding="utf-8")).get("voice") or {}
+        settings = {**settings, **(entry.get("settings") or {})}
+        voice, model = entry.get("id") or voice, entry.get("model") or model
+    own = line.get("voice") or {}  # one line's own model or settings, e.g. a picked audition take
+    settings = {**settings, **(own.get("settings") or {})}
+    return (args.voice or own.get("id") or voice, args.model or own.get("model") or model, settings, fmt)
 
 
 def words_of(text):
