@@ -9,7 +9,7 @@ How the number moves:
 
 ## 0.2.0 (1 November 2026)
 
-- An effects library in `remotion/src/lib/effects/`: Checklist, Timeline, GlassWidgets, Spotlight, Orbit, SplitCompare, Documentary, Parallax, MapZoom. Each follows the shot's day or night ground, stays clear of the platform buttons and the caption band, and carries the source of any fact it shows. `EffectsGallery` shows them all.
+- An effects library in `remotion/src/lib/effects/`: Checklist, Timeline, GlassWidgets, Spotlight, Orbit, SplitCompare, Documentary, Parallax, MapZoom, and SplitScreen (the Kallaway split: a speaker in one half, the visual in the other). Each follows the shot's day or night ground, stays clear of the platform buttons and the caption band, and carries the source of any fact it shows. `EffectsGallery` shows them all.
 - Automatic choice: the writers' room tags beats with the job the viewer needs, only when the picture and captions cannot carry it; produce picks from `references/effects.md` within a budget (about one beat in three, at most four kinds, both first guesses) and lists the picks with the animatic.
 - An effects mode and a `/effects` command to preview, place or build an effect.
 - Documentary stills move with 2.5D parallax by default (`tools/parallax_layers.py`), because a slow pan reads as stock.

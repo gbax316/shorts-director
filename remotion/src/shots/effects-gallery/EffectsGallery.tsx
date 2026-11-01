@@ -3,7 +3,7 @@ import { AbsoluteFill, Img, Sequence, staticFile } from 'remotion';
 import { COLORS } from '../../brand';
 import { FONT_MONO } from '../../fonts';
 import { GroundContext } from '../../brand';
-import { Checklist, Documentary, GlassWidgets, MapZoom, Orbit, Parallax, SplitCompare, Spotlight, Timeline } from '../../lib/effects';
+import { Checklist, Documentary, GlassWidgets, MapZoom, Orbit, Parallax, SplitCompare, SplitScreen, Spotlight, Timeline } from '../../lib/effects';
 
 // =============================================================================
 // COMPOSITION CONFIG: the effects gallery. Every effect in lib/effects, four seconds each,
@@ -12,7 +12,7 @@ import { Checklist, Documentary, GlassWidgets, MapZoom, Orbit, Parallax, SplitCo
 // =============================================================================
 export const compositionConfig = {
   id: 'EffectsGallery',
-  durationInSeconds: 40,
+  durationInSeconds: 44,
   fps: 30,
   width: 1080,
   height: 1920,
@@ -32,7 +32,7 @@ const Label: React.FC<{ name: string }> = ({ name }) => (
   <div style={{ position: 'absolute', left: 0, right: 0, bottom: 120, textAlign: 'center', fontFamily: FONT_MONO, fontSize: 30, letterSpacing: 4, color: COLORS.onNightSoft }}>{name}</div>
 );
 
-export const EFFECTS_ORDER = ['checklist', 'timeline', 'glass-widgets', 'spotlight', 'orbit', 'split-compare', 'documentary', 'parallax', 'map-zoom', 'checklist (day ground)'] as const;
+export const EFFECTS_ORDER = ['checklist', 'timeline', 'glass-widgets', 'spotlight', 'orbit', 'split-compare', 'documentary', 'parallax', 'map-zoom', 'checklist (day ground)', 'split-screen (kallaway)'] as const;
 
 const EffectsGallery: React.FC = () => (
   <GroundContext.Provider value="night">
@@ -146,6 +146,16 @@ const EffectsGallery: React.FC = () => (
         />
         <Label name="checklist on the day ground" />
       </GroundContext.Provider>
+    </Sequence>
+    <Sequence from={SEG * 10} durationInFrames={SEG}>
+      <SplitScreen
+        len={SEG}
+        speakerSide="bottom"
+        speaker={{ video: 'projects/akpos-segs-2/06-hold-mouth.mp4', focusY: 45 }}
+        visual={{ img: `${DOC}/06-over-shoulder.jpg`, focusY: 62 }}
+        seamCaption="Two live sessions"
+      />
+      <Label name="split-screen (kallaway)" />
     </Sequence>
   </AbsoluteFill>
   </GroundContext.Provider>

@@ -18,3 +18,5 @@ export { MapZoom } from './MapZoom';
 export type { MapView, MapZoomProps } from './MapZoom';
 export { Parallax } from './Parallax';
 export type { ParallaxProps } from './Parallax';
+export { SplitScreen } from './SplitScreen';
+export type { Pane, SplitScreenProps } from './SplitScreen';

@@ -40,7 +40,7 @@ This list can grow. When a beat's job is none of these, name the new job in the 
 | focus | `Spotlight` | | a push-in on the detail |
 | place | `MapZoom` (real projection, cleaned map, pin) | doc-1's night map | a captioned still with a place tag |
 | archive | `Documentary` (grain, date stamp, title; holds still) | | a plain still with a date tag |
-| screen | | the pinned screens (`doc-1/screens.tsx`), episode 2's phone search | a phone mock in code |
+| screen | `SplitScreen` (the Kallaway split: who is talking in one half, what they mean in the other, the caption on the seam) | the pinned screens (`doc-1/screens.tsx`), episode 2's phone search | a phone mock in code |
 | reveal | timing, not an effect: a hard cut, a pause in the bed, a sound hit | | |
 | tone | sound and pacing, not an effect | | |
 
@@ -70,4 +70,4 @@ The message that sends the animatic lists each beat that carries an effect, whic
 
 ## Growing and pruning the library
 
-Build an effect when a short needs it, not ahead of time; a library built ahead of need grows effects nobody's beats call for. The nine in the library on 1 November were built ahead of need at the owner's request and are **unproven** until a short uses them. A film-local effect (the right-hand column) moves into the library the second time a short needs it. Every run's log entry lists the effects used; an effect used in two shorts is proven, and one not picked in five shorts is a candidate to remove. The effects mode builds new ones.
+Build an effect when a short needs it, not ahead of time; a library built ahead of need grows effects nobody's beats call for. The ten in the library on 1 November were built ahead of need at the owner's request and are **unproven** until a short uses them. A film-local effect (the right-hand column) moves into the library the second time a short needs it. Every run's log entry lists the effects used; an effect used in two shorts is proven, and one not picked in five shorts is a candidate to remove. The effects mode builds new ones.
