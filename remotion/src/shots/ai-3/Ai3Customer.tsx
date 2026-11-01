@@ -15,7 +15,7 @@ import { VO } from './vo.gen';
 // =============================================================================
 export const compositionConfig = {
   id: 'Ai3Customer',
-  durationInSeconds: 43.2,
+  durationInSeconds: 42.33,
   fps: 30,
   width: 1080,
   height: 1920,
@@ -26,17 +26,17 @@ const s = (t: number) => Math.round(t * FPS);
 const DIR = 'projects/akpos-segs-2';
 const ANIMATIC = true;
 const SPEAKER = { akpos: COLORS.signalAlt, segs: COLORS.warn, customer: COLORS.accent } as const;
-const END_CARD = s(37.6);
+const END_CARD = s(36.73);
 const bed = makeBed(VO, FPS);
 // the highlife take holds level to 69 s, then rings out; start it so the ring-out lands on the card's end
-const MUSIC_TRIM = s(69 - 43.2);
+const MUSIC_TRIM = s(69 - 42.33);
 const INK = '#15171C';
 
 const SCENES = [
   { plate: 'p2-segs-close', from: 0, to: s(7.4), clip: { at: s(5.24), note: "CLIP: Segs's eyebrow climbs off his head" } },
-  { plate: 'p1-plate', from: s(7.4), to: s(16.99) },
-  { plate: 'p4-lean', from: s(16.99), to: s(35.15), clip: { at: s(16.99), until: s(21.6), note: 'CLIP: Segs leans in, Akpos leans back' } },
-  { plate: 'p5-laugh', from: s(35.15), to: END_CARD, clip: { at: s(35.15), note: 'CLIP: Akpos laughs, Segs points up' } },
+  { plate: 'p1-plate', from: s(7.4), to: s(16.35) },
+  { plate: 'p4-lean', from: s(16.35), to: s(34.28), clip: { at: s(16.35), until: s(20.72), note: 'CLIP: Segs leans in, Akpos leans back' } },
+  { plate: 'p5-laugh', from: s(34.28), to: END_CARD, clip: { at: s(34.28), note: 'CLIP: Akpos laughs, Segs points up' } },
 ];
 
 // overlays pinned to the picture go in as children, so they ride the same slow push
@@ -87,9 +87,9 @@ const Phone: React.FC = () => {
 // beats 3 and 4: customers drawn in code; each walks to the kiosk next door
 type Walker = { from: number; to: number; x0: number; x1: number; scale: number; stand?: { until: number; x: number } };
 const WALKERS: Walker[] = [
-  { from: s(7.5), to: s(8.7), x0: -160, x1: 330, scale: 1.35, stand: { until: s(11.13), x: 330 } },
-  { from: s(13.2), to: s(15.0), x0: -200, x1: 1260, scale: 1.25 },
-  { from: s(13.7), to: s(15.4), x0: -200, x1: 1260, scale: 1.3 },
+  { from: s(7.5), to: s(8.7), x0: -160, x1: 330, scale: 1.35, stand: { until: s(10.91), x: 330 } },
+  { from: s(12.64), to: s(14.44), x0: -200, x1: 1260, scale: 1.25 },
+  { from: s(13.14), to: s(14.84), x0: -200, x1: 1260, scale: 1.3 },
 ];
 const walkerX = (w: Walker, f: number) => {
   if (!w.stand) return w.x0 + (w.x1 - w.x0) * prog(f, w.from, w.to);
@@ -124,7 +124,7 @@ const Customers: React.FC = () => {
 // the kiosk next door lights up the moment she turns to it
 const RivalSign: React.FC = () => {
   const f = useCurrentFrame() + s(7.4);
-  const on = EASE_OUT(prog(f, s(12.3), s(12.6)));
+  const on = EASE_OUT(prog(f, s(11.95), s(12.25)));
   if (on <= 0) return null;
   return (
     <div style={{ position: 'absolute', left: 772, top: 748, width: 266, height: 62, borderRadius: 8, background: '#1E9E62', opacity: on, boxShadow: `0 0 ${40 * on}px rgba(48,164,108,0.9)`, display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: FONT_DISPLAY, fontWeight: 700, fontSize: 32, color: '#fff', letterSpacing: 1 }}>
@@ -134,14 +134,14 @@ const RivalSign: React.FC = () => {
 };
 
 // the scoreboard: ticks as each customer goes next door, freezes on Segs's last line
-const TICKS = [s(12.9), s(14.6), s(15.3)];
+const TICKS = [s(12.65), s(14.04), s(14.74)];
 const LostSales: React.FC = () => {
   const f = useCurrentFrame();
   if (f < TICKS[0] || f >= END_CARD) return null;
   const n = TICKS.filter((t) => f >= t).length;
   const last = TICKS[n - 1];
   const bump = 1 + 0.25 * (1 - prog(f, last, last + 8));
-  const frozen = f >= s(33.1);
+  const frozen = f >= s(32.08);
   return (
     <div style={{ position: 'absolute', top: 104, right: 40, display: 'flex', alignItems: 'center', gap: 14, padding: '12px 22px', borderRadius: 16, background: frozen ? '#2C3138' : COLORS.danger, color: '#fff', fontFamily: FONT_DISPLAY, fontWeight: 700, boxShadow: '0 10px 0 rgba(21,23,28,0.25)' }}>
       <span style={{ fontSize: 26, letterSpacing: 1 }}>LOST SALES</span>
@@ -168,7 +168,7 @@ const PinnedP1: React.FC = () => (
   <>
     <RivalSign />
     <Customers />
-    <Sequence from={s(15.35) - s(7.4)}>
+    <Sequence from={s(14.79) - s(7.4)}>
       <AkposCutout />
     </Sequence>
   </>
@@ -176,13 +176,13 @@ const PinnedP1: React.FC = () => (
 
 // beat 7: the dates slam down, then the website builds itself
 const DatesAndSite: React.FC = () => {
-  const f = useCurrentFrame() + s(16.99);
+  const f = useCurrentFrame() + s(16.35);
   const slam = (at: number) => 1 + 0.6 * (1 - EASE_OUT(prog(f, at, at + 6)));
-  const calOut = 1 - prog(f, s(26.5), s(26.9));
-  const c1 = s(22.97);
-  const c2 = s(23.77);
-  const site = s(27.25);
-  const siteT = EASE_OUT(prog(f, site, site + 10)) * (1 - prog(f, s(30.9), s(31.2)));
+  const calOut = 1 - prog(f, s(25.1), s(25.5));
+  const c1 = s(21.76);
+  const c2 = s(22.56);
+  const site = s(25.78);
+  const siteT = EASE_OUT(prog(f, site, site + 10)) * (1 - prog(f, s(29.3), s(29.6)));
   return (
     <>
       {f >= c1 && calOut > 0 ? <Calendar day="13" month="NOV" x={300} y={330} w={270} rot={-5} scale={slam(c1)} opacity={calOut} /> : null}
@@ -194,8 +194,8 @@ const DatesAndSite: React.FC = () => {
 
 // beat 8: Segs flips the board on his kiosk
 const KioskSign: React.FC = () => {
-  const f = useCurrentFrame() + s(16.99);
-  const flip = EASE_OUT(prog(f, s(31.3), s(31.75)));
+  const f = useCurrentFrame() + s(16.35);
+  const flip = EASE_OUT(prog(f, s(30.4), s(30.85)));
   if (flip <= 0) return null;
   return (
     <div style={{ position: 'absolute', left: 14, top: 448, width: 572, height: 112, perspective: 800 }}>
@@ -224,14 +224,14 @@ const CUES: { at: number; src: string; vol: number }[] = [
   { at: s(0.2), src: 'whoosh', vol: 0.35 },
   { at: s(2.7), src: 'tap', vol: 0.5 },
   { at: s(9.0), src: 'danfo-pass', vol: 0.15 },
-  { at: s(12.3), src: 'ping', vol: 0.45 },
+  { at: s(11.95), src: 'ping', vol: 0.45 },
   ...TICKS.map((t) => ({ at: t, src: 'tap', vol: 0.55 })),
-  { at: s(15.35), src: 'whoosh', vol: 0.3 },
-  { at: s(22.97), src: 'slam', vol: 0.5 },
-  { at: s(23.77), src: 'slam', vol: 0.5 },
-  { at: s(27.25), src: 'pop', vol: 0.5 },
-  { at: s(31.3), src: 'stamp', vol: 0.5 },
-  { at: s(35.4), src: 'slide-up', vol: 0.4 },
+  { at: s(14.79), src: 'whoosh', vol: 0.3 },
+  { at: s(21.76), src: 'slam', vol: 0.5 },
+  { at: s(22.56), src: 'slam', vol: 0.5 },
+  { at: s(25.78), src: 'pop', vol: 0.5 },
+  { at: s(30.4), src: 'stamp', vol: 0.5 },
+  { at: s(34.53), src: 'slide-up', vol: 0.4 },
   { at: END_CARD + 60, src: 'ping', vol: 0.45 },
 ];
 
@@ -255,13 +255,13 @@ const Ai3Customer: React.FC = () => {
       <Sequence durationInFrames={s(7.4)}>
         <Phone />
       </Sequence>
-      <Sequence from={s(15.35)} durationInFrames={s(16.99) - s(15.35)}>
+      <Sequence from={s(14.79)} durationInFrames={s(16.35) - s(14.79)}>
         {ANIMATIC ? <Tag text="CUT-OUT: a still that breathes and chews" /> : null}
       </Sequence>
-      <Sequence from={s(16.99)} durationInFrames={s(35.15) - s(16.99)}>
+      <Sequence from={s(16.35)} durationInFrames={s(34.28) - s(16.35)}>
         <DatesAndSite />
       </Sequence>
-      <Sequence from={s(35.15)} durationInFrames={END_CARD - s(35.15)}>
+      <Sequence from={s(34.28)} durationInFrames={END_CARD - s(34.28)}>
         <LinkCard />
       </Sequence>
       <LostSales />

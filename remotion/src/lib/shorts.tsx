@@ -49,12 +49,37 @@ export const chunkLines = (lines: VoLine[], maxWords = 4): Chunk[] => {
   const chunks: Chunk[] = [];
   lines.forEach((line) => {
     const words = timeWords(line);
-    // even chunks (9 words at max 4 -> 3,3,3, not 4,4,1) so no word is left alone on screen
-    const size = Math.ceil(words.length / Math.ceil(words.length / maxWords));
-    for (let i = 0; i < words.length; i += size) {
-      const ws = words.slice(i, i + size);
-      chunks.push({ words: ws, start: ws[0].start, end: ws[ws.length - 1].end, hold: 0, accent: line.accent });
-    }
+    const push = (ws: TimedWord[]) => {
+      if (ws.length) chunks.push({ words: ws, start: ws[0].start, end: ws[ws.length - 1].end, hold: 0, accent: line.accent });
+    };
+    // break at sentence ends first, so "Okay o." or "now now." never splits across two captions
+    const sentences: TimedWord[][] = [[]];
+    words.forEach((w) => {
+      sentences[sentences.length - 1].push(w);
+      if (/[.?!]$/.test(w.w)) sentences.push([]);
+    });
+    // short sentences share a caption while they fit; a long one splits evenly
+    // (13 words at max 4 -> 4,3,3,3, not 4,4,4,1) so no word is left alone on screen
+    let group: TimedWord[] = [];
+    sentences.forEach((sen) => {
+      if (group.length + sen.length <= maxWords) {
+        group = [...group, ...sen];
+        return;
+      }
+      push(group);
+      group = [];
+      if (sen.length <= maxWords) {
+        group = sen;
+        return;
+      }
+      const n = Math.ceil(sen.length / maxWords);
+      for (let k = 0, i = 0; k < n; k++) {
+        const len = Math.floor(sen.length / n) + (k < sen.length % n ? 1 : 0);
+        push(sen.slice(i, i + len));
+        i += len;
+      }
+    });
+    push(group);
   });
   chunks.forEach((c, i) => {
     const next = chunks[i + 1];
