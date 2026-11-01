@@ -75,3 +75,17 @@ read both before a new series.
     mouth; one shot may need its own "keep_above".
 11. A Seedance clip can open on two frames of the start picture and then jump. Trim with a
     shot "in" point instead of letting that flash play.
+12. Finishing a dialogue skit: hard cuts, not crossfades (the scene never changes, and a split
+    line joins on one frame), and colour each caption's active word by speaker (a line's
+    `accent` in the VO map), so a viewer with the sound off can follow who is talking. Caption
+    chunks are now split evenly, because "Akpos, Akpooos, na correct guy you be." at four words a
+    chunk left "be." alone on screen.
+13. Reuse the set's approved sound rather than generating new: the v6 highlife bed and the Lagos
+    street fit this kiosk. That bed holds level to 69 s and then rings out, so starting it 8.5 s
+    in lands the ring-out on the end card. Ease the duck over about 13 frames; a hard switch at
+    every line boundary pumps.
+14. Sampling every half second misses two-frame faults. In shot 8 the model twice morphed
+    between two framings, and for a twelfth of a second Akpos showed ghost eyes and his old open
+    mouth. A frame-to-frame difference scan finds these (spikes over four times the clip's
+    median); a shot's "hold" list in beats.json makes mouth_sync repeat the last good frame,
+    so the jump plays as a cut.

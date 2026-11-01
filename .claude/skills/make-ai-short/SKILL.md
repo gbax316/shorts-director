@@ -65,7 +65,10 @@ media/projects/<name>/        — THE clip copies for staticFile() (committed �
    style and `keep_above`). It erases the model's mouths and draws each character's own from
    the voice track's loudness. QA it the same way: both faces every half second against who is
    speaking. A change of action inside one line (laugh, then talk) is two clips, the second
-   started from the first's frame at the cut.
+   started from the first's frame at the cut. Then scan each mouthed clip frame to frame:
+   a spike over four times the clip's median is a cut, a fast gesture or a two-frame morph
+   with ghost features; list morph frames in that shot's `"hold"` and re-run, so the jump
+   plays as a clean cut.
 3. **Start frames** — one per shot, `python tools/gen_image.py --model pro --aspect 9:16 --ref character.png`
    (+ the shot-1 scene still as a 2nd ref when a location/prop must match across shots).
    **QA every PNG before any video call** — this is where drift is cheap to fix.

@@ -15,7 +15,7 @@
     "segs": "ai-shorts/segs/character.json"
   },
   "endCard": {
-    "logo": "library/logos/qodeup-logo-dark.png (LOGO.onDay)",
+    "logo": "library/logos/qodeup-logo-light.png (LOGO.onNight)",
     "lines": [
       "Build With AI",
       "13 and 14 November. Two live sessions.",
@@ -23,7 +23,8 @@
     ],
     "url": "qodeupafrica.com/build-with-ai/blueprint",
     "href": "https://qodeupafrica.com/build-with-ai/blueprint",
-    "note": "Orezi 31 Oct: last frame is the Qodeup logo with a call to sign up and this link (checked live, 200)."
+    "note": "Orezi 31 Oct: last frame is the Qodeup logo with a call to sign up and this link (checked live, 200).",
+    "look": "navy card, gold rule and link, as the approved v6 skit"
   },
   "voiceStatus": "elevenlabs:JvYVKHK9a3ohjGBudnKo:eleven_v4 elevenlabs:UXyapCwN1QltDgDxgF4m:eleven_v4",
   "notes": "Two-character skit, Orezi's dictation 31 Oct. Voice with gen_voice.py --pack 0.3 (lines end to end from real lengths); each line's voice comes from its speaker's character.json. Shot windows follow the real line times. End card has no voice and runs about 5 s after the last line.",
@@ -860,8 +861,25 @@
     {
       "clip": "shots/08-correct-guy.mp4",
       "start": 49.58,
-      "dur": 5.79
+      "dur": 5.79,
+      "hold": [
+        26,
+        27,
+        28,
+        62,
+        63
+      ],
+      "why_hold": "twice the model morphs between two framings (the push-in after the high five, then Akpos turning his head); ghost eyes and his old open mouth show through"
     }
   ],
-  "mouthMood": "Segs's resting mouth per line lives in segs/character.json mouth.mood"
+  "mouthMood": "Segs's resting mouth per line lives in segs/character.json mouth.mood",
+  "sound": {
+    "music": "v6 highlife bed (shared/audio/out/v6/music-1.mp3), trimmed 8.5 s in, 0.16 under speech, 0.28 in gaps, 0.42 on the card",
+    "ambience": "v6 Lagos street, 0.10 under speech, 0.22 in gaps",
+    "cues": [
+      "horn-1 at 0 s",
+      "horn-2 at 40.9 s",
+      "ping as the link lands"
+    ]
+  }
 }

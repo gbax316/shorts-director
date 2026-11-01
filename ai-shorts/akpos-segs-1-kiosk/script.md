@@ -3,7 +3,7 @@ created: 2026-10-31
 type: video script and frame plan
 video: Akpos and Segs 1, "Segs's kiosk" (Build With AI, a two-character skit)
 voice: Orezi's dialogue, dictated 31 Oct; Akpos is Timmy Adubi, Segs is Alex Oke (eleven_v4, the v6 settings); banner qodeup; kind own
-status: voice final 31 Oct (take 2 plus Orezi's picks: lines 5, 6, 8 spelled as said); next, start frames
+status: finished cut 1 Nov (Ai2Kiosk, output/akpos-segs-1-kiosk-final.mp4); the sound mix awaits Orezi's ear
 ---
 
 # Akpos and Segs 1: Segs's kiosk

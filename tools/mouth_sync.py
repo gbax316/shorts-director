@@ -12,7 +12,9 @@ Reads, for one short:
   beats.json        vo[] with "who", real start/end (gen_voice.py --pack), "cast" -> character.json
                     "shots": [{"clip": "shots/NN.mp4", "start": <global s>, "dur": <s used>,
                     "in": <s into the clip to start from> (optional),
-                    "keep_above": {"<who>": <radii>} (optional, this shot only)}]
+                    "keep_above": {"<who>": <radii>} (optional, this shot only),
+                    "hold": [<frame>, ...] (optional: frames where the model morphs between
+                    poses; each repeats the last good frame, so the jump plays as a cut)}]
   voice/voice.wav   the assembled voice track
   character.json    "mouth": {"side": "left"|"right" (where the head sits in a two-shot),
                     "radius": px at 720 wide, "zone": [cx, cy, w, h] in head radii,
@@ -279,7 +281,11 @@ def process(short, shot, vo, cast, lv, env_fps, debug):
                            stdin=subprocess.PIPE)
     talk = 0
     offset = {name: tuple(m["zone"][:2]) for name, m in cast.items()}  # mouth from head, in radii
+    hold, prev = set(shot.get("hold", [])), None  # frames where the model morphs between poses: repeat the last good one
     for k, f in enumerate(frames):
+        if k in hold and prev is not None:
+            enc.stdin.write(prev.tobytes())
+            continue
         t = shot["start"] + k / fps
         li, who = speaking(vo, t)
         e = min(len(lv) - 1, int(t * env_fps))
@@ -304,6 +310,7 @@ def process(short, shot, vo, cast, lv, env_fps, debug):
             if debug:
                 cv2.circle(f, (int(x), int(y)), int(r), (0, 0, 255), 1)
         enc.stdin.write(f.tobytes())
+        prev = f
     enc.stdin.close()
     enc.wait()
     print(f"{shot['clip']}: {len(frames)} frames, mouth open on {talk} -> {os.path.relpath(out, ROOT)}")

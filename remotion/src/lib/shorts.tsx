@@ -21,7 +21,8 @@ export const prog = (t: number, a: number, b: number) =>
   Math.max(0, Math.min(1, (t - a) / Math.max(0.0001, b - a)));
 
 export type TimedWord = { w: string; start: number; end: number };
-export type VoLine = { text: string; start: number; end: number; words?: TimedWord[] };
+// accent: this line's active-word colour (dialogue gives each speaker their own); else the Captions accent
+export type VoLine = { text: string; start: number; end: number; words?: TimedWord[]; accent?: string };
 
 // Word timing for a line: use REAL alignment (from tools/gen_voice.py) when present;
 // otherwise estimate by distributing the window weighted by word length.
@@ -40,7 +41,7 @@ export const timeWords = (line: VoLine): TimedWord[] => {
   });
 };
 
-type Chunk = { words: TimedWord[]; start: number; end: number; hold: number };
+type Chunk = { words: TimedWord[]; start: number; end: number; hold: number; accent?: string };
 
 // Split VO lines into caption chunks of <= maxWords; each chunk holds until the next
 // chunk in the same line starts, or the line ends (+ a small tail between lines).
@@ -48,9 +49,11 @@ export const chunkLines = (lines: VoLine[], maxWords = 4): Chunk[] => {
   const chunks: Chunk[] = [];
   lines.forEach((line) => {
     const words = timeWords(line);
-    for (let i = 0; i < words.length; i += maxWords) {
-      const ws = words.slice(i, i + maxWords);
-      chunks.push({ words: ws, start: ws[0].start, end: ws[ws.length - 1].end, hold: 0 });
+    // even chunks (9 words at max 4 -> 3,3,3, not 4,4,1) so no word is left alone on screen
+    const size = Math.ceil(words.length / Math.ceil(words.length / maxWords));
+    for (let i = 0; i < words.length; i += size) {
+      const ws = words.slice(i, i + size);
+      chunks.push({ words: ws, start: ws[0].start, end: ws[ws.length - 1].end, hold: 0, accent: line.accent });
     }
   });
   chunks.forEach((c, i) => {
@@ -126,7 +129,7 @@ export const Captions: React.FC<{
               lineHeight: 1.15,
               textTransform: 'uppercase',
               letterSpacing: 0.5,
-              color: isActive ? acc : COLORS.onNight,
+              color: isActive ? active.accent ?? acc : COLORS.onNight,
               opacity: 0.3 + 0.7 * started,
               transform: `scale(${0.92 + 0.08 * EASE_OUT(started) + (isActive ? 0.05 : 0)})`,
               textShadow: '0 3px 26px rgba(0,0,0,0.65), 0 1px 4px rgba(0,0,0,0.5)',
