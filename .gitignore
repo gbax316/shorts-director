@@ -21,7 +21,9 @@ vox-shorts/*/output/
 # ai-shorts working copies of generated clips — the canonical (committed) copies
 # live in media/projects/<name>/ where the composition reads them via staticFile()
 ai-shorts/*/shots/*.mp4
-ai-shorts/*/bakeoff/*.mp4
+ai-shorts/*/bakeoff/**/*.mp4
+ai-shorts/*/bakeoff/**/*.wav
+ai-shorts/*/bakeoff/**/work/
 
 # local editor config
 .vscode/

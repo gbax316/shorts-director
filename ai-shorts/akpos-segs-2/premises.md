@@ -1,7 +1,7 @@
 ---
 episode: Akpos and Segs, episode 2
 created: 2026-11-01
-status: writers' room; three premises for Orezi to pick from or graft
+status: premise A picked by Orezi 1 Nov; script in script.md
 reads: ../series/akpos-segs/BIBLE.md
 goal: seats for Build With AI (13 and 14 November, two live sessions), link qodeupafrica.com/build-with-ai/blueprint
 continuity: in episode 1 Segs said yes. Episode 2 can build on that yes or turn it around.
