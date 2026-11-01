@@ -1,0 +1,17 @@
+{
+  "model": "bytedance/seedance-2",
+  "payload": {
+    "prompt": "Segs squints down toward the lower left at something he cannot understand. Then ONE of his eyebrows shoots straight up, rising high off the top of his bald head in a big cartoon double take, hangs there for a moment, and drops back into place. He looks puzzled, never annoyed, and says 'Page? Which page?', his small mouth opening and closing. EXACTLY ONE character in the shot for its whole length; nobody else appears, no clones. Segs stays behind his counter in the same close framing. Static locked-off camera: no zoom, no pan, no cut. The kiosks, shelves, awning and street stay exactly as in the image. Characters keep their exact designs, colours and proportions throughout; no morphing, no extra limbs, no new objects, no text. Akpos keeps his backwards brick-red cap, big round lidded eyes, toothy grin and teal shirt; Segs keeps his bald head, small black dot eyes and gold shirt. Flat 2D cartoon animation, thick black outlines, flat colours, smooth, simple, bouncy cartoon motion.",
+    "aspect_ratio": "9:16",
+    "first_frame_url": "https://tempfile.redpandaai.co/kieai/803621/faceless-shorts/p2-segs-close.png",
+    "resolution": "720p",
+    "duration": 4,
+    "generate_audio": false,
+    "web_search": false
+  },
+  "provider": "kie",
+  "task_id": "70d0eaeb276ee4b2fb7ff47980fd5a7f",
+  "source_url": "https://tempfile.aiquickdraw.com/seedance/1793538367814-j8fowttd65k.mp4",
+  "credits": 164.0,
+  "created": "2026-11-01T14:06:14"
+}

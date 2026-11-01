@@ -1,0 +1,17 @@
+{
+  "model": "bytedance/seedance-2",
+  "payload": {
+    "prompt": "Segs, behind his counter on the left, leans further forward over the counter toward Akpos, eager and curious, eyebrows raised, talking, his small mouth opening and closing. Akpos, outside on the right at the end of the counter, leans back on one elbow with his hand on his hip, and a slow, knowing grin spreads across his face; his mouth stays closed. EXACTLY TWO characters in the scene for the entire shot; nobody else appears, no clones. Segs stays behind the counter on the left, Akpos stays outside on the right. Static locked-off camera: no zoom, no pan, no cut. The kiosks, shelves, awning and street stay exactly as in the image. Characters keep their exact designs, colours and proportions throughout; no morphing, no extra limbs, no new objects, no text. Akpos keeps his backwards brick-red cap, big round lidded eyes, toothy grin and teal shirt; Segs keeps his bald head, small black dot eyes and gold shirt. Flat 2D cartoon animation, thick black outlines, flat colours, smooth, simple, bouncy cartoon motion.",
+    "aspect_ratio": "9:16",
+    "first_frame_url": "https://tempfile.redpandaai.co/kieai/803621/faceless-shorts/p4-lean.png",
+    "resolution": "720p",
+    "duration": 5,
+    "generate_audio": false,
+    "web_search": false
+  },
+  "provider": "kie",
+  "task_id": "5ad400e660f7438ee0dcac2fe8a87f2a",
+  "source_url": "https://tempfile.aiquickdraw.com/seedance/1793538316673-vv4e87wgqb9.mp4",
+  "credits": 205.0,
+  "created": "2026-11-01T14:05:19"
+}

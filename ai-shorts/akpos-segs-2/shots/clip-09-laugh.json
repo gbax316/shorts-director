@@ -1,0 +1,17 @@
+{
+  "model": "bytedance/seedance-2",
+  "payload": {
+    "prompt": "Akpos, outside on the right, throws his head back and laughs hard, holding his belly, shoulders bouncing, for the whole shot. Segs, behind his counter on the left, smiles happily with his mouth closed and keeps pointing one finger straight up toward the top of the frame. EXACTLY TWO characters in the scene for the entire shot; nobody else appears, no clones. Segs stays behind the counter on the left, Akpos stays outside on the right. Static locked-off camera: no zoom, no pan, no cut. The kiosks, shelves, awning and street stay exactly as in the image. Characters keep their exact designs, colours and proportions throughout; no morphing, no extra limbs, no new objects, no text. Akpos keeps his backwards brick-red cap, big round lidded eyes, toothy grin and teal shirt; Segs keeps his bald head, small black dot eyes and gold shirt. Flat 2D cartoon animation, thick black outlines, flat colours, smooth, simple, bouncy cartoon motion.",
+    "aspect_ratio": "9:16",
+    "first_frame_url": "https://tempfile.redpandaai.co/kieai/803621/faceless-shorts/p5-laugh.png",
+    "resolution": "720p",
+    "duration": 4,
+    "generate_audio": false,
+    "web_search": false
+  },
+  "provider": "kie",
+  "task_id": "7aeb45b5dc2e835acd7a4521b5dc4963",
+  "source_url": "https://tempfile.aiquickdraw.com/seedance/1793538359187-54c90op3lb4.mp4",
+  "credits": 164.0,
+  "created": "2026-11-01T14:06:02"
+}
