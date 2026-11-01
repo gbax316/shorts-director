@@ -5,7 +5,6 @@ import { FONT_BODY, FONT_DISPLAY } from '../../fonts';
 import { Captions, EASE_OUT, ProgressBar, prog } from '../../lib/shorts';
 import { EndCard, PoweredBy, makeBed } from '../../lib/skit/cards';
 import { Calendar, MiniSite } from '../../lib/skit/props';
-import { POSE, Stick } from '../../lib/skit/rig';
 import { VO } from './vo.gen';
 
 // =============================================================================
@@ -96,32 +95,29 @@ const walkerX = (w: Walker, f: number) => {
   if (!w.stand) return w.x0 + (w.x1 - w.x0) * prog(f, w.from, w.to);
   if (f < w.to) return w.x0 + (w.stand.x - w.x0) * prog(f, w.from, w.to);
   if (f < w.stand.until) return w.stand.x;
-  return w.stand.x + (1260 - w.stand.x) * prog(f, w.stand.until, w.stand.until + s(2.6));
+  // she stops at the window next door and buys there
+  return w.stand.x + (960 - w.stand.x) * prog(f, w.stand.until, w.stand.until + s(1.7));
 };
-const TONES = ['#6B4E8F', '#2F6F8F', '#8F5B3A'];
+const atWindow = (w: Walker, f: number) => !!w.stand && f >= w.stand.until + s(1.7);
+// drawn extras in the series style, two poses each (stride, passing), swapped every 5 frames
 const Customers: React.FC = () => {
   const f = useCurrentFrame() + s(7.4);
   return (
-    <svg width={1080} height={1920} style={{ position: 'absolute', inset: 0 }}>
-      <defs>
-        {TONES.map((c, i) => (
-          <filter key={c} id={`sil${i}`}>
-            <feFlood floodColor={c} />
-            <feComposite in2="SourceAlpha" operator="in" />
-          </filter>
-        ))}
-      </defs>
+    <>
       {WALKERS.map((w, i) => {
         const x = walkerX(w, f);
         const standing = !!w.stand && f >= w.to && f < w.stand.until;
-        const facing = standing ? -1 : 1;
+        const pose = standing || atWindow(w, f) ? 'b' : Math.floor(f / 5) % 2 ? 'a' : 'b';
+        const h = 720 * (w.scale / 1.3);
         return (
-          <g key={i} filter={`url(#sil${i})`}>
-            <Stick pose={POSE.stand} x={x} ground={1760} facing={facing} look="hair" talk={0} walk={standing ? null : x / 50} scale={w.scale} />
-          </g>
+          <Img
+            key={i}
+            src={staticFile(`${DIR}/extra-${i + 1}-${pose}.png`)}
+            style={{ position: 'absolute', left: x, top: 1770 - h, height: h, transform: `translateX(-50%) scaleX(${standing ? -1 : 1})` }}
+          />
         );
       })}
-    </svg>
+    </>
   );
 };
 

@@ -1,0 +1,13 @@
+{
+  "model": "nano-banana-pro (kie.ai)",
+  "prompt": "A two-frame WALK CYCLE sheet of ONE background character, on a plain pure white background, nothing else. LEFT HALF: the character mid-stride walking to the RIGHT, front leg forward, back leg behind, arms swinging opposite. RIGHT HALF: the SAME character, same size and same clothes, in the passing pose, legs together under the body, arms by the sides, still facing RIGHT. Both poses side by side with a wide gap between them, same height, feet on the same level. Drawn in exactly the style of the two references: flat 2D cartoon, a big round off-white head the same size as theirs, thick clean even black outlines, flat colour fills, thin black stick arms and legs, black mitten hands, black oval shoes, one soft grey crescent of shading on the head, no gradients, no 3D. Seen from the side: one small black dot eye and a small calm smile, no big eyes. Well dressed and comfortable, a regular city shopper, not poor. No text, no logo, no shadow except a small soft grey oval under each pose. CHARACTER: a young man with short black hair, wearing a blue button-up shirt and dark jeans, holding a phone in one hand.",
+  "aspect_ratio": "16:9",
+  "resolution": "2K",
+  "refs": [
+    "ai-shorts/akpos/character.png",
+    "ai-shorts/segs/character.png"
+  ],
+  "task_id": "5762fde482f01493b1065ee68e44cd77",
+  "credits": 18.0,
+  "created": "2026-11-01T07:16:49"
+}
