@@ -15,7 +15,7 @@ import { VO } from './vo.gen';
 // =============================================================================
 export const compositionConfig = {
   id: 'Doc1Builders',
-  durationInSeconds: 50.2,
+  durationInSeconds: 52.83,
   fps: 30,
   width: 1080,
   height: 1920,
@@ -25,8 +25,8 @@ const FPS = 30;
 const s = (t: number) => Math.round(t * FPS);
 const DIR = 'projects/doc-1';
 const ANIMATIC = true;
-const END_CARD = s(44.6);
-const CLOSING = s(40.87);
+const END_CARD = s(47.23);
+const CLOSING = s(43.5);
 const bed = makeBed(VO, FPS);
 
 const PLATES: { name: string; from: number; to: number; tag?: string; clip?: string }[] = [
@@ -184,7 +184,7 @@ const DOORS = [
   { at: s(30.56), to: s(32.11), label: 'YOUR OWN PRODUCT', body: <OwnProduct /> },
 ];
 
-// beat 6: the class, as a card, once the narrator names the dates
+// beat 6: the class, as a card, once the narrator names Qodeup's lead facilitator (the dates live on the card)
 const ClassCard: React.FC = () => {
   const f = useCurrentFrame();
   const t = EASE_OUT(prog(f, 0, 14));
@@ -192,6 +192,7 @@ const ClassCard: React.FC = () => {
     <div style={{ position: 'absolute', top: 290, left: 70, right: 70, padding: '36px 40px', borderRadius: 26, background: 'rgba(12,22,34,0.82)', opacity: t, transform: `translateY(${(1 - t) * 24}px)` }}>
       <div style={{ fontFamily: FONT_EDITORIAL, fontWeight: 900, fontSize: 96, lineHeight: 1, color: COLORS.warn }}>Build With AI</div>
       <div style={{ marginTop: 16, fontFamily: FONT_BODY, fontWeight: 600, fontSize: 44, color: COLORS.onNight }}>13 and 14 November, live online</div>
+      <div style={{ marginTop: 22, fontFamily: FONT_BODY, fontWeight: 500, fontSize: 34, color: COLORS.onNightSoft }}>Lead facilitator: Orezi Emeotu, Qodeup</div>
     </div>
   );
 };
@@ -235,8 +236,8 @@ const CUES: { at: number; src: string; vol: number }[] = [
   { at: s(17.8), src: 'keys-typing-soft', vol: 0.3 },
   ...DOORS.map((d) => ({ at: d.at, src: 'whoosh-soft', vol: 0.3 })),
   { at: s(32.5), src: 'ui-click-soft', vol: 0.5 },
-  { at: s(36.35), src: 'pop-reveal', vol: 0.35 },
-  { at: s(39.4), src: 'riser-soft', vol: 0.3 },
+  { at: s(38.35), src: 'pop-reveal', vol: 0.35 },
+  { at: s(41.9), src: 'riser-soft', vol: 0.3 },
   { at: CLOSING, src: 'warm-shimmer', vol: 0.35 },
   { at: END_CARD + 60, src: 'ui-send', vol: 0.35 },
 ];
@@ -271,10 +272,10 @@ const Doc1Builders: React.FC = () => {
           </Door>
         </Sequence>
       ))}
-      <Sequence from={s(32.5)} durationInFrames={s(35.9) - s(32.5)}>
+      <Sequence from={s(32.5)} durationInFrames={s(38.2) - s(32.5)}>
         <Published />
       </Sequence>
-      <Sequence from={s(36.35)} durationInFrames={CLOSING - s(36.35)}>
+      <Sequence from={s(38.35)} durationInFrames={CLOSING - s(38.35)}>
         <ClassCard />
       </Sequence>
       <Sequence from={CLOSING} durationInFrames={END_CARD - CLOSING}>

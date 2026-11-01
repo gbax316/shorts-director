@@ -401,144 +401,150 @@
     },
     {
       "who": "narrator",
-      "text": "Orezi has built websites since the WordPress days. On the thirteenth and fourteenth of November, he'll show you how.",
+      "text": "At Qodeup we build websites, apps and AI for Nigerian businesses. Our lead facilitator, Orezi, will show you how, live.",
       "start": 32.11,
-      "end": 40.27,
+      "end": 42.9,
       "gap": 0.35,
       "words": [
         {
-          "w": "Orezi",
+          "w": "At",
           "start": 32.11,
-          "end": 32.59
+          "end": 32.27
         },
         {
-          "w": "has",
-          "start": 32.71,
-          "end": 32.83
-        },
-        {
-          "w": "built",
-          "start": 32.95,
+          "w": "Qodeup",
+          "start": 32.35,
           "end": 33.07
         },
         {
-          "w": "websites",
-          "start": 33.23,
-          "end": 33.87
+          "w": "we",
+          "start": 33.19,
+          "end": 33.31
         },
         {
-          "w": "since",
-          "start": 33.99,
-          "end": 34.11
+          "w": "build",
+          "start": 33.47,
+          "end": 33.63
         },
         {
-          "w": "the",
-          "start": 34.19,
-          "end": 34.27
+          "w": "websites,",
+          "start": 33.71,
+          "end": 34.67
         },
         {
-          "w": "WordPress",
-          "start": 34.35,
-          "end": 34.91
+          "w": "apps",
+          "start": 34.75,
+          "end": 35.15
         },
         {
-          "w": "days.",
-          "start": 34.99,
-          "end": 35.99
+          "w": "and",
+          "start": 35.23,
+          "end": 35.47
         },
         {
-          "w": "On",
-          "start": 36.03,
+          "w": "AI",
+          "start": 35.63,
           "end": 36.11
         },
         {
-          "w": "the",
+          "w": "for",
           "start": 36.19,
           "end": 36.27
         },
         {
-          "w": "thirteenth",
-          "start": 36.35,
-          "end": 36.91
+          "w": "Nigerian",
+          "start": 36.31,
+          "end": 36.99
         },
         {
-          "w": "and",
-          "start": 37.03,
-          "end": 37.15
+          "w": "businesses.",
+          "start": 37.19,
+          "end": 38.31
         },
         {
-          "w": "fourteenth",
-          "start": 37.23,
-          "end": 37.63
+          "w": "Our",
+          "start": 38.35,
+          "end": 38.51
         },
         {
-          "w": "of",
-          "start": 37.71,
-          "end": 37.79
+          "w": "lead",
+          "start": 38.63,
+          "end": 38.75
         },
         {
-          "w": "November,",
-          "start": 37.87,
-          "end": 38.71
+          "w": "facilitator,",
+          "start": 38.83,
+          "end": 39.63
         },
         {
-          "w": "he'll",
-          "start": 38.75,
-          "end": 38.91
+          "w": "Orezi,",
+          "start": 39.71,
+          "end": 40.43
+        },
+        {
+          "w": "will",
+          "start": 40.51,
+          "end": 40.67
         },
         {
           "w": "show",
-          "start": 38.99,
-          "end": 39.15
+          "start": 40.75,
+          "end": 40.91
         },
         {
           "w": "you",
-          "start": 39.23,
-          "end": 39.31
+          "start": 40.99,
+          "end": 41.15
         },
         {
-          "w": "how.",
-          "start": 39.39,
-          "end": 40.35
+          "w": "how,",
+          "start": 41.23,
+          "end": 41.83
+        },
+        {
+          "w": "live.",
+          "start": 41.87,
+          "end": 42.99
         }
-      ]
+      ],
+      "tts": "At Qodeup we build websites, apps and AI for Nigerian businesses. Our lead facilitator Oh-reh-zee will show you how, live."
     },
     {
       "who": "narrator",
       "text": "It starts with creating with AI.",
-      "start": 40.87,
-      "end": 43.59,
+      "start": 43.5,
+      "end": 46.22,
       "gap": 0.6,
       "words": [
         {
           "w": "It",
-          "start": 40.87,
-          "end": 41.03
+          "start": 43.5,
+          "end": 43.66
         },
         {
           "w": "starts",
-          "start": 41.11,
-          "end": 41.51
+          "start": 43.74,
+          "end": 44.14
         },
         {
           "w": "with",
-          "start": 41.63,
-          "end": 41.75
+          "start": 44.26,
+          "end": 44.38
         },
         {
           "w": "creating",
-          "start": 42.07,
-          "end": 42.39
+          "start": 44.7,
+          "end": 45.02
         },
         {
           "w": "with",
-          "start": 42.47,
-          "end": 42.71
+          "start": 45.1,
+          "end": 45.34
         },
         {
           "w": "AI.",
-          "start": 42.79,
-          "end": 43.67
+          "start": 45.42,
+          "end": 46.3
         }
       ]
     }
