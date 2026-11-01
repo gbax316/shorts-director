@@ -1,0 +1,547 @@
+{
+  "id": "doc-1-new-builders",
+  "title": "The new builders",
+  "subtype": "ai-video",
+  "series": "qodeup-docs",
+  "composition": "Doc1Builders",
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30,
+    "durationSec": 50
+  },
+  "cast": {
+    "narrator": {
+      "id": "reGkImJki7uJOve2F4A0",
+      "model": "eleven_v4",
+      "settings": {
+        "stability": 0.4,
+        "similarity_boost": 0.8,
+        "style": 0.35,
+        "use_speaker_boost": true,
+        "speed": 1.12
+      }
+    }
+  },
+  "castNote": "narrator is Ifeoma Odumodu (reGkImJki7uJOve2F4A0), picked by Claude from three auditions (Ola, Chidiebere, Ifeoma) for the animatic; Orezi confirms",
+  "endCard": {
+    "lines": [
+      "Build With AI",
+      "13 and 14 November. Two live sessions.",
+      "Sign up now"
+    ],
+    "url": "qodeupafrica.com/build-with-ai/blueprint",
+    "href": "https://qodeupafrica.com/build-with-ai/blueprint?utm_source=shorts&utm_medium=video&utm_campaign=doc-1"
+  },
+  "notes": "Script in script.md. Narration is third person about Orezi; an AI voice does not speak as him.",
+  "vo": [
+    {
+      "who": "narrator",
+      "text": "Who builds the internet now?",
+      "start": 0.3,
+      "end": 2.3,
+      "words": [
+        {
+          "w": "Who",
+          "start": 0.3,
+          "end": 0.54
+        },
+        {
+          "w": "builds",
+          "start": 0.62,
+          "end": 0.94
+        },
+        {
+          "w": "the",
+          "start": 1.02,
+          "end": 1.1
+        },
+        {
+          "w": "internet",
+          "start": 1.18,
+          "end": 1.58
+        },
+        {
+          "w": "now?",
+          "start": 1.74,
+          "end": 2.3
+        }
+      ]
+    },
+    {
+      "who": "narrator",
+      "text": "A banker in Lekki. A corps member in Ikeja. A designer in Surulere.",
+      "start": 2.65,
+      "end": 9.69,
+      "gap": 0.35,
+      "words": [
+        {
+          "w": "A",
+          "start": 2.65,
+          "end": 2.81
+        },
+        {
+          "w": "banker",
+          "start": 2.97,
+          "end": 3.37
+        },
+        {
+          "w": "in",
+          "start": 3.45,
+          "end": 3.53
+        },
+        {
+          "w": "Lekki.",
+          "start": 3.61,
+          "end": 4.943
+        },
+        {
+          "w": "A",
+          "start": 4.997,
+          "end": 5.05
+        },
+        {
+          "w": "corps",
+          "start": 5.13,
+          "end": 5.37
+        },
+        {
+          "w": "member",
+          "start": 5.45,
+          "end": 5.77
+        },
+        {
+          "w": "in",
+          "start": 5.85,
+          "end": 5.93
+        },
+        {
+          "w": "Ikeja.",
+          "start": 6.01,
+          "end": 7.33
+        },
+        {
+          "w": "A",
+          "start": 7.37,
+          "end": 7.45
+        },
+        {
+          "w": "designer",
+          "start": 7.69,
+          "end": 8.17
+        },
+        {
+          "w": "in",
+          "start": 8.25,
+          "end": 8.41
+        },
+        {
+          "w": "Surulere.",
+          "start": 8.53,
+          "end": 9.77
+        }
+      ]
+    },
+    {
+      "who": "narrator",
+      "text": "More than one new developer joins GitHub every second. Nigeria is a market to watch.",
+      "start": 10.04,
+      "end": 17.31,
+      "gap": 0.35,
+      "words": [
+        {
+          "w": "More",
+          "start": 10.04,
+          "end": 10.2
+        },
+        {
+          "w": "than",
+          "start": 10.28,
+          "end": 10.52
+        },
+        {
+          "w": "one",
+          "start": 10.6,
+          "end": 10.84
+        },
+        {
+          "w": "new",
+          "start": 10.92,
+          "end": 11.08
+        },
+        {
+          "w": "developer",
+          "start": 11.16,
+          "end": 11.8
+        },
+        {
+          "w": "joins",
+          "start": 11.88,
+          "end": 12.2
+        },
+        {
+          "w": "GitHub",
+          "start": 12.28,
+          "end": 12.84
+        },
+        {
+          "w": "every",
+          "start": 13.0,
+          "end": 13.32
+        },
+        {
+          "w": "second.",
+          "start": 13.4,
+          "end": 14.48
+        },
+        {
+          "w": "Nigeria",
+          "start": 14.52,
+          "end": 15.24
+        },
+        {
+          "w": "is",
+          "start": 15.32,
+          "end": 15.4
+        },
+        {
+          "w": "a",
+          "start": 15.64,
+          "end": 15.8
+        },
+        {
+          "w": "market",
+          "start": 15.96,
+          "end": 16.12
+        },
+        {
+          "w": "to",
+          "start": 16.24,
+          "end": 16.36
+        },
+        {
+          "w": "watch.",
+          "start": 16.84,
+          "end": 17.4
+        }
+      ]
+    },
+    {
+      "who": "narrator",
+      "text": "Most start with AI. It can build almost anything. It needs someone to direct it.",
+      "start": 17.66,
+      "end": 24.45,
+      "gap": 0.35,
+      "words": [
+        {
+          "w": "Most",
+          "start": 17.66,
+          "end": 17.98
+        },
+        {
+          "w": "start",
+          "start": 18.06,
+          "end": 18.38
+        },
+        {
+          "w": "with",
+          "start": 18.46,
+          "end": 18.62
+        },
+        {
+          "w": "AI.",
+          "start": 18.7,
+          "end": 19.66
+        },
+        {
+          "w": "It",
+          "start": 19.74,
+          "end": 19.82
+        },
+        {
+          "w": "can",
+          "start": 19.94,
+          "end": 20.06
+        },
+        {
+          "w": "build",
+          "start": 20.22,
+          "end": 20.38
+        },
+        {
+          "w": "almost",
+          "start": 20.46,
+          "end": 21.02
+        },
+        {
+          "w": "anything.",
+          "start": 21.34,
+          "end": 22.14
+        },
+        {
+          "w": "It",
+          "start": 22.22,
+          "end": 22.3
+        },
+        {
+          "w": "needs",
+          "start": 22.38,
+          "end": 22.62
+        },
+        {
+          "w": "someone",
+          "start": 22.82,
+          "end": 23.02
+        },
+        {
+          "w": "to",
+          "start": 23.1,
+          "end": 23.18
+        },
+        {
+          "w": "direct",
+          "start": 23.42,
+          "end": 23.66
+        },
+        {
+          "w": "it.",
+          "start": 23.74,
+          "end": 24.46
+        }
+      ]
+    },
+    {
+      "who": "narrator",
+      "text": "A website. Then one for a bakery. Then an app for a salon. Then your own.",
+      "start": 24.8,
+      "end": 31.76,
+      "gap": 0.35,
+      "words": [
+        {
+          "w": "A",
+          "start": 24.8,
+          "end": 24.96
+        },
+        {
+          "w": "website.",
+          "start": 25.32,
+          "end": 26.16
+        },
+        {
+          "w": "Then",
+          "start": 26.32,
+          "end": 26.48
+        },
+        {
+          "w": "one",
+          "start": 26.56,
+          "end": 26.8
+        },
+        {
+          "w": "for",
+          "start": 26.88,
+          "end": 26.96
+        },
+        {
+          "w": "a",
+          "start": 27.04,
+          "end": 27.12
+        },
+        {
+          "w": "bakery.",
+          "start": 27.24,
+          "end": 28.24
+        },
+        {
+          "w": "Then",
+          "start": 28.32,
+          "end": 28.56
+        },
+        {
+          "w": "an",
+          "start": 28.64,
+          "end": 28.8
+        },
+        {
+          "w": "app",
+          "start": 28.88,
+          "end": 29.12
+        },
+        {
+          "w": "for",
+          "start": 29.2,
+          "end": 29.28
+        },
+        {
+          "w": "a",
+          "start": 29.32,
+          "end": 29.36
+        },
+        {
+          "w": "salon.",
+          "start": 29.44,
+          "end": 30.48
+        },
+        {
+          "w": "Then",
+          "start": 30.56,
+          "end": 30.72
+        },
+        {
+          "w": "your",
+          "start": 30.8,
+          "end": 30.96
+        },
+        {
+          "w": "own.",
+          "start": 31.04,
+          "end": 31.84
+        }
+      ]
+    },
+    {
+      "who": "narrator",
+      "text": "Orezi has built websites since the WordPress days. On the thirteenth and fourteenth of November, he'll show you how.",
+      "start": 32.11,
+      "end": 40.27,
+      "gap": 0.35,
+      "words": [
+        {
+          "w": "Orezi",
+          "start": 32.11,
+          "end": 32.59
+        },
+        {
+          "w": "has",
+          "start": 32.71,
+          "end": 32.83
+        },
+        {
+          "w": "built",
+          "start": 32.95,
+          "end": 33.07
+        },
+        {
+          "w": "websites",
+          "start": 33.23,
+          "end": 33.87
+        },
+        {
+          "w": "since",
+          "start": 33.99,
+          "end": 34.11
+        },
+        {
+          "w": "the",
+          "start": 34.19,
+          "end": 34.27
+        },
+        {
+          "w": "WordPress",
+          "start": 34.35,
+          "end": 34.91
+        },
+        {
+          "w": "days.",
+          "start": 34.99,
+          "end": 35.99
+        },
+        {
+          "w": "On",
+          "start": 36.03,
+          "end": 36.11
+        },
+        {
+          "w": "the",
+          "start": 36.19,
+          "end": 36.27
+        },
+        {
+          "w": "thirteenth",
+          "start": 36.35,
+          "end": 36.91
+        },
+        {
+          "w": "and",
+          "start": 37.03,
+          "end": 37.15
+        },
+        {
+          "w": "fourteenth",
+          "start": 37.23,
+          "end": 37.63
+        },
+        {
+          "w": "of",
+          "start": 37.71,
+          "end": 37.79
+        },
+        {
+          "w": "November,",
+          "start": 37.87,
+          "end": 38.71
+        },
+        {
+          "w": "he'll",
+          "start": 38.75,
+          "end": 38.91
+        },
+        {
+          "w": "show",
+          "start": 38.99,
+          "end": 39.15
+        },
+        {
+          "w": "you",
+          "start": 39.23,
+          "end": 39.31
+        },
+        {
+          "w": "how.",
+          "start": 39.39,
+          "end": 40.35
+        }
+      ]
+    },
+    {
+      "who": "narrator",
+      "text": "It starts with creating with AI.",
+      "start": 40.87,
+      "end": 43.59,
+      "gap": 0.6,
+      "words": [
+        {
+          "w": "It",
+          "start": 40.87,
+          "end": 41.03
+        },
+        {
+          "w": "starts",
+          "start": 41.11,
+          "end": 41.51
+        },
+        {
+          "w": "with",
+          "start": 41.63,
+          "end": 41.75
+        },
+        {
+          "w": "creating",
+          "start": 42.07,
+          "end": 42.39
+        },
+        {
+          "w": "with",
+          "start": 42.47,
+          "end": 42.71
+        },
+        {
+          "w": "AI.",
+          "start": 42.79,
+          "end": 43.67
+        }
+      ]
+    }
+  ],
+  "voiceStatus": "elevenlabs:reGkImJki7uJOve2F4A0:eleven_v4"
+}
