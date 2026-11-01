@@ -56,6 +56,7 @@ Short films about how building with AI is changing who gets to make the internet
 ## Sound
 
 - **Narrator:** Ifeoma Odumodu (ElevenLabs shared voice `reGkImJki7uJOve2F4A0`), eleven_v4, picked for doc-1 from three auditions. Confirmed by Orezi 1 Nov.
+- **Who speaks:** the narrator speaks for Qodeup ("we") and names Orezi as its lead facilitator. Claims about the company come from qodeupafrica.com and its About page (Orezi, 1 Nov).
 - **Beds:**
   - the library's beds first, ducked under the voice with `makeBed`
   - the Lagos street at a low level for city beats
