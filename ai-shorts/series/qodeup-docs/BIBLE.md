@@ -55,7 +55,7 @@ Short films about how building with AI is changing who gets to make the internet
 
 ## Sound
 
-- **Narrator:** Ifeoma Odumodu (ElevenLabs shared voice `reGkImJki7uJOve2F4A0`), eleven_v4, picked for doc-1 from three auditions. Orezi confirms.
+- **Narrator:** Ifeoma Odumodu (ElevenLabs shared voice `reGkImJki7uJOve2F4A0`), eleven_v4, picked for doc-1 from three auditions. Confirmed by Orezi 1 Nov.
 - **Beds:**
   - the library's beds first, ducked under the voice with `makeBed`
   - the Lagos street at a low level for city beats
@@ -66,4 +66,4 @@ Short films about how building with AI is changing who gets to make the internet
 
 | # | Title | Premise | Status |
 |---|---|---|---|
-| 1 | The new builders | Lagos after work: people who never studied code build websites and apps by directing AI | animatic |
+| 1 | The new builders | Lagos after work: people who never studied code build websites and apps by directing AI | finished 1 Nov, waiting on Orezi's watch |
