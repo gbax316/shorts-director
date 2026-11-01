@@ -3,7 +3,7 @@ import { AbsoluteFill, Img, Sequence, staticFile } from 'remotion';
 import { COLORS } from '../../brand';
 import { FONT_MONO } from '../../fonts';
 import { GroundContext } from '../../brand';
-import { Annotate, Bars, BeforeAfter, ChatThread, Checklist, Counter, Documentary, FlashCut, GlassWidgets, HighlightQuote, HookText, LowerThird, MapZoom, Notifications, Orbit, Parallax, PunchZoom, Quiz, RankReveal, Receipt, SearchBar, SharePrompt, SplitCompare, SplitScreen, Spotlight, StepCounter, Timeline } from '../../lib/effects';
+import { Annotate, Bars, BeforeAfter, ChatThread, Checklist, Counter, DocFocus, Documentary, FlashCut, GlassWidgets, HighlightQuote, HookText, LowerThird, MapZoom, Notifications, Orbit, Parallax, PunchZoom, Quiz, RankReveal, Receipt, SearchBar, SharePrompt, SplitCompare, SplitScreen, Spotlight, StepCounter, Timeline } from '../../lib/effects';
 
 // =============================================================================
 // COMPOSITION CONFIG: the effects gallery. Every effect in lib/effects, four seconds each,
@@ -12,7 +12,7 @@ import { Annotate, Bars, BeforeAfter, ChatThread, Checklist, Counter, Documentar
 // =============================================================================
 export const compositionConfig = {
   id: 'EffectsGallery',
-  durationInSeconds: 112,
+  durationInSeconds: 118,
   fps: 30,
   width: 1080,
   height: 1920,
@@ -32,7 +32,7 @@ const Label: React.FC<{ name: string }> = ({ name }) => (
   <div style={{ position: 'absolute', left: 0, right: 0, bottom: 120, textAlign: 'center', fontFamily: FONT_MONO, fontSize: 30, letterSpacing: 4, color: COLORS.onNightSoft }}>{name}</div>
 );
 
-export const EFFECTS_ORDER = ['checklist', 'timeline', 'glass-widgets', 'spotlight', 'orbit', 'split-compare', 'documentary', 'parallax', 'map-zoom', 'checklist (day ground)', 'split-screen (kallaway)', 'hook-text', 'punch-zoom', 'chat-thread', 'notifications', 'rank-reveal', 'quiz', 'highlight-quote', 'annotate', 'step-counter', 'share-prompt', 'counter', 'bars', 'search-bar', 'receipt', 'before-after', 'lower-third', 'flash-cut'] as const;
+export const EFFECTS_ORDER = ['checklist', 'timeline', 'glass-widgets', 'spotlight', 'orbit', 'split-compare', 'documentary', 'parallax', 'map-zoom', 'checklist (day ground)', 'split-screen (kallaway)', 'hook-text', 'punch-zoom', 'chat-thread', 'notifications', 'rank-reveal', 'quiz', 'highlight-quote', 'annotate', 'step-counter', 'share-prompt', 'counter', 'bars', 'search-bar', 'receipt', 'before-after', 'lower-third', 'flash-cut', 'doc-focus'] as const;
 
 const EffectsGallery: React.FC = () => (
   <GroundContext.Provider value="night">
@@ -234,6 +234,10 @@ const EffectsGallery: React.FC = () => (
       <Sequence from={60}><Plate name="07-yaba-bakery" dim={0} /></Sequence>
       <FlashCut at={60} />
       <Label name="flash-cut" />
+    </Sequence>
+    <Sequence from={SEG * 28} durationInFrames={180}>
+      <DocFocus len={180} src="projects/effects/course-quote.png" w={1075} h={3824} lines={[{x: 50, y: 1750, w: 821, h: 90}, {x: 50, y: 1828, w: 798, h: 90}, {x: 50, y: 1906, w: 781, h: 90}, {x: 50, y: 1984, w: 310, h: 90}]} page="dark" pushFrom={6} pushTo={40} readFrom={48} readTo={150} source="qodeupafrica.com/build-with-ai" />
+      <Label name="doc-focus" />
     </Sequence>
   </AbsoluteFill>
   </GroundContext.Provider>

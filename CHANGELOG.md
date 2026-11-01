@@ -7,6 +7,12 @@ How the number moves:
 - **Minor (0.2.0):** a new format, mode, check or tool, or a change in how a run behaves (a new gate, a new default model).
 - **Major (1.0.0):** a change that breaks existing shorts or series (a new `beats.json` or `character.json` shape, a renamed config field). 1.0.0 is also the release where the first posted shorts' audience numbers have set real baselines.
 
+## 0.4.0 (1 November 2026)
+
+- DocFocus, the document callout: a real page on screen, the camera pushes in on a passage, the rest blurs and dims, the passage lifts and is marked line by line as it is read (a highlighter on light pages, a glowing underline on dark ones). 28 effects in all.
+- `tools/capture_passage.py`: screenshot any web page around a passage and record where its lines sit, for DocFocus.
+- `docs/USING.md`: a full guide to running the director, from setup through every gate of a short to costs, versions, other agents and troubleshooting. Linked from the README and AGENTS.md.
+
 ## 0.3.0 (1 November 2026)
 
 - 17 more effects, 27 in all: HookText, PunchZoom, ChatThread, Notifications, RankReveal, Quiz, HighlightQuote, Annotate, StepCounter, SharePrompt, Counter, Bars, SearchBar, Receipt, BeforeAfter, LowerThird, FlashCut. All ground-aware, inside the safe box, with sources on facts. The gallery shows every one.

@@ -47,7 +47,7 @@ This list can grow. When a beat's job is none of these, name the new job in the 
 | place | `MapZoom` (real projection, cleaned map, pin) | doc-1's night map | a captioned still with a place tag |
 | archive | `Documentary` (grain, date stamp, title; holds still) | | a plain still with a date tag |
 | screen | `SearchBar`, `ChatThread`, `Notifications`, `SplitScreen` (the Kallaway split: who is talking in one half, what they mean in the other, the caption on the seam) | the pinned screens (`doc-1/screens.tsx`), episode 2's phone search | a phone mock in code |
-| quote | `HighlightQuote` | | the line as kinetic type with its source |
+| quote | `DocFocus` (the real page: the camera pushes in, the rest blurs and dims, the passage lifts and is marked line by line as it is read; capture with `tools/capture_passage.py`), `HighlightQuote` (the line set in type when the page itself is not worth showing) | | the line as kinetic type with its source |
 | who | `LowerThird` | | a name tag in the corner |
 | hook | `HookText` (the opening words slam in with the voice) | | the hook line as large type over the frame-0 picture |
 | structure | `StepCounter` ("3 of 5", honest progress) | | |
@@ -90,4 +90,4 @@ The message that sends the animatic lists each beat that carries an effect, whic
 
 ## Growing and pruning the library
 
-Build an effect when a short needs it, not ahead of time; a library built ahead of need grows effects nobody's beats call for. The 27 in the library on 1 November were built ahead of need at the owner's request (he asked for at least 24) and are **unproven** until a short uses them. A film-local effect (the right-hand column) moves into the library the second time a short needs it. Every run's log entry lists the effects used; an effect used in two shorts is proven, and one not picked in five shorts is a candidate to remove. The effects mode builds new ones.
+Build an effect when a short needs it, not ahead of time; a library built ahead of need grows effects nobody's beats call for. The 28 in the library on 1 November were built ahead of need at the owner's request (he asked for at least 24) and are **unproven** until a short uses them. A film-local effect (the right-hand column) moves into the library the second time a short needs it. Every run's log entry lists the effects used; an effect used in two shorts is proven, and one not picked in five shorts is a candidate to remove. The effects mode builds new ones.

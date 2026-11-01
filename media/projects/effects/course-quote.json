@@ -1,0 +1,33 @@
+{
+  "url": "https://qodeupafrica.com/build-with-ai/blueprint",
+  "text": "AI can build almost anything",
+  "until": "I'll teach you.",
+  "w": 1075,
+  "h": 3824,
+  "lines": [
+    {
+      "x": 50,
+      "y": 1750,
+      "w": 821,
+      "h": 90
+    },
+    {
+      "x": 50,
+      "y": 1828,
+      "w": 798,
+      "h": 90
+    },
+    {
+      "x": 50,
+      "y": 1906,
+      "w": 781,
+      "h": 90
+    },
+    {
+      "x": 50,
+      "y": 1984,
+      "w": 310,
+      "h": 90
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 ---
 name: shorts-director
-version: 0.3.0
+version: 0.4.0
 description: >-
   Directs a faceless vertical short from idea to finished, mastered file, and gets better with every run. Picks a format, writes the episode in a writers' room (three premises judged as the buyer), voices it, gates on an animatic, then decides beat by beat how each moment is made: drawn in code in Remotion, a cut-out from a generated still, a generated clip, or one of the engine tracks. Modes: series, writers-room, produce, sound, finish, bakeoff, effects (/effects), improve (the learning loop after every short). Formats so far: character skit with dialogue and synced mouths, photoreal mini documentary with sourced figures. Triggers on "make a short", "next episode", "make a video about X", "faceless video", "reel for this offer". Do NOT trigger for editing an existing video file, for a pure code-drawn explainer with no writers' room (make-short), or for collage (make-vox).
 ---

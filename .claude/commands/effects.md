@@ -1,5 +1,5 @@
 ---
-description: Preview, place or build a video effect (27 in the library: checklist, timeline, quiz, rank reveal, chat thread, counter, map zoom, parallax, kallaway split screen and more, or a new one)
+description: Preview, place or build a video effect (28 in the library: checklist, timeline, quiz, rank reveal, chat thread, counter, document callout, map zoom, parallax, kallaway split screen and more, or a new one)
 argument-hint: "[effect name] [what it should show or which beat]"
 ---
 

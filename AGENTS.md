@@ -10,6 +10,8 @@ To make a short, or to do any part of one, read `.claude/skills/shorts-director/
 
 `/effects <name>` is a Claude Code command. In any other agent, ask for the same thing in words ("run the effects mode: build a quiz effect for the class dates") and follow `modes/effects.md`.
 
+The owner-facing guide to running it is `docs/USING.md`; read it when you need to explain a step or answer a question about how the director works.
+
 ## What must hold
 
 - Identity (brand, people, links, house rules, voices, provider prices) comes from `director.config.json`; visual identity from `remotion/src/brand.ts` and `remotion/src/fonts.ts`. Never hard-code a name, brand or link anywhere else.

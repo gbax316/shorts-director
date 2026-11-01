@@ -54,3 +54,5 @@ export { LowerThird } from './LowerThird';
 export type { LowerThirdProps } from './LowerThird';
 export { FlashCut } from './FlashCut';
 export type { FlashCutProps } from './FlashCut';
+export { DocFocus } from './DocFocus';
+export type { DocFocusProps, DocLine } from './DocFocus';
