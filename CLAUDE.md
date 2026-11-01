@@ -2,7 +2,7 @@
 
 **Start every new short with the `shorts-director` skill** (`.claude/skills/shorts-director/SKILL.md`). It runs the writers' room, voice, animatic, clips, mouths, sound, finish and the improve loop, and routes beats to the three engine tracks below. Identity and defaults are in `director.config.json`; every finished short is logged in `RUNS.md` and its lessons in `LESSONS.md`. Commit locally as work completes; push only when the owner asks.
 
-The engine tracks, from Hasan Aboul Hasan's creator (MIT):
+The engine tracks it routes between:
 
 
 A **faceless-shorts factory** driven by Claude Code. Three production tracks, one repo. The

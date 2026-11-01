@@ -2,179 +2,61 @@
 
 **A faceless-shorts director you run with [Claude Code](https://claude.com/claude-code). It picks a format, writes the episode in a writers' room, and decides beat by beat how each moment is made: drawn in code, cut out from a generated still, or generated as a clip. It gets better with every short it makes.**
 
-Start a short by asking Claude for one ("make the next Akpos and Segs episode", "make a mini documentary about X"). The `shorts-director` skill in `.claude/skills/shorts-director/` takes it from there:
+Ask Claude for a short ("make the next Akpos and Segs episode", "make a mini documentary about X") and the `shorts-director` skill in `.claude/skills/shorts-director/` runs it:
 
 1. **Writers' room:** three divergent premises, each judged as the buyer, and a pick with its reason. You choose.
 2. **Voice:** ElevenLabs, with auditions you pick by ear for pidgin and names, seated exactly.
 3. **Animatic:** stills on the real voice timeline with every gag drawn in code. Nothing is generated until you approve it.
-4. **Clips and mouths:** generated only where acting carries the beat, checked frame by frame, with mouths redrawn from the voice by `tools/mouth_sync.py`.
-5. **Sound and finish:** library beds and cues, mastered to -14 LUFS, a phone copy, every word checked against the style rules.
-6. **Improve:** each run is scored in `RUNS.md`, its lessons land in `LESSONS.md`, and repeated faults become changes to the skill that you approve.
+4. **Clips and mouths:** generated only where acting carries the beat, checked frame by frame, with mouths redrawn from the voice.
+5. **Sound and finish:** library beds and cues, mastered in two passes to -14 LUFS, a phone copy, every word checked against the style rules.
+6. **Improve:** each run is scored in `RUNS.md`, its lessons land in `LESSONS.md`, and repeated faults become skill changes you approve. Releases are tagged and listed in `CHANGELOG.md`.
 
-Two formats are proven so far: a character skit with dialogue and synced mouths (Akpos and Segs) and a photoreal mini documentary with sourced figures (Qodeup). The cost of every generation step is stated before it runs.
+The cost of every generation step is stated before it runs.
 
-**Make it yours.** Brand, people, links, house rules, voices and provider prices live in `director.config.json`. Colours, fonts and logos live in `remotion/src/brand.ts` and `remotion/src/fonts.ts`. Change those, not the skill.
+## Formats
 
-**Keys.** `ELEVENLABS_API_KEY` for voice, `KIE_API_KEY` for stills and clips on kie.ai (`FAL_KEY` and `GEMINI_API_KEY` for the alternatives), in `.env` or your environment. `STYLE_SCAN` points `tools/check_text.py` at your style scanner.
-
-**Built on Hasan Aboul Hasan's [claude-faceless-shorts-creator](https://github.com/hassancs91/claude-faceless-shorts-creator)** (MIT). His three tracks, Remotion kit, voice, image, clip and sound tools are the engines this director routes between, and his licence ships with them. His original README follows.
-
----
-
-## The engines: claude-faceless-shorts-creator (by Hasan Aboul Hasan)
-
-**A faceless YouTube-Shorts factory you drive with [Claude Code](https://claude.com/claude-code).**
-Three production tracks in one repo — you just describe the video, and the right pipeline runs:
-
-| You say… | Track | The pixels |
+| Format | What it is | Proved by |
 |---|---|---|
-| *"make a short about the ×11 trick"* | **TSX** (`/make-short`) | 100% code — a [Remotion](https://remotion.dev) composition, no footage, no stock |
-| *"make an AI video short with blue-man"* | **Generative** (`/make-ai-short`) | a fal video model animating a **locked recurring character** |
-| *"make a vox-style short about coffee"* | **Collage** (`/make-vox`) | Vox-documentary paper collage — AI-image layers, die-cuts, a traveling camera |
+| Character skit | a recurring cast in dialogue, with synced mouths and code-drawn gags | Akpos and Segs, episodes 1 and 2 (`ai-shorts/akpos-segs-*`) |
+| Mini documentary | a narrator over photoreal scenes, every figure sourced on screen | Qodeup mini documentary 1 (`ai-shorts/doc-1`) |
+| Code-drawn explainer | 100% Remotion animation, no footage | the `make-short` engine and its examples in `shorts/` |
+| Collage | paper-collage layers with a travelling camera | the `make-vox` engine and its example in `vox-shorts/` |
 
-Every track shares the same backbone: ElevenLabs voice with **word-exact synced captions**,
-frame-by-frame QA at phone scale, a reusable self-growing SFX/music library, seamless
-frame-0==last-frame loops, and no dated engagement-CTA outros.
+A new format is made once as a proving run, then written up as a format reference so the next one starts from a grammar.
 
-## 📖 Read the guide
+## Make it yours
 
-I wrote up the whole system on my site, including the six-beat grammar that decides whether a
-40-second short is worth finishing:
-**[Make Faceless YouTube Shorts With Claude Code](https://learnwithhasan.com/guide/how-to-make-faceless-youtube-shorts-with-claude-code/?utm_source=github&utm_medium=readme&utm_campaign=claude-faceless-shorts-creator&utm_content=body)**
-
-Free to read, no login. More build guides at
-**[learnwithhasan.com/guides](https://learnwithhasan.com/guides/?utm_source=github&utm_medium=readme&utm_campaign=claude-faceless-shorts-creator&utm_content=body)**.
-
-## The example videos (more coming)
-
-**TSX shorts** (`shorts/`) — 12 complete productions; each folder has the script, beats
-contract, and SFX cue sheet, and the committed composition renders the exact video:
-
-| # | Niche | Title / hook |
-|---|---|---|
-| 1 | Chess | The 4-Move Checkmate — Punished |
-| 2 | Math | The ×11 Trick |
-| 3 | Algorithms | Bubble vs Quick: The Race |
-| 4 | Dev tips | `git reflog` undoes any mistake |
-| 5 | Probability | Monty Hall, Finally Intuitive |
-| 6 | Excel | Excel Reads Your Mind (Flash Fill / Ctrl+E) |
-| 7 | Kids story | Little Pip (AI-image storybook, ages 4–6) |
-| 8 | Cybersecurity | The URL That Isn't PayPal |
-| 9 | Music theory | The 4 Chords In Every Hit |
-| 10 | Money math | The 1% Fee That Eats 24% Of Your Retirement |
-| 11 | Geography | The Map Lied To You |
-| 12 | Physics | Astronauts Aren't Weightless. They're Falling. |
-
-**Generative** (`ai-shorts/blue-man/`) — *The Door*: a clay-render character walking through
-doors across worlds, thesis "arrival is a myth". Includes the **locked character sheet**
-(`character.json` + reference PNG), the model bake-off records (Seedance vs Kling vs Veo, with
-derived per-second costs), and the six generated clips — committed, because video-model pixels
-are not reproducible.
-
-**Collage** (`vox-shorts/vox-1-coffee/`) — a Vox-style documentary short on coffee's journey:
-generated map/archival/cutout layers (committed), a camera choreographed across scenes, and
-`DESIGN.md` — the full visual-language spec of the collage engine.
-
-Rendered videos aren't committed (they're reproducible from the repo); links to published
-versions will be added here as they go live.
-
-## How a short gets made
-
-```
-topic ──▶ script.md + beats.json      the beat grammar: HOOK (frame 0 = the thumbnail)
-                │                      → SETUP → QUIZ → REVEAL → TWIST → seamless LOOP
-                ▼
-        the visuals                    TSX composition / video-model clips / collage layers
-                │                      (per track — but always ONE Remotion timeline)
-                ▼
-        frame-by-frame QA              Claude renders PNGs at phone scale and READS them
-                │
-                ▼
-        gen_voice.py                   ElevenLabs TTS per line → REAL per-word timestamps
-                │                      → captions highlight on the exact spoken word
-                ▼
-        sfx-plan.json + mix_sfx.py     library-first sound design, audition mix, your ear
-                │                      is the final gate (optional music bed: mix_music.py)
-                ▼
-        <track>/<project>/output/*-sfx.mp4
-```
-
-Five Claude Code **skills** encode the craft:
-
-- **`/make-short`** — the TSX pipeline: hook grammar, no-CTA outros, caption safe areas,
-  Sequence-local frame math, loop-into-intro endings.
-- **`/make-ai-short`** — the generative pipeline and its three iron rules: never regenerate a
-  locked character from text, state the cost before spending it, loop by end-frame constraint.
-- **`/make-vox`** — scene dissection into layers, cheapest-source layer production
-  (gen_image + rembg cutouts, HTML→PNG, SVG-in-TSX), CollageBoard camera choreography.
-- **`/vidtsx-2d-generator`** — the TSX authoring rules that keep Remotion renders from crashing.
-- **`/suggest-sfx`** — taste-encoded sound design: function-first cues, layered hero moments,
-  measured audibility (RMS-diff, not hope), a library that compounds across videos.
-
-`brand.md` is the style contract (palette, type, motion, SFX taste) — swap it for your own
-brand and every future short follows it.
+Brand, people, links, house rules, voices and provider prices live in `director.config.json`. Colours, fonts and logos live in `remotion/src/brand.ts` and `remotion/src/fonts.ts`. Change those, not the skill.
 
 ## Quickstart
 
-Requirements: [Claude Code](https://claude.com/claude-code) · Node 18+ · Python 3.10+ ·
-`ffmpeg` on PATH · an [ElevenLabs](https://elevenlabs.io) key (voice/SFX/music). For the
-generative track add a [fal.ai](https://fal.ai) key; for collage layer production:
-`pip install pillow rembg playwright && playwright install chromium` (the only pip installs
-in the repo — everything else is stdlib).
+Requirements: Claude Code, Node 18+, Python 3.10+, `ffmpeg` on PATH, and keys for the services you use: `ELEVENLABS_API_KEY` (voice, effects, music), `KIE_API_KEY` (stills and clips on kie.ai), optionally `FAL_KEY` and `GEMINI_API_KEY`. Put them in `.env` (copy `.env.example`) or your environment. `STYLE_SCAN` points `tools/check_text.py` at your style scanner. Cut-outs need `pip install pillow rembg`.
 
 ```bash
-git clone https://github.com/hassancs91/claude-faceless-shorts-creator
-cd claude-faceless-shorts-creator
-cp .env.example .env          # add your keys
+git clone https://github.com/gbax316/shorts-director
+cd shorts-director
+cp .env.example .env
 cd remotion && npm install && npm run gen && cd ..
-
-claude                        # open the repo in Claude Code, then:
+claude
 ```
 
-> **make a short about &lt;your topic&gt;** · **make an AI video short about &lt;idea&gt;** ·
-> **make a vox-style short about &lt;story&gt;**
+Then ask for a short. To look at the compositions: `cd remotion && npm run studio`.
 
-…or rebuild an example: *"re-render short-5 and regenerate its voice"*.
-
-To just explore the compositions visually: `cd remotion && npm run studio`.
-
-## Repo layout
+## Layout
 
 ```
-.claude/skills/   the five skills (this is where the "editor" lives)
-tools/            Python: gen_voice, gen_sfx, gen_music, mix_sfx, mix_music, gen_image,
-                  gen_clip, bakeoff_clip, cutout, capture_web, gen_chords
-remotion/         the Remotion project — shared kits in src/lib/ (incl. collage.tsx),
-                  one folder per video in src/shots/
-media/library/    reusable assets: SFX clips + music beds (catalogued, loudness-normalized)
-media/projects/   media for one specific video — incl. committed AI clips & collage layers
-shorts/           the 12 TSX example productions
-ai-shorts/        the generative track: blue-man/ (locked character) + IDEAS.md (cost tables)
-vox-shorts/       the collage track: vox-1-coffee/ + DESIGN.md (the visual language)
-brand.md          the style contract — make it yours
-IDEAS.md          the TSX-shorts niche/idea bank
+.claude/skills/shorts-director/   the director: modes, references, formats
+.claude/skills/                   the engine skills: make-short, make-ai-short, make-vox, vidtsx-2d-generator, suggest-sfx
+director.config.json              identity, house rules, voices, providers and prices
+tools/                            voice, stills, clips, mouths, cut-outs, sound, mastering, checks
+remotion/                         the Remotion project: shared kits in src/lib/, one folder per video in src/shots/
+media/library/                    reusable sound effects and music beds
+media/projects/                   media for one video, including committed clips
+ai-shorts/                        generated-pixel shorts and the series bibles (ai-shorts/series/)
+shorts/, vox-shorts/              engine examples: code-drawn explainers and collage
+RUNS.md, LESSONS.md, CHANGELOG.md the learning loop's records
 ```
 
-## License
+## Credits and licence
 
-MIT — see [LICENSE](LICENSE). Bundled SFX/music clips and example AI media were generated by
-the repo author (ElevenLabs / fal / Gemini) and are redistributed here; per-clip provenance is
-recorded in `media/library/*/catalog.json` and the per-shot `.json` sidecars.
-
-<!-- lwh-footer -->
-
----
-
-## 📘 The free book
-
-This repo is one thing I built with AI. The book is the system underneath it.
-
-**[Vibe Engineering Blocks](https://learnwithhasan.com/blocks/?utm_source=github&utm_medium=readme&utm_campaign=claude-faceless-shorts-creator&utm_content=footer)** is my free 74-page book.
-47 building blocks for shipping real apps with AI. One block per page, each with the exact
-prompt to hand your AI.
-
-Built by **[Hasan Aboul Hasan](https://learnwithhasan.com/?utm_source=github&utm_medium=readme&utm_campaign=claude-faceless-shorts-creator&utm_content=footer)**. I build real products with AI and
-write down exactly how.
-[Guides](https://learnwithhasan.com/guides/?utm_source=github&utm_medium=readme&utm_campaign=claude-faceless-shorts-creator&utm_content=footer) &nbsp;·&nbsp;
-[YouTube](https://www.youtube.com/@HasanAboulHasan) &nbsp;·&nbsp;
-[Community](https://learnwithhasan.com/community/?utm_source=github&utm_medium=readme&utm_campaign=claude-faceless-shorts-creator&utm_content=footer)
+MIT, see [LICENSE](LICENSE). The engine tracks (the Remotion kit, the voice, image, clip and sound tools, and the explainer, generative and collage skills with their examples) began as Hasan Aboul Hasan's [claude-faceless-shorts-creator](https://github.com/hassancs91/claude-faceless-shorts-creator), also MIT. Bundled sound and example media were generated with ElevenLabs, fal, Gemini and kie.ai; provenance is in `media/library/*/catalog.json` and the per-shot `.json` sidecars.

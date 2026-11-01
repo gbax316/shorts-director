@@ -3,7 +3,7 @@
 40.5s vertical (1080×1920) · voice: ElevenLabs Liam · no burned captions (on-screen text carries
 the words; revisit after the user's audit). Upgraded 2026-07-14 from the approved engine PoC.
 
-## STATUS: production complete 2026-07-14 — AWAITING HASAN'S AUDIT
+## STATUS: production complete 2026-07-14 — AWAITING THE OWNER'S AUDIT
 
 - `output/vox-1-sfx.mp4` — voiced + 22-cue SFX mix (no music), the reference audition
 - `output/vox-1-sfx-<bed>.mp4` — 6 music-bed auditions (docu-pluck is the new

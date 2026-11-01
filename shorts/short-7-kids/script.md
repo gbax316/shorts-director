@@ -29,7 +29,7 @@ emotional arc (warm → playful → worried → scared → crying → whisper �
 - Model: `eleven_v3` (required for audio/emotion tags).
 - Candidate voices (both warm storytellers): **George** `JBFqnCBsd6RMkjVDRZzb` (British male,
   narrative_story) and **Sarah** `EXAVITQu4vr4xnSDxMaL` (warm female). Generate the full arc in
-  both → Hasan's ear picks.
+  both → the owner's ear picks.
 - `text` = clean caption; `tts` = tagged delivery (tags filtered from the word map, never captioned).
 - Windows are generous so v3's slower emotional delivery isn't atempo-squeezed.
 

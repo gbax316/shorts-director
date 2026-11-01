@@ -94,7 +94,7 @@ hard reset. It's your local undo history for the whole repo.
 - **Highlight:** added an additive optional `hl` / `hlAt` to `TermLine` in `lib/terminal.tsx`
   (backward-compatible — the ebq lecture shots are untouched).
 - Voice = real ElevenLabs (Liam) word times via `gen_voice.py`. **Tight timing pass (2026-07-14):**
-  the first cut left ~10s of dead air (gaps up to 2.4s between lines — Hasan flagged it as slow
+  the first cut left ~10s of dead air (gaps up to 2.4s between lines — the owner flagged it as slow
   with "stops"). Re-timed line starts to ~0.25s breaths, shortened the twist line, pulled the
   whole short 41s → 34s. `gen_voice` anchors each line at its authored start, so the terminal
   cue frames (keyed to line starts) stayed in sync — only the composition constants + SFX cue

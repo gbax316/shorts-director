@@ -12,6 +12,6 @@ The choice is made per beat, not per video. A single skit can use all of them, a
 
 **A held frame.** A long line over a scene that has just had a clip: hold the clip's last frame, run it through mouth_sync, and let the code-drawn gags carry the movement. Bodies still for ten seconds or more can feel stiff; a slow breath on the held frame is the cheap fix if the owner asks.
 
-**Hasan's engines.** A whole beat or short in code-drawn explainer style (`make-short`, with `vidtsx-2d-generator`'s niche libraries for chess, maths, maps, orbits, terminals and browsers) or collage (`make-vox`). Borrow them when a beat is an explanation rather than a moment.
+**The engine tracks.** A whole beat or short in code-drawn explainer style (`make-short`, with `vidtsx-2d-generator`'s niche libraries for chess, maths, maps, orbits, terminals and browsers) or collage (`make-vox`). Borrow them when a beat is an explanation rather than a moment.
 
 When in doubt, ask what the viewer's eye is supposed to land on. If it is a piece of information, draw it in code. If it is a feeling on a face, generate it. If it is presence, cut it out.

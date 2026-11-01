@@ -26,7 +26,7 @@ One entry per finished short, newest first, written by the shorts-director skill
 
 ## Akpos and Segs, episode 1, "Segs's kiosk" (1 November 2026)
 
-- **Format:** character skit, made before the director existed, with Hasan's make-ai-short track and mouth_sync.
+- **Format:** character skit, made before the director existed, with the make-ai-short engine and mouth_sync.
 - **Revision rounds:** 1 (the mouths). Two morph faults in shot 8 were found late and fixed with `hold`.
 - **What it taught:** LESSONS 1 to 14.
 - **Audience:** not posted yet.

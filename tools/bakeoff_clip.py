@@ -2,7 +2,7 @@
 """
 bakeoff_clip.py — SAME prompt + SAME reference image across N fal video models -> labelled grid.
 
-gen_clip.py fires ONE model; this is the missing comparison harness (the "audition for Hasan's
+gen_clip.py fires ONE model; this is the missing comparison harness (the "audition for the owner's
 eye" pattern, like mix_music.py auditions beds for his ear). One prompt + one reference still ->
 fan out to N image-to-video models IN PARALLEL -> per-model mp4 + sidecar json -> one stitched
 side-by-side grid.mp4 with the model id and cost burned into each panel.

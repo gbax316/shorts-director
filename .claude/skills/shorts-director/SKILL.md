@@ -2,14 +2,14 @@
 name: shorts-director
 version: 0.1.0
 description: >-
-  Directs a faceless vertical short from idea to finished, mastered file, and gets better with every run. Picks a format, writes the episode in a writers' room (three premises judged as the buyer), voices it, gates on an animatic, then decides beat by beat how each moment is made: drawn in code in Remotion, a cut-out from a generated still, a generated clip, or one of Hasan's engines. Modes: series, writers-room, produce, sound, finish, bakeoff, improve (the learning loop after every short). Formats so far: character skit with dialogue and synced mouths, photoreal mini documentary with sourced figures. Triggers on "make a short", "next episode", "make a video about X", "faceless video", "reel for this offer". Do NOT trigger for editing an existing video file, for a pure code-drawn explainer with no writers' room (make-short), or for collage (make-vox).
+  Directs a faceless vertical short from idea to finished, mastered file, and gets better with every run. Picks a format, writes the episode in a writers' room (three premises judged as the buyer), voices it, gates on an animatic, then decides beat by beat how each moment is made: drawn in code in Remotion, a cut-out from a generated still, a generated clip, or one of the engine tracks. Modes: series, writers-room, produce, sound, finish, bakeoff, improve (the learning loop after every short). Formats so far: character skit with dialogue and synced mouths, photoreal mini documentary with sourced figures. Triggers on "make a short", "next episode", "make a video about X", "faceless video", "reel for this offer". Do NOT trigger for editing an existing video file, for a pure code-drawn explainer with no writers' room (make-short), or for collage (make-vox).
 ---
 
 # Shorts director
 
 A short is judged in two seconds by someone who owes it nothing. Everything in this skill exists so that the first cut you hand over is one the owner would post: the idea chosen from three, the words visible on screen as well as heard, no fault in the frame that they spot before you do, and a sound mix they can play on a phone in a danfo. Quality comes first. Cost is shown before every spend, never used as a ceiling.
 
-The skill directs; the repo's engines do the work. Hasan Aboul Hasan's MIT engines (the Remotion kit, the clip and image tools, the niche libraries, the collage camera) and the tools added since (mouth_sync, the shared cards, the caption chunker, the checks) are render paths this skill picks between, beat by beat, rather than one track per video.
+The skill directs; the repo's engines do the work. The engine tracks (the Remotion kit, the clip and image tools, the niche libraries, the collage camera) and the tools added since (mouth_sync, the shared cards, the caption chunker, the checks) are render paths this skill picks between, beat by beat, rather than one track per video.
 
 ## Before anything: read the config and the bible
 
@@ -50,7 +50,7 @@ A format brings its own grammar (how the beats run), its own visual world and it
 - `references/formats/skit.md`: a recurring cast in dialogue (proved by Akpos and Segs, episodes 1 and 2)
 - `references/formats/documentary.md`: a narrator over photoreal scenes with sourced figures (proved by Qodeup mini documentary 1)
 
-Hasan's formats stay available as engines: code-drawn explainers through `make-short` and `vidtsx-2d-generator`, collage through `make-vox`. The director can route a whole short to one of them, or borrow a beat from one.
+The engine formats stay available too: code-drawn explainers through `make-short` and `vidtsx-2d-generator`, collage through `make-vox`. The director can route a whole short to one of them, or borrow a beat from one.
 
 ## When the requested format isn't proven yet
 
@@ -63,7 +63,7 @@ Every short ends in the improve mode. It scores the run against the outcomes in 
 ## References
 
 - `references/outcomes.md`: what the skill must produce, with numbers, how each is checked, and the loops that improve it
-- `references/render-routing.md`: choosing, per beat, between code, a cut-out, a generated clip and Hasan's engines
+- `references/render-routing.md`: choosing, per beat, between code, a cut-out, a generated clip and the engine tracks
 - `references/voice.md`: voices, casting, auditions, pidgin and names, seating a picked take
 - `references/stills-and-clips.md`: generating stills and clips, prompts that hold identity, re-rolls, prices
 - `references/mouths.md`: redrawing mouths on generated clips with mouth_sync, including per-shot settings
@@ -73,9 +73,9 @@ Every short ends in the improve mode. It scores the run against the outcomes in 
 
 ## Related skills
 
-- `make-short`, `vidtsx-2d-generator`: Hasan's code-drawn explainer track and its crash rules, used as a render path
-- `make-vox`: Hasan's collage track
-- `make-ai-short`: Hasan's generative track, whose clip discipline this skill carries forward
+- `make-short`, `vidtsx-2d-generator`: the code-drawn explainer track and its crash rules, used as a render path
+- `make-vox`: the collage track
+- `make-ai-short`: the generative track, whose clip discipline this skill carries forward
 - `suggest-sfx`: sound cue auditions, called from the sound mode
 - `os-writing` (Personal OS): hooks and captions for posting, called from the finish mode
 - `os-skillify` (Personal OS): writing a new format reference after its proving run
