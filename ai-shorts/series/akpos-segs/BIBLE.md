@@ -50,6 +50,10 @@ Two close friends on a busy Lagos street. Akpos finds the thing that works and w
 | "They go just hang you." | episode 1 | Segs on courses |
 | Akpos laughs before he answers | episode 1 | Akpos |
 | A pile of YouTube thumbnails buries Segs | v6 | the doubt made visible |
+| "You see am?" | episode 2 | Akpos, deadpan, when the point has just proved itself |
+| "Abeg register me now now. Before another customer waka pass." | episode 2 | Segs, the turn to yes |
+| A LOST SALES counter ticks in the corner, then freezes when he signs up | episode 2 | the cost made visible |
+| One eyebrow floats off Segs's head and back | episode 2 | Segs baffled, never annoyed |
 | Things come out of Akpos's cap like rabbits from a hat | v6 | Akpos's reveals |
 | The date calendar slams down | v6 | urgency |
 

@@ -1,7 +1,7 @@
 ---
 episode: Akpos and Segs, episode 2, "The customer who walked away"
 created: 2026-11-01
-status: script draft for Orezi (premise A picked 1 Nov); his dictation replaces these lines, as in episode 1
+status: finished cut 1 Nov (Ai3Customer, output/akpos-segs-2-customer-final.mp4); spoken lines as voiced are in beats.json (line 6 became "Abeg register me now now. Before another customer waka pass.")
 reads: ../series/akpos-segs/BIBLE.md, premises.md
 goal: seats for Build With AI (13 and 14 November, two live sessions), link qodeupafrica.com/build-with-ai/blueprint
 length: about 45 to 50 s of voice, then the end card
