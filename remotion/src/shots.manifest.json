@@ -49,7 +49,15 @@
  },
  {
   "id": "Doc1Builders",
-  "durationInSeconds": 50.2,
+  "durationInSeconds": 52.83,
+  "fps": 30,
+  "width": 1080,
+  "height": 1920,
+  "transparent": false
+ },
+ {
+  "id": "EffectsGallery",
+  "durationInSeconds": 44,
   "fps": 30,
   "width": 1080,
   "height": 1920,
