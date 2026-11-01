@@ -89,3 +89,22 @@ read both before a new series.
     mouth. A frame-to-frame difference scan finds these (spikes over four times the clip's
     median); a shot's "hold" list in beats.json makes mouth_sync repeat the last good frame,
     so the jump plays as a cut.
+15. Caption chunks break at sentence ends before they split for length, so a pidgin pair like
+    "Okay o." or "now now." never lands on two cards. Short sentences share a card while they
+    fit, and a long one splits evenly (13 words at four a card is 4, 3, 3, 3).
+16. When a pidgin take is picked by ear from auditions, seat that exact take under gen_voice's
+    cache name and take its word map from ElevenLabs forced alignment. Re-generating "the same
+    text" gives a different read than the one that was approved.
+17. A video model reads "an eyebrow flies off his head" as a change of head shape: the first
+    Seedance 2 roll stretched Segs's whole head into a pear. What held on the re-roll: the
+    start still as both first and last frame, and the prompt naming the head as a circle of
+    the same size in every frame. Name what must not change, not just what should move.
+18. The plate under a clip must be the clip's own first frame. Episode 2's close-up plate was a
+    different version of the still from the one the clip was made from, and the cut popped.
+19. mouth_sync per shot, for a set that is not episode 1's: "cast" overrides side, radius and
+    mood when the characters swap sides or a close-up doubles a head; "heads" pins the head on
+    a held still, where the detector otherwise flickers to a bigger circle round the cap and
+    wipes the eyes; "skin_frac" lets a very wide grin still count as a face; "erase_black"
+    erases a solid black mouth where no hand crosses the face.
+20. A long line on a held frame keeps its drawn mouths if the held frame is the previous clip's
+    last frame run through mouth_sync, and the cut from clip to hold never jumps.

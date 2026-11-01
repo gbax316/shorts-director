@@ -460,5 +460,79 @@
     }
   ],
   "voiceStatus": "elevenlabs:JvYVKHK9a3ohjGBudnKo:eleven_v4 elevenlabs:UXyapCwN1QltDgDxgF4m:eleven_v4 elevenlabs:b8XX4QShLFkd3yZQlz8T:eleven_v4",
-  "voicePicks": "Orezi 1 Nov, from voice/audition, seated under gen_voice cache names with forced-alignment word maps: line 2 take A, line 3 A, line 4 D ('Oh-reh-zee'), line 5 A, line 6 I ('waka pass', new wording)."
+  "voicePicks": "Orezi 1 Nov, from voice/audition, seated under gen_voice cache names with forced-alignment word maps: line 2 take A, line 3 A, line 4 D ('Oh-reh-zee'), line 5 A, line 6 I ('waka pass', new wording).",
+  "shots": [
+    {
+      "clip": "shots/clip-02-eyebrow-b.mp4",
+      "start": 4.64,
+      "dur": 2.76,
+      "in": 0,
+      "cast": {
+        "segs": {
+          "side": "left",
+          "radius": 154,
+          "mood": {},
+          "zone": [
+            0.0,
+            0.55,
+            1.6,
+            0.75
+          ],
+          "keep_above": 0.25,
+          "erase_black": true
+        }
+      },
+      "why": "close-up, Segs alone; starts on the clip's first frame (it matches the still, so no jump) 0.6 s before his line, so the eyebrow's flight and return land under it",
+      "why_zone": "in the close-up the model's grimace sits wider and higher than his usual mouth"
+    },
+    {
+      "clip": "shots/clip-06-lean.mp4",
+      "start": 16.35,
+      "dur": 4.37,
+      "cast": {
+        "segs": {
+          "side": "left",
+          "radius": 68,
+          "mood": {}
+        },
+        "akpos": {
+          "side": "right",
+          "radius": 86,
+          "skin_frac": 0.38
+        }
+      },
+      "why": "this episode puts Segs on the left and Akpos on the right, the reverse of episode 1"
+    },
+    {
+      "clip": "shots/clip-06-hold.mp4",
+      "start": 20.72,
+      "dur": 13.56,
+      "cast": {
+        "segs": {
+          "side": "left",
+          "radius": 68,
+          "mood": {}
+        },
+        "akpos": {
+          "side": "right",
+          "radius": 86,
+          "skin_frac": 0.38
+        }
+      },
+      "why": "the lean clip's last frame held under Akpos's long line and Segs's reply, so the cut back to the plate never jumps",
+      "heads": {
+        "segs": [
+          227,
+          598,
+          64
+        ],
+        "akpos": [
+          476,
+          607,
+          88
+        ]
+      }
+    }
+  ],
+  "shotsNote": "The laugh clip (clip-09-laugh) skips mouth_sync: Akpos's laugh is acting, and a drawn talking mouth would replace it."
 }

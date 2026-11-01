@@ -1,5 +1,5 @@
 import React from 'react';
-import { AbsoluteFill, Audio, Img, Sequence, staticFile, useCurrentFrame } from 'remotion';
+import { AbsoluteFill, Audio, Img, OffthreadVideo, Sequence, staticFile, useCurrentFrame } from 'remotion';
 import { COLORS } from '../../brand';
 import { FONT_BODY, FONT_DISPLAY } from '../../fonts';
 import { Captions, EASE_OUT, ProgressBar, prog } from '../../lib/shorts';
@@ -9,9 +9,10 @@ import { VO } from './vo.gen';
 
 // =============================================================================
 // COMPOSITION CONFIG: "The customer who walked away", Akpos and Segs #2 (the hybrid proving run).
-// ANIMATIC: generated stills on the real voice timeline, every gag drawn in code, Akpos's beat 5 as a
-// cut-out that breathes and chews. Beats marked CLIP become generated clips after Orezi signs off
-// the animatic; the tags show what each clip will act out.
+// Generated stills on the real voice timeline, every gag drawn in code, Akpos's beat 5 as a cut-out
+// that breathes and chews, and three generated clips (eyebrow, lean, laugh) with mouths redrawn by
+// tools/mouth_sync.py (the *-mouth.mp4 files are already trimmed to their windows). ANIMATIC = true
+// brings back the red tags that marked where each clip goes.
 // =============================================================================
 export const compositionConfig = {
   id: 'Ai3Customer',
@@ -24,7 +25,7 @@ export const compositionConfig = {
 const FPS = 30;
 const s = (t: number) => Math.round(t * FPS);
 const DIR = 'projects/akpos-segs-2';
-const ANIMATIC = true;
+const ANIMATIC = false;
 const SPEAKER = { akpos: COLORS.signalAlt, segs: COLORS.warn, customer: COLORS.accent } as const;
 const END_CARD = s(36.73);
 const bed = makeBed(VO, FPS);
@@ -32,11 +33,21 @@ const bed = makeBed(VO, FPS);
 const MUSIC_TRIM = s(69 - 42.33);
 const INK = '#15171C';
 
-const SCENES = [
-  { plate: 'p2-segs-close', from: 0, to: s(7.4), clip: { at: s(5.24), note: "CLIP: Segs's eyebrow climbs off his head" } },
+type Clip = { at: number; until?: number; src: string; note: string };
+const SCENES: { plate: string; from: number; to: number; clips?: Clip[] }[] = [
+  { plate: 'p2-segs-close-clip', from: 0, to: s(7.4), clips: [{ at: s(4.64), src: '02-eyebrow-mouth', note: "CLIP: Segs's eyebrow climbs off his head" }] },
   { plate: 'p1-plate', from: s(7.4), to: s(16.35) },
-  { plate: 'p4-lean', from: s(16.35), to: s(34.28), clip: { at: s(16.35), until: s(20.72), note: 'CLIP: Segs leans in, Akpos leans back' } },
-  { plate: 'p5-laugh', from: s(34.28), to: END_CARD, clip: { at: s(34.28), note: 'CLIP: Akpos laughs, Segs points up' } },
+  {
+    plate: 'p4-lean',
+    from: s(16.35),
+    to: s(34.28),
+    clips: [
+      { at: s(16.35), until: s(20.72), src: '06-lean-mouth', note: 'CLIP: Segs leans in, Akpos leans back' },
+      // the lean's last frame held, so Akpos's long line and Segs's reply keep their drawn mouths
+      { at: s(20.72), src: '06-hold-mouth', note: 'HOLD: last frame of the lean' },
+    ],
+  },
+  { plate: 'p5-laugh', from: s(34.28), to: END_CARD, clips: [{ at: s(34.28), src: '09-laugh', note: 'CLIP: Akpos laughs, Segs points up' }] },
 ];
 
 // overlays pinned to the picture go in as children, so they ride the same slow push
@@ -242,14 +253,15 @@ const Ai3Customer: React.FC = () => {
       {SCENES.map((sc) => (
         <Sequence key={sc.plate} from={sc.from} durationInFrames={sc.to - sc.from}>
           <Plate name={sc.plate} len={sc.to - sc.from}>
+            {(sc.clips ?? []).map((c) => (
+              <Sequence key={c.src} from={c.at - sc.from} durationInFrames={(c.until ?? sc.to) - c.at}>
+                <OffthreadVideo src={staticFile(`${DIR}/${c.src}.mp4`)} muted style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                {ANIMATIC ? <Tag text={c.note} /> : null}
+              </Sequence>
+            ))}
             {sc.plate === 'p1-plate' ? <PinnedP1 /> : null}
             {sc.plate === 'p4-lean' ? <KioskSign /> : null}
           </Plate>
-          {ANIMATIC && sc.clip ? (
-            <Sequence from={sc.clip.at - sc.from} durationInFrames={(sc.clip.until ?? sc.to) - sc.clip.at}>
-              <Tag text={sc.clip.note} />
-            </Sequence>
-          ) : null}
         </Sequence>
       ))}
       <Sequence durationInFrames={s(7.4)}>

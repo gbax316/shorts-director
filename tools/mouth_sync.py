@@ -13,12 +13,18 @@ Reads, for one short:
                     "shots": [{"clip": "shots/NN.mp4", "start": <global s>, "dur": <s used>,
                     "in": <s into the clip to start from> (optional),
                     "keep_above": {"<who>": <radii>} (optional, this shot only),
+                    "cast": {"<who>": {mouth overrides}} (optional: only these characters are in the
+                    shot, each with its own side, radius or mood, e.g. a close-up or a swapped two-shot),
+                    "heads": {"<who>": [x, y, r]} (optional: pin the head, px at clip size, for a held still
+                    where the detector would flicker between the head and a bigger circle around the cap),
                     "hold": [<frame>, ...] (optional: frames where the model morphs between
                     poses; each repeats the last good frame, so the jump plays as a cut)}]
   voice/voice.wav   the assembled voice track
   character.json    "mouth": {"side": "left"|"right" (where the head sits in a two-shot),
                     "radius": px at 720 wide, "zone": [cx, cy, w, h] in head radii,
                     "keep_above": head radii below centre; shapes centred above it are never erased,
+                    "skin_frac": share of the face that must be skin to count as a head (default 0.45),
+                    "erase_black": true when no hand crosses the face, so a solid black mouth is erased too,
                     "style": "grin"|"small", "mood": {"<line index>": "flat"|"smile"}}
 
 Writes shots/NN-mouth.mp4 beside each clip (same fps and size, no audio).
@@ -100,9 +106,9 @@ def find_heads(frame, cast):
     return [] if c is None else [tuple(float(v) for v in x) for x in c[0]]
 
 
-def is_head(frame, c):
+def is_head(frame, c, skin_frac=0.45):
     """A real head is mostly one pale colour inside and ringed by dark ink; a false circle in the
-    street or the shelves is not."""
+    street or the shelves is not. A very wide grin covers more face, so a shot can lower skin_frac."""
     x, y, r = c
     h, w = frame.shape[:2]
     disk = np.zeros((h, w), np.uint8)
@@ -111,7 +117,7 @@ def is_head(frame, c):
         return False
     skin = skin_colour(frame, disk)
     px = frame[disk > 0].reshape(-1, 3).astype(int)
-    if skin.min() < 150 or (np.abs(px - skin).sum(1) < 40).mean() < 0.45:
+    if skin.min() < 150 or (np.abs(px - skin).sum(1) < 40).mean() < skin_frac:
         return False
     a = np.linspace(0, 2 * np.pi, 72, endpoint=False)
     hits = 0
@@ -134,7 +140,7 @@ def track(frames, cast, w):
         for who, m in cast.items():
             want_left = m["side"] == "left"
             pool = [c for c in cands if (c[0] < w * 0.5) == want_left and 0.75 < c[2] / m["radius"] < 1.3
-                    and is_head(f, c)]
+                    and is_head(f, c, m.get("skin_frac", 0.45))]
             if who in last and pool:
                 lx, ly, _ = last[who]
                 pool = [min(pool, key=lambda c: (c[0] - lx) ** 2 + (c[1] - ly) ** 2)]
@@ -189,7 +195,7 @@ def erase_mouth(frame, head, m):
         if cent[i][1] < keep_y:
             keep |= comp
             continue
-        if area > 0.05 * r * r and black[comp].mean() > 0.85:
+        if area > 0.05 * r * r and black[comp].mean() > 0.85 and not m.get("erase_black"):
             continue  # a hand, an arm or the outline
         erase |= comp
         if area > best_area:
@@ -269,12 +275,16 @@ def draw_mouth(frame, cx, cy, r, m, level, mood):
 
 
 def process(short, shot, vo, cast, lv, env_fps, debug):
+    if "cast" in shot:
+        cast = {who: {**cast[who], **ov} for who, ov in shot["cast"].items()}
     clip = os.path.join(short, shot["clip"])
     w, h, fps = probe(clip)
     raw = subprocess.run(["ffmpeg", "-v", "error", "-ss", str(shot.get("in", 0)), "-i", clip, "-t", str(shot["dur"]), "-f", "rawvideo",
                           "-pix_fmt", "bgr24", "-"], capture_output=True, check=True).stdout
     frames = [f.copy() for f in np.frombuffer(raw, np.uint8).reshape(-1, h, w, 3)]
     paths = track(frames, cast, w)
+    for name, head in shot.get("heads", {}).items():  # a held still: the head never moves, so pin it
+        paths[name] = [tuple(head)] * len(frames)
     out = os.path.splitext(clip)[0] + "-mouth.mp4"
     enc = subprocess.Popen(["ffmpeg", "-y", "-v", "error", "-f", "rawvideo", "-pix_fmt", "bgr24", "-s", f"{w}x{h}",
                             "-r", str(fps), "-i", "-", "-c:v", "libx264", "-crf", "18", "-pix_fmt", "yuv420p", out],
@@ -324,7 +334,9 @@ def main():
     args = ap.parse_args()
     short = os.path.abspath(args.short)
     beats = json.load(open(os.path.join(short, "beats.json"), encoding="utf-8"))
-    cast = {who: json.load(open(os.path.join(ROOT, p), encoding="utf-8"))["mouth"] for who, p in beats["cast"].items()}
+    # an inline voice-only cast member (a dict, no character.json) has no mouth to draw
+    cast = {who: json.load(open(os.path.join(ROOT, p), encoding="utf-8"))["mouth"]
+            for who, p in beats["cast"].items() if isinstance(p, str)}
     env, env_fps = envelope(os.path.join(short, "voice", "voice.wav"), 100)
     lv = levels(beats["vo"], env, env_fps)
     for shot in beats["shots"]:
