@@ -20,6 +20,10 @@ An owner's correction about how the skill works (not about one video) is the str
 
 New tools and fixes to tools (a mouth_sync setting, a caption rule) are documented in the tool's own docstring and in the reference that uses it, in the same commit as the code.
 
+## Release the change
+
+Approved skill changes collect on `main` until there is something worth a version, usually at the end of a short. Then bump `version` in `SKILL.md` by the rules at the top of `CHANGELOG.md` (patch for a fix or clearer rule, minor for a new format, mode, check, tool or behaviour, major for a change that breaks existing shorts), add the changelog entry in plain words, commit, and tag it `vX.Y.Z`. Pushing the commits and the tag to GitHub is the owner's call: ask, then push both. A bad release is undone by reverting its commits on `main`, never by rewriting history, so anyone who already pulled it stays in step.
+
 ## Look across runs now and then
 
 Every few shorts, read `RUNS.md` top to bottom and ask what keeps costing rounds. If it is premises, the writers' room needs a better buyer or better divergence. If it is faults, a check is missing. If it is voice, the audition step needs to move earlier. Write what you find into the run log, and propose the change.
