@@ -28,7 +28,7 @@ Identity lives in config, never in the skill. Read `director.config.json` at the
 
 A new short runs them in order: series (only if the bible is missing), writers-room, produce, sound, finish, improve. The owner can enter at any mode by name, and a request that clearly sits in one mode (a voice re-take, a caption fix, a new hook) goes straight there.
 
-**The fast lane.** When the series bible exists, the format is proven and the engines are known, skip nothing but shorten everything: one premise pass instead of a long one, stills reused from the series where they fit, and the animatic shown at half size. The checks never shorten. The fast lane is about fewer rounds, not fewer gates.
+**The fast lane.** When the series bible exists, the format is proven and the engines are known, skip nothing but shorten everything: one premise pass instead of a long one, and stills reused from the series where they fit. The gates and the checks stay exactly as they are; only the rounds get fewer.
 
 ## The gates that hold in every run
 
@@ -57,7 +57,7 @@ If the owner asks for a kind of short none of the formats covers (a listicle, a 
 
 ## How it gets better
 
-Every short ends in the improve mode. It scores the run against the outcomes in `references/outcomes.md`, logs it in `RUNS.md`, writes what was learned to `LESSONS.md`, and when a fault has now happened twice or a technique has proved itself, proposes the change to this skill in general terms, as a diff the owner approves. Git is the way back. That loop is the difference between a tool that was good on the day it was written and one that is better after every film.
+Every short ends in the improve mode. It scores the run against the outcomes in `references/outcomes.md`, logs it in `RUNS.md`, writes what was learned to `LESSONS.md`, and when a fault has now happened twice or a technique has proved itself, proposes the change to this skill in general terms, as a diff the owner approves. Git is the way back.
 
 ## References
 

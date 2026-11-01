@@ -20,7 +20,7 @@ Generated stills with a slow push for most beats; figures, tags, maps, screens a
 
 ## Voice
 
-One narrator for the channel, chosen from three auditions (Ifeoma Odumodu for Qodeup, confirmed by the owner). About 95 to 105 words for 40 seconds; a narrator who pauses at commas needs fewer, and anything already on a card can leave the narration.
+One narrator for the channel, chosen from three auditions (Ifeoma Odumodu for Qodeup, confirmed by the owner). Narration length is timed as the writers' room says (`../../modes/writers-room.md`); a narrator who pauses at commas needs fewer words, and anything already on a card can leave the narration.
 
 ## What a documentary costs
 

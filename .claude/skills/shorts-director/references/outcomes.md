@@ -6,7 +6,7 @@ What this skill has to produce, how to tell whether it is producing it, and how 
 
 | Outcome | Measured as | Target | Measured so far | Stops it |
 |---|---|---|---|---|
-| The owner takes the first cut | revision rounds to approval, each labelled direction, taste or fault | 0 or 1 | episode 2: about 3 (pidgin takes twice, the customers redrawn, eyebrow re-roll); documentary 1: about 3 (audience changed, Qodeup focus, dates moved to a card) | 3 or more on a run with a settled brief |
+| The owner takes the first cut | revision rounds to approval, each labelled direction, taste or fault | 0 or 1 | episode 2: about 3 (pidgin takes twice, the customers redrawn as drawn extras); documentary 1: about 3 (audience changed, Qodeup focus, dates moved to a card) | 3 or more on a run with a settled brief |
 | The words are visible | beats with an idea on screen the voice does not say | every line | episode 2 and documentary 1: every line | a line with nothing to see |
 | No visible faults | faults the owner finds before the checks do | 0 at hand-over | episodes 1 and 2: 2 found late in episode 1, none in episode 2's cut; documentary 1: none | any fault the owner finds first |
 | Viewers stay | still watching at 3 s, average view, completion | set by the first posted runs | none posted yet | |

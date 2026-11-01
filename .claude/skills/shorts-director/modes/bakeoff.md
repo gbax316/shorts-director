@@ -1,6 +1,6 @@
 # Bakeoff
 
-A default model earns its place by beating the others on the same job, judged by eye, not by its reputation. Run a bakeoff when a job is new, when a new model claims to do it better, or when the current default keeps failing in the same way.
+A default model earns its place by beating the others on the same job, judged by eye. Run a bakeoff when a job is new, when a new model claims to do it better, or when the current default keeps failing in the same way.
 
 Give every candidate the same input (the same start frame, the same audio, the same prompt intent), measure what can be measured (mouth movement against who is speaking, identity drift, frame jumps, cost per second), then put the results side by side for the owner. Keep everything in `ai-shorts/<short>/bakeoff/` with a short report: what was tried, the numbers, the pick, and why the others lost.
 

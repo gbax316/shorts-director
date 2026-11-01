@@ -4,7 +4,7 @@ Voice before pixels, animatic before clips, the cheapest decision first. Every s
 
 ## 1. Voice
 
-Generate with `python tools/gen_voice.py --beats ai-shorts/<short>/beats.json --pack 0.3` for dialogue or narration laid end to end from real lengths (a line's `gap` holds a beat of silence where the picture needs one). Read the Whisper line check it prints: a name or pidgin word heard differently is usually fine, a dropped or added word usually is not. Everything about casting, auditions, pidgin respellings and seating a picked take is in `../references/voice.md`. Emit the timeline the composition imports (`vo.gen.ts`), and copy the voice track into `media/projects/<short>/audio/voice.mp3`.
+Generate with `python tools/gen_voice.py --beats ai-shorts/<short>/beats.json --pack 0.3` for dialogue or narration laid end to end from real lengths (a line's `gap` holds a beat of silence where the picture needs one). Read the Whisper line check it prints: a name or pidgin word heard differently is usually fine, a dropped or added word usually is not. Everything about casting, auditions, pidgin respellings and seating a picked take is in `../references/voice.md`. Emit the timeline the composition imports with `--emit-ts remotion/src/shots/<folder>/vo.gen.ts`, and put an mp3 of the voice track (`ai-shorts/<short>/voice/voice.wav`) at `media/projects/<short>/audio/voice.mp3`.
 
 ## 2. Stills
 
@@ -12,7 +12,7 @@ One per scene, generated with the series references so characters and places hol
 
 ## 3. The animatic
 
-A Remotion composition in `remotion/src/shots/<short>/`, registered in the shot registry, with the stills on the voice timeline under a slow push, every code-drawn gag and figure in place, captions, the corner mark and end card from `remotion/src/lib/skit/cards.tsx`, the bed and cues roughed in, and red tags marking where generated clips will go. Render it at half size, check frames across the whole timeline, and send it with a costed clip plan. Nothing is generated until the owner approves it. Most of a short's revisions should happen here, where they cost nothing.
+A Remotion composition in its own folder under `remotion/src/shots/` (episode 2 is `ai-3/`, documentary 1 is `doc-1/`), which the generated registry picks up (`npm run gen` in `remotion/`; studio and render run it too), with the stills on the voice timeline under a slow push, every code-drawn gag and figure in place, captions, the corner mark and end card from `remotion/src/lib/skit/cards.tsx`, the bed and cues roughed in, and red tags marking where generated clips will go. Render it at half size, check frames across the whole timeline, and send it with a costed clip plan. Nothing is generated until the owner approves it. Most of a short's revisions should happen here, where they cost nothing.
 
 Choosing how each beat is made is `../references/render-routing.md`. In short: anything the voice does not say (a gag, a figure, a sign, a phone screen) is drawn in code; a still pose that should feel alive is a cut-out; acting is a generated clip.
 

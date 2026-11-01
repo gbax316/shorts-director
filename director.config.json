@@ -56,7 +56,7 @@
       "lost": ["Sync 2.0 Pro", "VEED Lipsync", "VEED Fabric", "Kling Avatar v2 Pro", "InfiniTalk (worth one retest from a frame where the listener's mouth starts closed)"]
     }
   },
-  "audio": { "masterLufs": -14, "truePeakDb": -1.5, "lra": 11 },
-  "phone": { "maxMb": 30, "tool": "tools/export_phone.py" },
+  "audio": { "masterLufs": -14, "truePeakDb": -1.5, "lra": 11, "tool": "tools/master.py", "tolerance": "within 1 LU of the target, true peak at or under the ceiling" },
+  "phone": { "tool": "tools/export_phone.py", "limit": "PHONE_MAX_MB in .env or the environment, 30 MB when unset" },
   "spend": { "showCostBeforeEverySpend": true, "ceiling": null }
 }

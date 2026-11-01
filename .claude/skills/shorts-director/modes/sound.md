@@ -6,10 +6,4 @@ Reuse before generating. The repo's sound library (`media/library/`) and earlier
 
 Beds duck under speech with the eased bed level in `remotion/src/lib/skit/cards.tsx` (`makeBed`), which moves over about 13 frames; a hard switch at every line boundary pumps audibly. Cues land on the frame of the thing they belong to (a slam on the calendar, a tap on each lost sale, a click on the publish key), and get re-timed whenever the voice is re-timed. Cues that fall in a gap in the voice get no masking, so they need several decibels less than cues under narration.
 
-Master the finished render to the config's loudness target (`director.config.json`, `audio`), the way episode 1 and every film since were finished:
-
-```
-ffmpeg -i <render>.mp4 -c:v copy -af loudnorm=I=-14:TP=-1.5:LRA=11 -ar 48000 -c:a aac -b:a 192k -movflags +faststart <final>.mp4
-```
-
-Then measure it (`-af ebur128=peak=true`) and report the integrated loudness and peak. The owner's ear is the final check on the mix; say what you changed and what you could not judge.
+Master the finished render to the config's loudness target (`director.config.json`, `audio`) with `python tools/master.py <render>.mp4 --out <final>.mp4`. It measures first, normalises in a second pass with those measurements, holds the true peak under the ceiling, copies the video untouched, and prints the result; report those numbers. A single loudnorm pass only lands near the target: the first two films measured -14.6 and -14.9 LUFS with a -1.3 dB peak that way, and the two-pass tool brought the documentary's render to -14.1 LUFS and -1.5 dB. The owner's ear is the final check on the mix; say what you changed and what you could not judge.

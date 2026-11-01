@@ -15,7 +15,7 @@ Short films about how building with AI is changing who gets to make the internet
   - Frame 0 asks a question the viewer can see.
   - The evidence is people and figures.
   - The turn is what this means for the viewer, then the offer.
-- **About 40 seconds of narration, then the end card.** The closing line belongs to the series: "It starts with creating with AI."
+- **About 40 to 46 seconds of narration, then the end card** (film 1 ran 46 s; time it on the real voice, about two words a second for this narrator). The closing line belongs to the series: "It starts with creating with AI."
 - **The words are visible.** Every beat puts something on screen that the voice does not say: a place and time tag, a figure, a source, a label.
 
 ## Facts

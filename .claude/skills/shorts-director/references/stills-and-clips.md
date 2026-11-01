@@ -30,4 +30,4 @@ Check every clip before it enters the edit: an eight-frame strip across its leng
 
 ## Prices seen so far
 
-On 1 November 2026, on kie.ai: nano-banana-pro stills at 2K, 18 credits each; Seedance 2 image-to-video with no video input, 19 credits a second at 480p, 41 at 720p, 102 at 1080p; a credit is about half a US cent. Episode 2's three clips plus one re-roll cost 697 credits at 720p; documentary 1's nine stills and two clips cost 531. Keep `director.config.json` current when a price changes, with the date.
+The current prices, the date each was checked and the dollar value of a kie credit are in `director.config.json` under `providers`; work out every quote from there, and update it with the date when a price changes. For scale: episode 2's three clips plus one re-roll cost 697 credits at 720p, and documentary 1's nine stills and two clips cost 531.

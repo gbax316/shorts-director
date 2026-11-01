@@ -1,6 +1,6 @@
 # The checks between gates
 
-The owner's eye should be spent on taste. Faults a scan can catch are yours to catch first. Each check below has caught something real; that is why it is here.
+The owner's eye should be spent on taste. Faults a scan can catch are yours to catch first. Every check below comes from the runs so far.
 
 **Read the frames.** After any render, pull frames across the whole timeline and around every seam, tile them into a sheet, and look. Sampling every half second misses two-frame faults, so it is not enough on its own.
 

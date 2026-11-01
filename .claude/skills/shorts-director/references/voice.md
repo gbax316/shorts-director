@@ -4,7 +4,7 @@ The voice sets the timeline, so it comes first and it has to be right before any
 
 ## Casting
 
-Voices are ElevenLabs voices, used by id. A recurring character's voice lives in its `character.json` (`voice` block with id, model and settings) and nowhere else. A one-off voice (a customer, a narrator) sits inline in the short's `beats.json` cast. The voices proven so far and their settings are in `director.config.json` and in each series bible.
+Voices are ElevenLabs voices, used by id. A recurring character's voice lives in its `character.json` (`voice` block with id, model and settings); that is the file to edit, and the config's list of proven voices points at it. A one-off voice (a customer, a narrator) sits inline in the short's `beats.json` cast. The voices proven so far and their settings are in `director.config.json` and in each series bible.
 
 To cast a new voice, search the ElevenLabs shared library (accent and use case narrow it fast; for Nigerian voices, `accent=nigerian` with the narrative or conversational use cases), pick three that differ, and audition each on the short's opening lines with the episode settings. Join the takes into one file with a short gap between them and let the owner choose by ear. Say what you hear in each (a rising end on every line, a place name said wrong) and which you would pick, but the choice is theirs.
 
@@ -12,7 +12,7 @@ Do not use a cloned voice of a real person unless the owner asks for it.
 
 ## Settings that have worked
 
-eleven_v4 with stability 0.4, similarity 0.8, style 0.35, speaker boost, speed 1.05 for the skit cast; the documentary narrator at speed 1.12. eleven_multilingual_v2 (stability 0.5, style 0.3) is the alternative take for pidgin lines.
+They are in `director.config.json` under `voices`: the skit cast's settings on eleven_v4, the documentary narrator's faster speed, and eleven_multilingual_v2 as the alternative take for pidgin lines. Read the numbers there.
 
 ## Pidgin, names and respellings
 
