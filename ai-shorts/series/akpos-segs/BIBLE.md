@@ -90,6 +90,6 @@ Two close friends on a busy Lagos street. Akpos finds the thing that works and w
 |---|---|---|---|
 | 0 | v6, the class pitched as a trick | the prototype, before the names | approved 31 Oct (different character designs) |
 | 1 | Segs's kiosk | Akpos tells Segs his kiosk needs a website; Segs says he is too old to code | approved 1 Nov |
-| 2 | The customer who walked away | a customer wants Segs's page, he has none, she buys next door; now Segs asks about the class | finished 1 Nov, waiting on Orezi's watch |
+| 2 | The customer who walked away | a customer wants Segs's page, he has none, she buys next door; now Segs asks about the class | approved 1 Nov |
 
 Episodes that name the course dates stop being usable after 14 November 2026.
