@@ -2,7 +2,7 @@
 name: shorts-director
 version: 0.1.0
 description: >-
-  Directs a faceless vertical short from idea to finished, mastered file, and gets better with every run. Picks a format, writes the episode in a writers' room (three premises judged as the buyer), voices it, gates on an animatic, then decides beat by beat how each moment is made: drawn in code in Remotion, a cut-out from a generated still, a generated clip, or one of the engine tracks. Modes: series, writers-room, produce, sound, finish, bakeoff, improve (the learning loop after every short). Formats so far: character skit with dialogue and synced mouths, photoreal mini documentary with sourced figures. Triggers on "make a short", "next episode", "make a video about X", "faceless video", "reel for this offer". Do NOT trigger for editing an existing video file, for a pure code-drawn explainer with no writers' room (make-short), or for collage (make-vox).
+  Directs a faceless vertical short from idea to finished, mastered file, and gets better with every run. Picks a format, writes the episode in a writers' room (three premises judged as the buyer), voices it, gates on an animatic, then decides beat by beat how each moment is made: drawn in code in Remotion, a cut-out from a generated still, a generated clip, or one of the engine tracks. Modes: series, writers-room, produce, sound, finish, bakeoff, effects (/effects), improve (the learning loop after every short). Formats so far: character skit with dialogue and synced mouths, photoreal mini documentary with sourced figures. Triggers on "make a short", "next episode", "make a video about X", "faceless video", "reel for this offer". Do NOT trigger for editing an existing video file, for a pure code-drawn explainer with no writers' room (make-short), or for collage (make-vox).
 ---
 
 # Shorts director
@@ -25,6 +25,7 @@ Identity lives in config, never in the skill. Read `director.config.json` at the
 | sound | beds, cues, the mix and mastering | `modes/sound.md` |
 | finish | the master, the phone copy, the text check, the posting pack | `modes/finish.md` |
 | bakeoff | trying models against each other before one becomes the default | `modes/bakeoff.md` |
+| effects | `/effects <name>`: preview an effect, place it on a beat, or build a new one into the library | `modes/effects.md` |
 | improve | after every short: score the run, land the lessons, propose skill changes | `modes/improve.md` |
 
 A new short runs them in order: series (only if the bible is missing), writers-room, produce, sound, finish, improve. The owner can enter at any mode by name, and a request that clearly sits in one mode (a voice re-take, a caption fix, a new hook) goes straight there.
@@ -68,6 +69,7 @@ Every short ends in the improve mode. It scores the run against the outcomes in 
 - `references/stills-and-clips.md`: generating stills and clips, prompts that hold identity, re-rolls, prices
 - `references/mouths.md`: redrawing mouths on generated clips with mouth_sync, including per-shot settings
 - `references/facts.md`: the fact gate for anything stated as true on screen
+- `references/effects.md`: the jobs a beat can have, the effect that serves each, and the restraint rules that keep a short from becoming a demo reel
 - `references/qa.md`: the checks between gates, and what each one has caught before
 - `references/formats/`: one file per proven format
 

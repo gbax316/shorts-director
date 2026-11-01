@@ -14,7 +14,7 @@ One per scene, generated with the series references so characters and places hol
 
 A Remotion composition in its own folder under `remotion/src/shots/` (episode 2 is `ai-3/`, documentary 1 is `doc-1/`), which the generated registry picks up (`npm run gen` in `remotion/`; studio and render run it too), with the stills on the voice timeline under a slow push, every code-drawn gag and figure in place, captions, the corner mark and end card from `remotion/src/lib/skit/cards.tsx`, the bed and cues roughed in, and red tags marking where generated clips will go. Render it at half size, check frames across the whole timeline, and send it with a costed clip plan. Nothing is generated until the owner approves it. Most of a short's revisions should happen here, where they cost nothing.
 
-Choosing how each beat is made is `../references/render-routing.md`. In short: anything the voice does not say (a gag, a figure, a sign, a phone screen) is drawn in code; a still pose that should feel alive is a cut-out; acting is a generated clip.
+Each beat tagged with a job gets its effect from `../references/effects.md`, within its restraint rules, and the message that sends the animatic lists each pick and why in a line. Choosing how each beat is made is `../references/render-routing.md`. In short: anything the voice does not say (a gag, a figure, a sign, a phone screen) is drawn in code; a still pose that should feel alive is a cut-out; acting is a generated clip.
 
 ## 4. Clips
 
