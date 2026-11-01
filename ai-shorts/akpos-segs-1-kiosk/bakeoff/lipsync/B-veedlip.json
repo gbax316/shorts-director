@@ -1,0 +1,18 @@
+{
+ "shot": "B",
+ "candidate": "veedlip",
+ "model": "veed/lipsync",
+ "kind": "video-to-video",
+ "rate": "$0.40/min of output (fal pricing API)",
+ "derived_cost_usd": 0.043,
+ "payload": {
+  "video_url": "https://v3b.fal.media/files/b/0ab0ad8d/pNvK-hML-a_S1lNaRZN4G_b_in.mp4",
+  "audio_url": "https://v3b.fal.media/files/b/0ab0ad8d/RMLhm9rYB4_jR7zkkcFoc_b_voice.wav"
+ },
+ "created": "2026-11-01T06:31:04",
+ "ok": true,
+ "file": "C:\\Users\\orezi\\dev\\faceless-shorts\\ai-shorts\\akpos-segs-1-kiosk\\bakeoff\\lipsync\\B-veedlip.mp4",
+ "request_id": "01a1957b-a200-7100-8d0c-10640bf1b928",
+ "source_url": "https://v3b.fal.media/files/b/0ab0ad91/6T3IxelTWgKdor3Oc-o2O_tmpn9_2qpqm.mp4",
+ "elapsed": 32.3
+}

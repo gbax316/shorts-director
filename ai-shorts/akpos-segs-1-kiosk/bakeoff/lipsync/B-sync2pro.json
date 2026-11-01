@@ -1,0 +1,19 @@
+{
+ "shot": "B",
+ "candidate": "sync2pro",
+ "model": "fal-ai/sync-lipsync/v2/pro",
+ "kind": "video-to-video",
+ "rate": "$5/min of output (fal pricing API)",
+ "derived_cost_usd": 0.538,
+ "payload": {
+  "video_url": "https://v3b.fal.media/files/b/0ab0ad8d/pNvK-hML-a_S1lNaRZN4G_b_in.mp4",
+  "audio_url": "https://v3b.fal.media/files/b/0ab0ad8d/RMLhm9rYB4_jR7zkkcFoc_b_voice.wav",
+  "sync_mode": "cut_off"
+ },
+ "created": "2026-11-01T06:31:04",
+ "ok": true,
+ "file": "C:\\Users\\orezi\\dev\\faceless-shorts\\ai-shorts\\akpos-segs-1-kiosk\\bakeoff\\lipsync\\B-sync2pro.mp4",
+ "request_id": "01a1957b-9e26-7f92-8390-3e4808553fb5",
+ "source_url": "https://v3b.fal.media/files/b/0ab0ad97/ks-Fs_1ymMZIHdufenjnU_vCxQ2Nbx.mp4",
+ "elapsed": 94.2
+}

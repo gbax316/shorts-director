@@ -1,0 +1,22 @@
+{
+ "shot": "A",
+ "candidate": "infinitalk",
+ "model": "fal-ai/infinitalk",
+ "kind": "image-plus-audio",
+ "rate": "$0.20/s at 480p, doubled at 720p = $0.40/s (pricing API + model page)",
+ "derived_cost_usd": 3.216,
+ "payload": {
+  "image_url": "https://v3b.fal.media/files/b/0ab0ad8d/lFhST_i4FTsDpt_aUrPps_05b-talk.png",
+  "audio_url": "https://v3b.fal.media/files/b/0ab0ad8d/KdejtWrLKkeRu6S6fIa53_a_voice.wav",
+  "prompt": "Flat 2D cartoon animation. Akpos, the stick figure on the left with the backwards red cap, big round eyes, toothy grin and teal shirt, talks to Segs and his mouth moves with the words. Segs, the bald man with small dot eyes in the gold shirt behind the kiosk counter on the right, only listens: his mouth stays closed and still the whole time. Exactly two characters, nobody else. Static camera. Keep the thick black outlines, flat colours and both character designs exactly; no 3D, no realistic shading, no morphing.",
+  "resolution": "720p",
+  "num_frames": 201,
+  "acceleration": "none"
+ },
+ "created": "2026-11-01T06:31:04",
+ "ok": true,
+ "file": "C:\\Users\\orezi\\dev\\faceless-shorts\\ai-shorts\\akpos-segs-1-kiosk\\bakeoff\\lipsync\\A-infinitalk.mp4",
+ "request_id": "01a1957b-9a3b-7763-b841-16c48193475b",
+ "source_url": "https://v3b.fal.media/files/b/0ab0ae41/ratdFBKfJ-jOSQO0mxT7w_I86w8yVl.mp4",
+ "elapsed": 1798.0
+}

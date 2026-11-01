@@ -1,0 +1,49 @@
+{
+ "shot": "B",
+ "candidate": "infinitalk",
+ "model": "fal-ai/infinitalk",
+ "kind": "image-plus-audio",
+ "rate": "$0.20/s at 480p, doubled at 720p = $0.40/s (pricing API + model page)",
+ "derived_cost_usd": 2.576,
+ "payload": {
+  "image_url": "https://v3b.fal.media/files/b/0ab0ad8d/tnjMptxHTV00gaFBt6CsI_06-hang-you.png",
+  "audio_url": "https://v3b.fal.media/files/b/0ab0ad8d/RMLhm9rYB4_jR7zkkcFoc_b_voice.wav",
+  "prompt": "Flat 2D cartoon animation. Segs, the bald man with small dot eyes in the gold shirt behind the kiosk counter on the right, talks to Akpos and his mouth moves with the words. Akpos, the stick figure on the left with the backwards red cap, big round eyes and teal shirt, only listens: his mouth stays closed and still the whole time. Exactly two characters, nobody else. Static camera. Keep the thick black outlines, flat colours and both character designs exactly; no 3D, no realistic shading, no morphing.",
+  "resolution": "720p",
+  "num_frames": 161,
+  "acceleration": "none"
+ },
+ "created": "2026-11-01T06:34:22",
+ "ok": false,
+ "error": "fal API 403 at https://queue.fal.run/fal-ai/infinitalk: {\"detail\":\"User is locked. Reason: Exhausted balance. Top up your balance at fal.ai/dashboard/billing.\"}",
+ "elapsed": 1.1,
+ "attempts": [
+  {
+   "provider": "fal",
+   "model": "fal-ai/infinitalk",
+   "request_id": "01a1957b-adc7-7833-958a-e460bee66f75",
+   "num_frames": 165,
+   "error": "422 Audio is too short (6.46s) for the requested num_frames (needs 6.60s); rejected after queueing, no video"
+  },
+  {
+   "provider": "fal",
+   "model": "fal-ai/infinitalk",
+   "num_frames": 161,
+   "error": "fal API 403 at https://queue.fal.run/fal-ai/infinitalk: {\"detail\":\"User is locked. Reason: Exhausted balance. Top up your balance at fal.ai/dashboard/billing.\"}"
+  },
+  {
+   "provider": "kie",
+   "model": "infinitalk/from-audio",
+   "task_id": "7e1da41e9d63535c63ca8a6c46261e34",
+   "image": "06-hang-you.png 1536x2752",
+   "error": "kie failCode 500: internal error, please try again later (costTime 0; kie does not charge failures)"
+  },
+  {
+   "provider": "kie",
+   "model": "infinitalk/from-audio",
+   "task_id": "7af30d764757213e0fc159acba39be46",
+   "image": "work/b_start720.png",
+   "error": "kie failCode 500: internal error, please try again later (costTime 0)"
+  }
+ ]
+}

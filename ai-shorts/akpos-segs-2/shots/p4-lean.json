@@ -1,0 +1,15 @@
+{
+  "model": "nano-banana-pro (kie.ai)",
+  "prompt": "Use the third reference image for the exact two kiosks, awnings, shelves, street, colours and drawing style: Segs inside his red-and-white kiosk, the smaller blue-and-white kiosk next door, the blank cream board on the front of his counter. SHOT: a closer two-shot. Segs behind his counter on the LEFT, from the waist up, LEANING FORWARD over the counter toward Akpos, eager and curious, eyebrows raised, small open mouth as if asking a question. Akpos stands outside on the RIGHT at the end of the counter, facing left, LEANING BACK a little with one arm on the counter, a slow sly grin starting, big lidded eyes on Segs. The blank cream board on the counter front is fully visible between them and below. The blue-and-white kiosk is just visible behind Akpos. EXACTLY TWO characters, nobody else, no passers-by. AKPOS (first reference): big round off-white head, two BIG round eyes bulging past the head outline with heavy half-closed upper lids, a wide toothy grin, a brick-red cap worn backwards and tilted with the brim over one side and the strap opening above his forehead, a TEAL t-shirt (#218D87), thin black stick arms and legs, black mitten hands, black oval shoes. AKPOS EYES ARE THE MOST IMPORTANT DETAIL: two big round white eyes side by side, together wider than half his face, bulging past the outline of his head, each with a heavy upper eyelid line across the top half, small black pupils. NOT narrow eyes, NOT angry eyebrows. SEGS (second reference): big round off-white bald head with no hair and no hat, small black dot eyes, thin eyebrows, a small mouth, a GOLD t-shirt (#F2B21B), thin black stick arms, black mitten hands. SEGS FACE: only two SMALL solid black dot eyes (no white eyeballs, never like Akpos eyes), thin eyebrows, a small simple mouth. NOT angry, no frown. Both heads the same size. Vertical 9:16: characters in the middle band, plain sky at the top sixth, plain pavement at the bottom fifth. Flat 2D cartoon in exactly the style of the references: thick clean even black outlines, flat colour fills, one soft grey crescent of shading on each round head, no gradients, no 3D, no texture. Warm off-white paper tone for the sky. No readable text, no letters, numbers or signs anywhere, no logos, no watermark. All products unbranded with plain single-colour labels.",
+  "aspect_ratio": "9:16",
+  "resolution": "2K",
+  "refs": [
+    "ai-shorts/akpos/character.png",
+    "ai-shorts/segs/character.png",
+    "ai-shorts/akpos-segs-2/shots/p1-plate.png",
+    "ai-shorts/skit-duo/duo.png"
+  ],
+  "task_id": "5bd6a5258308457c7c981ba8bf1c1e9d",
+  "credits": 18.0,
+  "created": "2026-11-01T06:29:07"
+}

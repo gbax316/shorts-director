@@ -16,6 +16,14 @@
   "transparent": false
  },
  {
+  "id": "Ai3Customer",
+  "durationInSeconds": 43.2,
+  "fps": 30,
+  "width": 1080,
+  "height": 1920,
+  "transparent": false
+ },
+ {
   "id": "BrandKitDay",
   "durationInSeconds": 4,
   "fps": 30,

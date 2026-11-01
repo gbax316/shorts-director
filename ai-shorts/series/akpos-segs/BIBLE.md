@@ -75,7 +75,7 @@ Two close friends on a busy Lagos street. Akpos finds the thing that works and w
 |---|---|
 | Characters | `../../akpos/` and `../../segs/` (character.png, sheet.png, character.json); the pair in `../../skit-duo/duo.png` |
 | Voices | the `voice` block in each character.json (eleven_v4; stability 0.4, similarity 0.8, style 0.35, speed 1.05) |
-| Mouths | the `mouth` block in each character.json; `tools/mouth_sync.py` until a lip-sync model wins the bakeoff |
+| Mouths | the `mouth` block in each character.json and `tools/mouth_sync.py`. The 1 Nov lip-sync bakeoff (Sync 2.0 Pro, VEED Lipsync, VEED Fabric, Kling Avatar v2 Pro, InfiniTalk) found none better: video-to-video models changed nothing, and image-plus-audio models lost Akpos's grin or let the listener talk. InfiniTalk shaped Akpos's sounds best; retest it on a shot whose listener starts with a closed mouth |
 | Captions | the speaker's colour on the active word: Akpos teal #2BB3AB, Segs gold #F2B21B |
 | End card | navy, light logo, gold rule and link; brand, lines and link from config |
 | Corner mark | "Powered by Qodeup", top left |

@@ -1,0 +1,13 @@
+{
+  "model": "nano-banana-pro (kie.ai)",
+  "prompt": "A single character on a plain pure white background, nothing else in the image: AKPOS, full body from head to shoes, standing side-on facing RIGHT, relaxed, leaning his weight on one leg with his right forearm resting flat at waist height as if on a counter top (the counter itself is NOT drawn), his left hand holding a small plain biscuit near his mouth, cheeks full, chewing, a deadpan unimpressed look with heavy half-closed lids and his mouth closed. AKPOS (first reference): big round off-white head, two BIG round eyes bulging past the head outline with heavy half-closed upper lids, a wide toothy grin, a brick-red cap worn backwards and tilted with the brim over one side and the strap opening above his forehead, a TEAL t-shirt (#218D87), thin black stick arms and legs, black mitten hands, black oval shoes. AKPOS EYES ARE THE MOST IMPORTANT DETAIL: two big round white eyes side by side, together wider than half his face, bulging past the outline of his head, each with a heavy upper eyelid line across the top half, small black pupils. NOT narrow eyes, NOT angry eyebrows. EXACTLY ONE character. Plain pure white background, no floor, no shadow except a small soft grey oval under his shoes. Flat 2D cartoon in exactly the style of the character references: thick clean even black outlines, flat colour fills, one soft grey crescent of shading on each round head, no gradients, no 3D, no texture. Warm off-white paper tone (#E5DDD2) for the sky. No readable text, no letters, numbers or signs anywhere, no logos, no watermark. ALL PRODUCTS ARE UNBRANDED: plain bottles and packs with solid single-colour labels.",
+  "aspect_ratio": "9:16",
+  "resolution": "2K",
+  "refs": [
+    "ai-shorts/akpos/character.png",
+    "ai-shorts/akpos/sheet.png"
+  ],
+  "task_id": "8248ef02a46cf0cd78250c44665ee1c2",
+  "credits": 18.0,
+  "created": "2026-11-01T06:24:47"
+}

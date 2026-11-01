@@ -1,0 +1,132 @@
+{
+ "A:raw": {
+  "frames": 193,
+  "tracked_speaker": 192,
+  "tracked_listener": 193,
+  "speaker_corr": 0.12,
+  "speaker_lag_frames": -5,
+  "speaker_range": 0.128,
+  "listener_range": 0.056,
+  "listener_jitter": 0.0036
+ },
+ "A:mouthsync": {
+  "frames": 193,
+  "tracked_speaker": 193,
+  "tracked_listener": 193,
+  "speaker_corr": 0.7,
+  "speaker_lag_frames": 0,
+  "speaker_range": 0.145,
+  "listener_range": 0.037,
+  "listener_jitter": 0.005
+ },
+ "A:sync2pro": {
+  "frames": 193,
+  "tracked_speaker": 193,
+  "tracked_listener": 193,
+  "speaker_corr": 0.13,
+  "speaker_lag_frames": -5,
+  "speaker_range": 0.139,
+  "listener_range": 0.055,
+  "listener_jitter": 0.0045
+ },
+ "A:veedlip": {
+  "frames": 193,
+  "tracked_speaker": 193,
+  "tracked_listener": 193,
+  "speaker_corr": 0.13,
+  "speaker_lag_frames": -5,
+  "speaker_range": 0.128,
+  "listener_range": 0.056,
+  "listener_jitter": 0.0034
+ },
+ "A:fabric": {
+  "frames": 193,
+  "tracked_speaker": 192,
+  "tracked_listener": 193,
+  "speaker_corr": 0.37,
+  "speaker_lag_frames": -2,
+  "speaker_range": 0.106,
+  "listener_range": 0.035,
+  "listener_jitter": 0.0043
+ },
+ "A:klingav2pro": {
+  "frames": 192,
+  "tracked_speaker": 192,
+  "tracked_listener": 187,
+  "speaker_corr": 0.4,
+  "speaker_lag_frames": -2,
+  "speaker_range": 0.051,
+  "listener_range": 0.094,
+  "listener_jitter": 0.012
+ },
+ "B:raw": {
+  "frames": 155,
+  "tracked_speaker": 155,
+  "tracked_listener": 155,
+  "speaker_corr": 0.22,
+  "speaker_lag_frames": -8,
+  "speaker_range": 0.204,
+  "listener_range": 0.054,
+  "listener_jitter": 0.0026
+ },
+ "B:mouthsync": {
+  "frames": 155,
+  "tracked_speaker": 153,
+  "tracked_listener": 155,
+  "speaker_corr": 0.78,
+  "speaker_lag_frames": 1,
+  "speaker_range": 0.129,
+  "listener_range": 0.052,
+  "listener_jitter": 0.0087
+ },
+ "B:sync2pro": {
+  "frames": 155,
+  "tracked_speaker": 155,
+  "tracked_listener": 155,
+  "speaker_corr": 0.24,
+  "speaker_lag_frames": -8,
+  "speaker_range": 0.199,
+  "listener_range": 0.056,
+  "listener_jitter": 0.0023
+ },
+ "B:veedlip": {
+  "frames": 155,
+  "tracked_speaker": 155,
+  "tracked_listener": 155,
+  "speaker_corr": 0.24,
+  "speaker_lag_frames": -8,
+  "speaker_range": 0.192,
+  "listener_range": 0.054,
+  "listener_jitter": 0.0023
+ },
+ "B:fabric": {
+  "frames": 155,
+  "tracked_speaker": 155,
+  "tracked_listener": 155,
+  "speaker_corr": 0.15,
+  "speaker_lag_frames": -5,
+  "speaker_range": 0.203,
+  "listener_range": 0.169,
+  "listener_jitter": 0.0121
+ },
+ "B:klingav2pro": {
+  "frames": 155,
+  "tracked_speaker": 155,
+  "tracked_listener": 155,
+  "speaker_corr": 0.42,
+  "speaker_lag_frames": -1,
+  "speaker_range": 0.089,
+  "listener_range": 0.027,
+  "listener_jitter": 0.0027
+ },
+ "A:infinitalk": {
+  "frames": 192,
+  "tracked_speaker": 192,
+  "tracked_listener": 192,
+  "speaker_corr": 0.36,
+  "speaker_lag_frames": 1,
+  "speaker_range": 0.138,
+  "listener_range": 0.017,
+  "listener_jitter": 0.0022
+ }
+}

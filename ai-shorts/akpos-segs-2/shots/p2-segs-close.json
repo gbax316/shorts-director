@@ -1,0 +1,14 @@
+{
+  "model": "nano-banana-pro (kie.ai)",
+  "prompt": "Use the third reference image for the exact framing, kiosk, awning, shelves, colours and drawing style: it is already the close framing to keep. SHOT: a closer medium shot of Segs behind his counter, from the chest up, his head large in the frame (about a third of the frame width), the red-and-white awning above him and shelves behind. He leans forward slightly and squints down toward the lower LEFT edge of the frame, as if someone off screen is holding something out to him; CURIOUS and PUZZLED, never annoyed: both eyebrows raised high and arched, eyes wide (still small dots), a small round 'o' mouth. NOT squinting, NOT frowning, NO lowered brows. The lower left quarter of the frame stays clear (an object will be added there later). EXACTLY ONE character: Segs. Nobody else. SEGS (second reference): big round off-white bald head with no hair and no hat, small black dot eyes, thin eyebrows, a small mouth, a GOLD t-shirt (#F2B21B), thin black stick arms, black mitten hands. SEGS FACE: only two SMALL solid black dot eyes (no white eyeballs, never like Akpos eyes), thin eyebrows, a small simple mouth. NOT angry, no frown. Vertical 9:16. Flat 2D cartoon in exactly the style of the references: thick clean even black outlines, flat colour fills, one soft grey crescent of shading on each round head, no gradients, no 3D, no texture. Warm off-white paper tone for the sky. No readable text, no letters, numbers or signs anywhere, no logos, no watermark. All products unbranded with plain single-colour labels.",
+  "aspect_ratio": "9:16",
+  "resolution": "2K",
+  "refs": [
+    "ai-shorts/akpos/character.png",
+    "ai-shorts/segs/character.png",
+    "ai-shorts/akpos-segs-2/shots/ref-segs-crop.png"
+  ],
+  "task_id": "3f3884bc219bfc15ce1bc0e3a6117b62",
+  "credits": 18.0,
+  "created": "2026-11-01T06:31:29"
+}

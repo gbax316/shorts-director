@@ -1,0 +1,19 @@
+{
+ "shot": "A",
+ "candidate": "klingav2pro",
+ "model": "fal-ai/kling-video/ai-avatar/v2/pro",
+ "kind": "image-plus-audio",
+ "rate": "$0.115/s of output (fal pricing API)",
+ "derived_cost_usd": 0.925,
+ "payload": {
+  "image_url": "https://v3b.fal.media/files/b/0ab0ad8d/lFhST_i4FTsDpt_aUrPps_05b-talk.png",
+  "audio_url": "https://v3b.fal.media/files/b/0ab0ad8d/KdejtWrLKkeRu6S6fIa53_a_voice.wav",
+  "prompt": "Flat 2D cartoon animation. Akpos, the stick figure on the left with the backwards red cap, big round eyes, toothy grin and teal shirt, talks to Segs and his mouth moves with the words. Segs, the bald man with small dot eyes in the gold shirt behind the kiosk counter on the right, only listens: his mouth stays closed and still the whole time. Exactly two characters, nobody else. Static camera. Keep the thick black outlines, flat colours and both character designs exactly; no 3D, no realistic shading, no morphing."
+ },
+ "created": "2026-11-01T06:31:04",
+ "ok": true,
+ "file": "C:\\Users\\orezi\\dev\\faceless-shorts\\ai-shorts\\akpos-segs-1-kiosk\\bakeoff\\lipsync\\A-klingav2pro.mp4",
+ "request_id": "01a1957b-9658-7161-b4b0-18260ff1e28d",
+ "source_url": "https://v3b.fal.media/files/b/0ab0ada8/kYklMMBjaeFFnL8U4ARxV_output.mp4",
+ "elapsed": 262.7
+}

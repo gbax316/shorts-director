@@ -1,0 +1,14 @@
+{
+  "model": "nano-banana-pro (kie.ai)",
+  "prompt": "Use the third reference image for the exact kiosk, awning, shelves, street, colours and drawing style. SEGS KIOSK fills the LEFT half of the frame: the same small freshly painted wooden kiosk with cream walls, a striped red-and-white awning, a clean front counter, and a plain blank cream board across the front of the counter below the counter top (empty, nothing written). Shelves behind neatly stocked with plain unbranded bottles, snack packs and sachet water. A SECOND KIOSK NEXT DOOR on the RIGHT, set a little further back and smaller: cream walls, a striped BLUE-and-white awning, a plain blank board above its window (empty), nobody inside, neat and busy-looking. Between and in front of the two kiosks an open strip of pavement where people could walk past. Behind, a lively downtown Lagos street in simple flat shapes: two or three buildings and a yellow bus far away, lighter and simpler than the kiosks. Both kiosks read as well-kept going businesses, never shabby. SHOT: Segs stands inside his kiosk behind the counter on the LEFT, seen from the waist up over the counter, facing slightly right toward the camera, curious and calm. EXACTLY ONE character in the scene: Segs. Nobody else, no customers, no passers-by. CHARACTER, exactly as in the reference: SEGS (second reference): big round off-white bald head with no hair and no hat, small black dot eyes, thin eyebrows, a small mouth, a GOLD t-shirt (#F2B21B), thin black stick arms, black mitten hands. SEGS FACE: only two SMALL solid black dot eyes (no white eyeballs, never like Akpos eyes), thin eyebrows, a small simple mouth. NOT angry, no frown. Vertical 9:16 frame: the kiosks sit in the middle band; the bottom quarter is plain empty pavement and the top sixth is plain sky. Flat 2D cartoon in exactly the style of the character references: thick clean even black outlines, flat colour fills, one soft grey crescent of shading on each round head, no gradients, no 3D, no texture. Warm off-white paper tone (#E5DDD2) for the sky. No readable text, no letters, numbers or signs anywhere, no logos, no watermark. ALL PRODUCTS ARE UNBRANDED: plain bottles and packs with solid single-colour labels.",
+  "aspect_ratio": "9:16",
+  "resolution": "2K",
+  "refs": [
+    "ai-shorts/akpos/character.png",
+    "ai-shorts/segs/character.png",
+    "ai-shorts/akpos-segs-1-kiosk/shots/01-how-far.png"
+  ],
+  "task_id": "87adb53ff48cc88d597830f167eebb26",
+  "credits": 18.0,
+  "created": "2026-11-01T06:24:39"
+}

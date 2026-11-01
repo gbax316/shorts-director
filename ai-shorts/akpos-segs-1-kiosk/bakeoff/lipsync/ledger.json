@@ -1,0 +1,123 @@
+{
+ "total": 13.58,
+ "calls": [
+  {
+   "shot": "A",
+   "candidate": "sync2pro",
+   "model": "fal-ai/sync-lipsync/v2/pro",
+   "derived_cost_usd": 0.67,
+   "request_id": "01a1957b-8b4a-7151-9491-e7ecca104908",
+   "ok": true,
+   "error": null
+  },
+  {
+   "shot": "A",
+   "candidate": "veedlip",
+   "model": "veed/lipsync",
+   "derived_cost_usd": 0.054,
+   "request_id": "01a1957b-8e7c-7f03-9dcc-eea5d8829c3c",
+   "ok": true,
+   "error": null
+  },
+  {
+   "shot": "A",
+   "candidate": "fabric",
+   "model": "veed/fabric-1.0",
+   "derived_cost_usd": 1.206,
+   "request_id": "01a1957b-9274-7851-a764-1642adae5ddb",
+   "ok": true,
+   "error": null
+  },
+  {
+   "shot": "A",
+   "candidate": "klingav2pro",
+   "model": "fal-ai/kling-video/ai-avatar/v2/pro",
+   "derived_cost_usd": 0.925,
+   "request_id": "01a1957b-9658-7161-b4b0-18260ff1e28d",
+   "ok": true,
+   "error": null
+  },
+  {
+   "shot": "A",
+   "candidate": "infinitalk",
+   "model": "fal-ai/infinitalk",
+   "derived_cost_usd": 3.216,
+   "request_id": "01a1957b-9a3b-7763-b841-16c48193475b",
+   "ok": true,
+   "error": null
+  },
+  {
+   "shot": "B",
+   "candidate": "sync2pro",
+   "model": "fal-ai/sync-lipsync/v2/pro",
+   "derived_cost_usd": 0.538,
+   "request_id": "01a1957b-9e26-7f92-8390-3e4808553fb5",
+   "ok": true,
+   "error": null
+  },
+  {
+   "shot": "B",
+   "candidate": "veedlip",
+   "model": "veed/lipsync",
+   "derived_cost_usd": 0.043,
+   "request_id": "01a1957b-a200-7100-8d0c-10640bf1b928",
+   "ok": true,
+   "error": null
+  },
+  {
+   "shot": "B",
+   "candidate": "fabric",
+   "model": "veed/fabric-1.0",
+   "derived_cost_usd": 0.969,
+   "request_id": "01a1957b-a60a-73b2-b26b-348f79e00b6f",
+   "ok": true,
+   "error": null
+  },
+  {
+   "shot": "B",
+   "candidate": "klingav2pro",
+   "model": "fal-ai/kling-video/ai-avatar/v2/pro",
+   "derived_cost_usd": 0.743,
+   "request_id": "01a1957b-a9ec-77d1-b5c9-3777c188f197",
+   "ok": true,
+   "error": null
+  },
+  {
+   "shot": "B",
+   "candidate": "infinitalk",
+   "model": "fal-ai/infinitalk",
+   "derived_cost_usd": 2.64,
+   "request_id": null,
+   "ok": false,
+   "error": "fal API 422 at https://queue.fal.run/fal-ai/infinitalk/requests/01a1957b-adc7-7833-958a-e460bee66f75: {\"detail\":[{\"loc\":[\"body\",\"audio_url\"],\"msg\":\"Audio is too short (6.46s) for the requested num_frames. The audio must be at least 6.60s long. Either provide a longer audio file or reduce num_frames.\",\"type\":\"value_error\"}]}"
+  },
+  {
+   "shot": "B",
+   "candidate": "infinitalk",
+   "model": "fal-ai/infinitalk",
+   "derived_cost_usd": 2.576,
+   "request_id": null,
+   "ok": false,
+   "error": "fal API 403 at https://queue.fal.run/fal-ai/infinitalk: {\"detail\":\"User is locked. Reason: Exhausted balance. Top up your balance at fal.ai/dashboard/billing.\"}"
+  },
+  {
+   "shot": "B",
+   "candidate": "infinitalk",
+   "model": "kie:infinitalk/from-audio",
+   "derived_cost_usd": 0.39,
+   "request_id": "7e1da41e9d63535c63ca8a6c46261e34",
+   "ok": false,
+   "error": "kie 500 internal error, not charged"
+  },
+  {
+   "shot": "B",
+   "candidate": "infinitalk",
+   "model": "kie:infinitalk/from-audio",
+   "derived_cost_usd": 0.39,
+   "request_id": "7af30d764757213e0fc159acba39be46",
+   "ok": false,
+   "error": "kie 500 internal error, not charged"
+  }
+ ],
+ "note": "total counts every submitted fal call at its derived price, failures included. Likely real fal spend: $11.00 derived minus the 422-rejected B InfiniTalk ($2.64) = $8.36, plus Kling B returning 7.2 s instead of 6.46 s (+$0.09) = about $8.45. kie: $0."
+}

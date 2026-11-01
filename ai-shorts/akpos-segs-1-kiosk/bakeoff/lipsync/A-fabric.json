@@ -1,0 +1,19 @@
+{
+ "shot": "A",
+ "candidate": "fabric",
+ "model": "veed/fabric-1.0",
+ "kind": "image-plus-audio",
+ "rate": "$0.15/s at 720p (model page; API lists the 480p $0.08/s base)",
+ "derived_cost_usd": 1.206,
+ "payload": {
+  "image_url": "https://v3b.fal.media/files/b/0ab0ad8d/lFhST_i4FTsDpt_aUrPps_05b-talk.png",
+  "audio_url": "https://v3b.fal.media/files/b/0ab0ad8d/KdejtWrLKkeRu6S6fIa53_a_voice.wav",
+  "resolution": "720p"
+ },
+ "created": "2026-11-01T06:31:04",
+ "ok": true,
+ "file": "C:\\Users\\orezi\\dev\\faceless-shorts\\ai-shorts\\akpos-segs-1-kiosk\\bakeoff\\lipsync\\A-fabric.mp4",
+ "request_id": "01a1957b-9274-7851-a764-1642adae5ddb",
+ "source_url": "https://v3b.fal.media/files/b/0ab0ad94/b7vTcA3YwxhGbixkj0O9u_tmp53hn5aly.mp4",
+ "elapsed": 66.2
+}
