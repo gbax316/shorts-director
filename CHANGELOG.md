@@ -7,6 +7,14 @@ How the number moves:
 - **Minor (0.2.0):** a new format, mode, check or tool, or a change in how a run behaves (a new gate, a new default model).
 - **Major (1.0.0):** a change that breaks existing shorts or series (a new `beats.json` or `character.json` shape, a renamed config field). 1.0.0 is also the release where the first posted shorts' audience numbers have set real baselines.
 
+## 0.3.0 (1 November 2026)
+
+- 17 more effects, 27 in all: HookText, PunchZoom, ChatThread, Notifications, RankReveal, Quiz, HighlightQuote, Annotate, StepCounter, SharePrompt, Counter, Bars, SearchBar, Receipt, BeforeAfter, LowerThird, FlashCut. All ground-aware, inside the safe box, with sources on facts. The gallery shows every one.
+- New beat jobs in the catalogue: quote, who, hook, structure, engage, transition, each mapped to its effects.
+- A research pass on viral faceless channels: what is backed (early value hook, captions, send prompts, loops that replay cleanly, countdown and payoff) and what is left out (fake progress bars, unpaid hooks, fake chats presented as real, gameplay filler, invented urgency, comment bait, mass-produced sameness).
+- `AGENTS.md`, so Codex, Cursor and other agents find and follow the skill.
+- Counter fits long numbers; Annotate places its note where there is room; HighlightQuote's marker sits behind the words.
+
 ## 0.2.0 (1 November 2026)
 
 - An effects library in `remotion/src/lib/effects/`: Checklist, Timeline, GlassWidgets, Spotlight, Orbit, SplitCompare, Documentary, Parallax, MapZoom, and SplitScreen (the Kallaway split: a speaker in one half, the visual in the other). Each follows the shot's day or night ground, stays clear of the platform buttons and the caption band, and carries the source of any fact it shows. `EffectsGallery` shows them all.

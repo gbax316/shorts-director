@@ -22,8 +22,14 @@ The jobs describe what the viewer needs, so they hold across formats and topics.
 | place | know where | where it happens matters to the story, not just to the setting |
 | archive | believe it happened, or feel a period | a real past event or a year the viewer should feel |
 | screen | read what is on a phone or computer | the action is on the screen: a search, a message, an app |
+| quote | read a real line from a source, and see which part counts | the words are a quotation or the owner's own page |
+| who | know who is speaking or who a person on screen is | a real named person appears (with their permission) |
+| hook | stop scrolling in the first second or two | the opening beat; the claim or question the film will pay off |
+| structure | know how far through a short built from parts they are | the short is a set of facts, steps or reasons, announced as such |
+| engage | commit to a guess, answer a question, or send the film to someone | a real question with an answer the film gives, or a specific person it fits |
 | reveal | get the payoff they were waiting for | the answer, the result, the twist |
 | tone | feel a mood shift | a turn, a joke landing, a warning |
+| transition | feel a change of time, place or energy | the cut jumps somewhere new, not just to the next angle |
 
 This list can grow. When a beat's job is none of these, name the new job in the premises file; if it comes up again in a later short, add it here.
 
@@ -33,22 +39,36 @@ This list can grow. When a beat's job is none of these, name the new job in the 
 
 | Job | In the library (`remotion/src/lib/effects/`) | Seen in a film, not yet in the library | When none fits |
 |---|---|---|---|
-| number | `GlassWidgets` | doc-1's figure cards (`Doc1Builders.tsx`) | the figure as large kinetic type |
-| list | `Checklist`; `Orbit` for a list with a centre | doc-1's doors | numbered cards |
+| number | `Counter` (one figure that should land), `GlassWidgets` (two or three with sources), `Bars` (quantities to rank), `Receipt` (an offer's real value, line by line) | doc-1's figure cards (`Doc1Builders.tsx`) | the figure as large kinetic type |
+| list | `Checklist`; `RankReveal` (a ranking, revealed from the bottom up); `Orbit` for a list with a centre | doc-1's doors | numbered cards |
 | sequence | `Timeline` | | steps with arrows |
-| compare | `SplitCompare` | | a before and after wipe |
-| focus | `Spotlight` | | a push-in on the detail |
+| compare | `SplitCompare` (two sides with points), `BeforeAfter` (one frame, two states, a slider) | | `Bars` |
+| focus | `Spotlight` (dims the rest), `Annotate` (a hand-drawn circle and note, lighter), `PunchZoom` (a camera punch on the hit word) | | a push-in on the detail |
 | place | `MapZoom` (real projection, cleaned map, pin) | doc-1's night map | a captioned still with a place tag |
 | archive | `Documentary` (grain, date stamp, title; holds still) | | a plain still with a date tag |
-| screen | `SplitScreen` (the Kallaway split: who is talking in one half, what they mean in the other, the caption on the seam) | the pinned screens (`doc-1/screens.tsx`), episode 2's phone search | a phone mock in code |
-| reveal | timing, not an effect: a hard cut, a pause in the bed, a sound hit | | |
+| screen | `SearchBar`, `ChatThread`, `Notifications`, `SplitScreen` (the Kallaway split: who is talking in one half, what they mean in the other, the caption on the seam) | the pinned screens (`doc-1/screens.tsx`), episode 2's phone search | a phone mock in code |
+| quote | `HighlightQuote` | | the line as kinetic type with its source |
+| who | `LowerThird` | | a name tag in the corner |
+| hook | `HookText` (the opening words slam in with the voice) | | the hook line as large type over the frame-0 picture |
+| structure | `StepCounter` ("3 of 5", honest progress) | | |
+| engage | `Quiz` (pause and guess, then the answer), `SharePrompt` (send it to a named kind of person, or answer a real question) | | |
+| reveal | timing, not an effect: a hard cut, a pause in the bed, a sound hit; `PunchZoom` on the answer | | |
 | tone | sound and pacing, not an effect | | |
+| transition | `FlashCut` (a flash or a whip over a cut); a hard cut is still the default | | |
 
 **Skits look inside their world first.** A skit's beats are better served by a prop in the scene than by an overlay: episode 2's calendar slamming down (a sequence), the LOST SALES counter on the wall (a number), the sign that flips (a reveal), all in `remotion/src/shots/ai-3/Ai3Customer.tsx`. Reach for a library overlay in a skit only when no prop in the world can carry the job.
 
 **Stills move with depth, not a pan.** In a documentary, a still that holds the screen for more than a couple of seconds moves with `Parallax` (layers from `tools/parallax_layers.py`) rather than a slow push; the push stays for stills where the cut-out fails (a crowd, a skyline, a subject smaller than about a twentieth of the frame).
 
 Every library effect follows the shot's day or night ground, stays inside the safe box (`FX_BOX` in `util.ts`: clear of the platform's buttons on the right and above the caption band) and carries the source of any fact it shows. Each component's header comment says what it is for. `EffectsGallery` (in `remotion/src/shots/effects-gallery/`) shows every library effect for four seconds.
+
+## What viral faceless channels do, and what we leave out
+
+From a research pass on 1 November 2026 (official evidence is thin; most of this is practitioner practice): the best-supported devices are an early value hook (TikTok's Creative Codes, citing Kantar's analysis of 3,500 ads: value in the first seconds), captions (TikTok says text overlays raise view time), a send or share prompt (Instagram's head named sends among the ranking signals in January 2025), loops that replay cleanly (YouTube has counted Shorts replays as views since March 2025) and countdown and payoff structure (curiosity-gap theory). Common but anecdotal: pattern interrupts every few seconds, chat-story and ranking formats, mid-video open loops ("but that is not the strange part"), which are fine only when the film pays them off.
+
+Left out on purpose, because they cost trust a brand that sells a course cannot spare: fake progress bars (`StepCounter` is the honest version), hooks the film does not pay off, chats, posts or notifications presented as real when they are not (label them as illustrative, or use real ones with permission), unrelated gameplay filler in a split screen, invented urgency, and "comment YES" bait. Also left out: sameness. YouTube's July 2025 monetisation update targets mass-produced, repetitive content, so a channel's shorts must differ in substance, not just in words over the same template; the writers' room's three premises are the guard.
+
+**Loops are an editing rule, not an effect.** Where a format allows it, the last line can lead back into the first so a replay runs on without a visible join; a skit ends on its button instead.
 
 ## Step 3: restraint
 
@@ -70,4 +90,4 @@ The message that sends the animatic lists each beat that carries an effect, whic
 
 ## Growing and pruning the library
 
-Build an effect when a short needs it, not ahead of time; a library built ahead of need grows effects nobody's beats call for. The ten in the library on 1 November were built ahead of need at the owner's request and are **unproven** until a short uses them. A film-local effect (the right-hand column) moves into the library the second time a short needs it. Every run's log entry lists the effects used; an effect used in two shorts is proven, and one not picked in five shorts is a candidate to remove. The effects mode builds new ones.
+Build an effect when a short needs it, not ahead of time; a library built ahead of need grows effects nobody's beats call for. The 27 in the library on 1 November were built ahead of need at the owner's request (he asked for at least 24) and are **unproven** until a short uses them. A film-local effect (the right-hand column) moves into the library the second time a short needs it. Every run's log entry lists the effects used; an effect used in two shorts is proven, and one not picked in five shorts is a candidate to remove. The effects mode builds new ones.

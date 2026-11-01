@@ -9,7 +9,7 @@ Ask Claude for a short ("make the next Akpos and Segs episode", "make a mini doc
 3. **Animatic:** stills on the real voice timeline with every gag drawn in code. Nothing is generated until you approve it.
 4. **Clips and mouths:** generated only where acting carries the beat, checked frame by frame, with mouths redrawn from the voice.
 5. **Sound and finish:** library beds and cues, mastered in two passes to -14 LUFS, a phone copy, every word checked against the style rules.
-6. **Effects, chosen by the beat:** the writers' room tags what each beat needs the viewer to get (a number, a list, a sequence, a comparison, a place); the director picks from an effects library within a budget, or `/effects <name>` builds and previews one.
+6. **Effects, chosen by the beat:** the writers' room tags what each beat needs the viewer to get (a number, a list, a sequence, a comparison, a place); the director picks from an effects library within a budget, or `/effects <name>` builds and previews one. There are 27 so far, from checklists and rank reveals to quizzes, chat threads, map zooms and parallax.
 7. **Improve:** each run is scored in `RUNS.md`, its lessons land in `LESSONS.md`, and repeated faults become skill changes you approve. Releases are tagged and listed in `CHANGELOG.md`.
 
 The cost of every generation step is stated before it runs.
@@ -24,6 +24,10 @@ The cost of every generation step is stated before it runs.
 | Collage | paper-collage layers with a travelling camera | the `make-vox` engine and its example in `vox-shorts/` |
 
 A new format is made once as a proving run, then written up as a format reference so the next one starts from a grammar.
+
+## Works with other coding agents
+
+The director is plain markdown plus ordinary Python and Node tools. Claude Code loads it from `.claude/skills/`; Codex, Cursor, Copilot and other agents read `AGENTS.md`, which points them to the same skill. Only the `/effects` shortcut is Claude-specific; elsewhere, ask for the effects mode in words.
 
 ## Make it yours
 
