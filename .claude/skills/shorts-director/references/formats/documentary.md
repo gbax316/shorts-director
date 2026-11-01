@@ -16,7 +16,7 @@ Photoreal, modern, warm light, bright sharp contrast. People across income level
 
 ## Default render paths
 
-Generated stills with a slow push for most beats; figures, tags, maps, screens and doors drawn in code; one or two generated clips where a person's action is the beat (typing, pressing publish). A clip shorter than its scene plays first and the scene holds on its last frame.
+Generated stills that move with `Parallax` (2.5D depth from `tools/parallax_layers.py`) for most beats, a slow push only where the cut-out fails (a crowd, a skyline); figures, tags, maps, screens and doors drawn in code; one or two generated clips where a person's action is the beat (typing, pressing publish). A clip shorter than its scene plays first and the scene holds on its last frame.
 
 ## Voice
 

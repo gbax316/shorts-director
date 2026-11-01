@@ -10,6 +10,7 @@ One entry per finished short, newest first, written by the shorts-director skill
 - **Words visible:** every line.
 - **Spend:** 9 stills, 162 credits; 2 clips at 720p, 369 credits; 531 credits in all, about $2.66, plus ElevenLabs narration.
 - **Checks:** frame-jump scan clean apart from planned cuts and door wipes; check_text clean; mastered to -14.9 LUFS, peak -1.3 dB; phone copy 18 MB.
+- **Effects used:** film-local figure cards (number, four beats), night map (place), laptop and phone screens (screen), doors (list); place and time tags. Made before the effects library existed.
 - **What it taught:** LESSONS 21 and 22 (photoreal clips held on the first roll; a slow narrator needs fewer words).
 - **Audience:** not posted yet.
 
@@ -21,6 +22,7 @@ One entry per finished short, newest first, written by the shorts-director skill
 - **Words visible:** every line.
 - **Spend:** 4 eyebrow, lean and laugh clips at 720p including one re-roll, 697 credits (about $3.49); stills at 18 credits each; ElevenLabs voice and auditions.
 - **Checks:** frame-jump scan clean apart from planned cuts; check_text clean; mastered to -14.6 LUFS, peak -1.3 dB; phone copy 11 MB.
+- **Effects used:** in-world props, all film-local: the phone search (screen), LOST SALES counter (number), calendar slam (sequence), website on a phone (screen), kiosk sign flip (reveal), link card. Made before the effects library existed.
 - **What it taught:** LESSONS 15 to 20.
 - **Audience:** not posted yet. Captions ready to post are in the owner's Personal OS outputs.
 

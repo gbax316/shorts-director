@@ -14,3 +14,7 @@ export { Spotlight } from './Spotlight';
 export type { SpotTarget, SpotlightProps } from './Spotlight';
 export { Timeline } from './Timeline';
 export type { TimelineProps } from './Timeline';
+export { MapZoom } from './MapZoom';
+export type { MapView, MapZoomProps } from './MapZoom';
+export { Parallax } from './Parallax';
+export type { ParallaxProps } from './Parallax';

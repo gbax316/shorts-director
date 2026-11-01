@@ -2,7 +2,8 @@ import React from 'react';
 import { AbsoluteFill, Img, Sequence, staticFile } from 'remotion';
 import { COLORS } from '../../brand';
 import { FONT_MONO } from '../../fonts';
-import { Checklist, Documentary, GlassWidgets, Orbit, SplitCompare, Spotlight, Timeline } from '../../lib/effects';
+import { GroundContext } from '../../brand';
+import { Checklist, Documentary, GlassWidgets, MapZoom, Orbit, Parallax, SplitCompare, Spotlight, Timeline } from '../../lib/effects';
 
 // =============================================================================
 // COMPOSITION CONFIG: the effects gallery. Every effect in lib/effects, four seconds each,
@@ -11,7 +12,7 @@ import { Checklist, Documentary, GlassWidgets, Orbit, SplitCompare, Spotlight, T
 // =============================================================================
 export const compositionConfig = {
   id: 'EffectsGallery',
-  durationInSeconds: 28,
+  durationInSeconds: 40,
   fps: 30,
   width: 1080,
   height: 1920,
@@ -31,15 +32,16 @@ const Label: React.FC<{ name: string }> = ({ name }) => (
   <div style={{ position: 'absolute', left: 0, right: 0, bottom: 120, textAlign: 'center', fontFamily: FONT_MONO, fontSize: 30, letterSpacing: 4, color: COLORS.onNightSoft }}>{name}</div>
 );
 
-export const EFFECTS_ORDER = ['checklist', 'timeline', 'glass-widgets', 'spotlight', 'orbit', 'split-compare', 'documentary'] as const;
+export const EFFECTS_ORDER = ['checklist', 'timeline', 'glass-widgets', 'spotlight', 'orbit', 'split-compare', 'documentary', 'parallax', 'map-zoom', 'checklist (day ground)'] as const;
 
 const EffectsGallery: React.FC = () => (
+  <GroundContext.Provider value="night">
   <AbsoluteFill style={{ background: COLORS.night }}>
     <Sequence durationInFrames={SEG}>
       <Plate name="04-surulere-designer" dim={0.55} />
       <Checklist
         len={SEG}
-        ground="glass"
+        glass
         title="What you take home"
         items={[
           { text: 'Your website, online', at: 8 },
@@ -71,7 +73,7 @@ const EffectsGallery: React.FC = () => (
           { to: 36, fmt: (n) => `${Math.round(n)}M+`, label: 'developers joined GitHub in a year', source: 'GitHub Octoverse 2025', at: 6 },
           { value: 'Nearly 80%', label: 'of new developers use AI in their first week', source: 'GitHub Octoverse 2025', at: 26 },
         ]}
-        chips={[{ text: 'Nigeria, a market to watch', at: 50 }, { text: 'AI skills, fastest growing', at: 58 }]}
+        chips={[{ text: 'Nigeria, a market to watch', source: 'GitHub Octoverse 2025', at: 50 }, { text: 'AI skills, fastest growing', source: 'WEF 2025', at: 58 }]}
       />
       <Label name="glass-widgets" />
     </Sequence>
@@ -111,10 +113,42 @@ const EffectsGallery: React.FC = () => (
       <Label name="split-compare" />
     </Sequence>
     <Sequence from={SEG * 6} durationInFrames={SEG}>
-      <Documentary len={SEG} src={`${DOC}/02-lekki-banker.jpg`} date="LEKKI, 2026" title="A banker, after work" subtitle="building his first website with AI" pan="right" />
+      <Documentary len={SEG} src={`${DOC}/03-ikeja-corps.jpg`} date="IKEJA, 2026" title="A corps member" subtitle="building between shifts" titlePlace="top" />
       <Label name="documentary" />
     </Sequence>
+    <Sequence from={SEG * 7} durationInFrames={SEG}>
+      <Parallax len={SEG} bg={`${DOC}/02-lekki-banker-bg.jpg`} fg={`${DOC}/02-lekki-banker-fg.png`} move="push" />
+      <Label name="parallax" />
+    </Sequence>
+    <Sequence from={SEG * 8} durationInFrames={SEG}>
+      <MapZoom
+        len={SEG}
+        ground="night"
+        from={{ lon: [-20, 55], lat: [-36, 38] }}
+        to={{ lon: [-8, 24], lat: [-1, 18] }}
+        country="Nigeria"
+        pin={{ lon: 3.38, lat: 6.52, label: 'Lagos', at: 66 }}
+        caption="WHERE THE NEW BUILDERS ARE"
+      />
+      <Label name="map-zoom" />
+    </Sequence>
+    <Sequence from={SEG * 9} durationInFrames={SEG}>
+      <GroundContext.Provider value="day">
+        <AbsoluteFill style={{ background: COLORS.paper }} />
+        <Checklist
+          len={SEG}
+          title="What you need"
+          items={[
+            { text: 'A laptop, not a phone', at: 8 },
+            { text: 'Steady internet', at: 24 },
+            { text: 'A free AI plan to start', at: 40 },
+          ]}
+        />
+        <Label name="checklist on the day ground" />
+      </GroundContext.Provider>
+    </Sequence>
   </AbsoluteFill>
+  </GroundContext.Provider>
 );
 
 export default EffectsGallery;

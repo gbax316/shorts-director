@@ -9,7 +9,8 @@ Ask Claude for a short ("make the next Akpos and Segs episode", "make a mini doc
 3. **Animatic:** stills on the real voice timeline with every gag drawn in code. Nothing is generated until you approve it.
 4. **Clips and mouths:** generated only where acting carries the beat, checked frame by frame, with mouths redrawn from the voice.
 5. **Sound and finish:** library beds and cues, mastered in two passes to -14 LUFS, a phone copy, every word checked against the style rules.
-6. **Improve:** each run is scored in `RUNS.md`, its lessons land in `LESSONS.md`, and repeated faults become skill changes you approve. Releases are tagged and listed in `CHANGELOG.md`.
+6. **Effects, chosen by the beat:** the writers' room tags what each beat needs the viewer to get (a number, a list, a sequence, a comparison, a place); the director picks from an effects library within a budget, or `/effects <name>` builds and previews one.
+7. **Improve:** each run is scored in `RUNS.md`, its lessons land in `LESSONS.md`, and repeated faults become skill changes you approve. Releases are tagged and listed in `CHANGELOG.md`.
 
 The cost of every generation step is stated before it runs.
 

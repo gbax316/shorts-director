@@ -4,7 +4,7 @@ This mode is why the skill gets better instead of staying as good as the day it 
 
 ## Score the run
 
-Add an entry to `RUNS.md` at the repo root, newest first, using the shape the earlier entries use. The numbers that matter are the ones in `../references/outcomes.md`: revision rounds to the owner's approval (and what each round was about: direction, taste or a fault), faults the owner found before you did, beats where the words were not visible, credits and dollars spent per step, and the formats shipped. Be honest about rounds. A round caused by a new direction from the owner is still a round, but say that it was direction, because the fix for direction rounds (a better premise gate) is different from the fix for fault rounds (a better check).
+Add an entry to `RUNS.md` at the repo root, newest first, using the shape the earlier entries use. The numbers that matter are the ones in `../references/outcomes.md`: revision rounds to the owner's approval (and what each round was about: direction, taste or a fault), faults the owner found before you did, beats where the words were not visible, credits and dollars spent per step, the formats shipped, and the effects used (each by name, with the beat job it served), which is how the effects library learns what earns its place. Be honest about rounds. A round caused by a new direction from the owner is still a round, but say that it was direction, because the fix for direction rounds (a better premise gate) is different from the fix for fault rounds (a better check).
 
 When audience numbers arrive after posting (still watching at three seconds, average view, completion, link clicks), add them to the same entry. They are read by hand for now.
 
