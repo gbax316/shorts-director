@@ -6,19 +6,20 @@ import Shot2, { compositionConfig as cfg2 } from './shots/ai-3/Ai3Customer';
 import Shot3, { compositionConfig as cfg3 } from './shots/brand/BrandKitDay';
 import Shot4, { compositionConfig as cfg4 } from './shots/brand/BrandSampleDay';
 import Shot5, { compositionConfig as cfg5 } from './shots/brand/BrandSampleNight';
-import Shot6, { compositionConfig as cfg6 } from './shots/short-10/Short10Fees';
-import Shot7, { compositionConfig as cfg7 } from './shots/short-11/Short11Map';
-import Shot8, { compositionConfig as cfg8 } from './shots/short-12/Short12Orbit';
-import Shot9, { compositionConfig as cfg9 } from './shots/short-1/Short1Chess';
-import Shot10, { compositionConfig as cfg10 } from './shots/short-2/Short2Math';
-import Shot11, { compositionConfig as cfg11 } from './shots/short-3/Short3Algo';
-import Shot12, { compositionConfig as cfg12 } from './shots/short-4/Short4Reflog';
-import Shot13, { compositionConfig as cfg13 } from './shots/short-5/Short5Monty';
-import Shot14, { compositionConfig as cfg14 } from './shots/short-6/Short6Sheet';
-import Shot15, { compositionConfig as cfg15 } from './shots/short-7/Short7Kids';
-import Shot16, { compositionConfig as cfg16 } from './shots/short-8/Short8Phish';
-import Shot17, { compositionConfig as cfg17 } from './shots/short-9/Short9Chords';
-import Shot18, { compositionConfig as cfg18 } from './shots/vox-1/Vox1Coffee';
+import Shot6, { compositionConfig as cfg6 } from './shots/doc-1/Doc1Builders';
+import Shot7, { compositionConfig as cfg7 } from './shots/short-10/Short10Fees';
+import Shot8, { compositionConfig as cfg8 } from './shots/short-11/Short11Map';
+import Shot9, { compositionConfig as cfg9 } from './shots/short-12/Short12Orbit';
+import Shot10, { compositionConfig as cfg10 } from './shots/short-1/Short1Chess';
+import Shot11, { compositionConfig as cfg11 } from './shots/short-2/Short2Math';
+import Shot12, { compositionConfig as cfg12 } from './shots/short-3/Short3Algo';
+import Shot13, { compositionConfig as cfg13 } from './shots/short-4/Short4Reflog';
+import Shot14, { compositionConfig as cfg14 } from './shots/short-5/Short5Monty';
+import Shot15, { compositionConfig as cfg15 } from './shots/short-6/Short6Sheet';
+import Shot16, { compositionConfig as cfg16 } from './shots/short-7/Short7Kids';
+import Shot17, { compositionConfig as cfg17 } from './shots/short-8/Short8Phish';
+import Shot18, { compositionConfig as cfg18 } from './shots/short-9/Short9Chords';
+import Shot19, { compositionConfig as cfg19 } from './shots/vox-1/Vox1Coffee';
 
 export const shots: { Comp: React.FC; config: any }[] = [
   { Comp: Shot0 as React.FC, config: cfg0 },
@@ -40,4 +41,5 @@ export const shots: { Comp: React.FC; config: any }[] = [
   { Comp: Shot16 as React.FC, config: cfg16 },
   { Comp: Shot17 as React.FC, config: cfg17 },
   { Comp: Shot18 as React.FC, config: cfg18 },
+  { Comp: Shot19 as React.FC, config: cfg19 },
 ];

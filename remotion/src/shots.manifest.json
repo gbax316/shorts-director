@@ -17,7 +17,7 @@
  },
  {
   "id": "Ai3Customer",
-  "durationInSeconds": 43.2,
+  "durationInSeconds": 42.33,
   "fps": 30,
   "width": 1080,
   "height": 1920,
@@ -42,6 +42,14 @@
  {
   "id": "BrandSampleNight",
   "durationInSeconds": 4,
+  "fps": 30,
+  "width": 1080,
+  "height": 1920,
+  "transparent": false
+ },
+ {
+  "id": "Doc1Builders",
+  "durationInSeconds": 50.2,
   "fps": 30,
   "width": 1080,
   "height": 1920,
