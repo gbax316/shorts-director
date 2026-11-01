@@ -27,3 +27,7 @@ ai-shorts/*/bakeoff/**/work/
 
 # local editor config
 .vscode/
+
+# per-run working files from generation tools
+ai-shorts/*/shots/*.log
+ai-shorts/*/shots/clip-*-last.png
