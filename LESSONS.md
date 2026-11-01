@@ -108,3 +108,11 @@ read both before a new series.
     erases a solid black mouth where no hand crosses the face.
 20. A long line on a held frame keeps its drawn mouths if the held frame is the previous clip's
     last frame run through mouth_sync, and the cut from clip to hold never jumps.
+21. The second proving run (a mini documentary, no cast) took two clips and nine stills. Photoreal
+    Seedance 2 clips of a real-looking person held identity and hands on the first roll, where the
+    cartoon eyebrow needed a re-roll: name the person's fixed features (face, hair, top) in the
+    prompt and keep the motion small. A clip shorter than its scene plays first, and the scene's
+    plate becomes the clip's last frame, so the hand-over never shows.
+22. A narrator who pauses at every comma turns a 25-word line into 12.7 s. Take out the commas the
+    ear does not need, and move anything already on screen (the dates on the class card) out of
+    the narration.

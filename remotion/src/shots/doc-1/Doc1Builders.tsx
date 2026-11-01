@@ -1,5 +1,5 @@
 import React from 'react';
-import { AbsoluteFill, Audio, Img, Sequence, staticFile, useCurrentFrame } from 'remotion';
+import { AbsoluteFill, Audio, Img, OffthreadVideo, Sequence, staticFile, useCurrentFrame } from 'remotion';
 import { COLORS } from '../../brand';
 import { FONT_BODY, FONT_EDITORIAL, FONT_HEADLINE, FONT_MONO } from '../../fonts';
 import { Captions, EASE_OUT, ProgressBar, prog } from '../../lib/shorts';
@@ -24,27 +24,41 @@ export const compositionConfig = {
 const FPS = 30;
 const s = (t: number) => Math.round(t * FPS);
 const DIR = 'projects/doc-1';
-const ANIMATIC = true;
+const ANIMATIC = false;
 const END_CARD = s(47.23);
 const CLOSING = s(43.5);
 const bed = makeBed(VO, FPS);
 
-const PLATES: { name: string; from: number; to: number; tag?: string; clip?: string }[] = [
-  { name: '01-yaba-builder', from: 0, to: s(2.65), clip: 'CLIP: her hands type, a site builds on her screen' },
+// video: a generated clip that plays from the plate's first frame for `len` seconds; still: the image under it
+// (the clip's last frame where the clip ends before the plate does, so the hand-over never jumps)
+const PLATES: { name: string; from: number; to: number; tag?: string; clip?: string; video?: { src: string; len: number }; still?: string }[] = [
+  { name: '01-yaba-builder', from: 0, to: s(2.65), clip: 'CLIP: her hands type, a site builds on her screen', video: { src: 'clip-01-typing', len: 4.04 } },
   { name: '02-lekki-banker', from: s(2.65), to: s(4.997), tag: 'LEKKI, 9:40 PM' },
   { name: '03-ikeja-corps', from: s(4.997), to: s(7.37), tag: 'IKEJA, 8:15 PM' },
   { name: '04-surulere-designer', from: s(7.37), to: s(10.04), tag: 'SURULERE, 10:05 PM' },
   { name: '05-lagos-night', from: s(10.04), to: s(17.66) },
   { name: '06-over-shoulder', from: s(17.66), to: s(24.8) },
-  { name: '09-yaba-publish', from: s(32.11), to: CLOSING, clip: 'CLIP: she presses publish and smiles' },
+  {
+    name: '09-yaba-publish',
+    from: s(32.11),
+    to: CLOSING,
+    clip: 'CLIP: she presses publish and smiles',
+    video: { src: 'clip-09-publish', len: 5.04 },
+    still: '09-yaba-publish-end',
+  },
 ];
 
 // overlays pinned to the picture go in as children, so they ride the same slow push
-const Plate: React.FC<{ name: string; len: number; children?: React.ReactNode }> = ({ name, len, children }) => {
+const Plate: React.FC<{ name: string; len: number; video?: { src: string; len: number }; children?: React.ReactNode }> = ({ name, len, video, children }) => {
   const f = useCurrentFrame();
   return (
     <AbsoluteFill style={{ transform: `scale(${1 + 0.03 * prog(f, 0, len)})` }}>
       <Img src={staticFile(`${DIR}/${name}.jpg`)} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+      {video ? (
+        <Sequence durationInFrames={Math.min(len, Math.floor(video.len * FPS))}>
+          <OffthreadVideo src={staticFile(`${DIR}/${video.src}.mp4`)} muted style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+        </Sequence>
+      ) : null}
       {children}
     </AbsoluteFill>
   );
@@ -235,7 +249,7 @@ const CUES: { at: number; src: string; vol: number }[] = [
   ...FIGURES.map((x) => ({ at: x.at, src: 'pop-reveal', vol: 0.4 })),
   { at: s(17.8), src: 'keys-typing-soft', vol: 0.3 },
   ...DOORS.map((d) => ({ at: d.at, src: 'whoosh-soft', vol: 0.3 })),
-  { at: s(32.5), src: 'ui-click-soft', vol: 0.5 },
+  { at: s(33.3), src: 'ui-click-soft', vol: 0.5 },
   { at: s(38.35), src: 'pop-reveal', vol: 0.35 },
   { at: s(41.9), src: 'riser-soft', vol: 0.3 },
   { at: CLOSING, src: 'warm-shimmer', vol: 0.35 },
@@ -248,7 +262,7 @@ const Doc1Builders: React.FC = () => {
     <AbsoluteFill style={{ background: COLORS.night }}>
       {PLATES.map((p) => (
         <Sequence key={p.name} from={p.from} durationInFrames={p.to - p.from}>
-          <Plate name={p.name} len={p.to - p.from}>
+          <Plate name={p.still ?? p.name} len={p.to - p.from} video={p.video}>
             {p.name === '05-lagos-night' ? <NightMap /> : null}
             {p.name === '06-over-shoulder' ? (
               <Pinned w={600} h={400} quad={[[463, 980], [970, 1000], [940, 1340], [428, 1295]]}>
@@ -272,7 +286,7 @@ const Doc1Builders: React.FC = () => {
           </Door>
         </Sequence>
       ))}
-      <Sequence from={s(32.5)} durationInFrames={s(38.2) - s(32.5)}>
+      <Sequence from={s(33.4)} durationInFrames={s(38.2) - s(33.4)}>
         <Published />
       </Sequence>
       <Sequence from={s(38.35)} durationInFrames={CLOSING - s(38.35)}>

@@ -1,0 +1,17 @@
+{
+  "model": "bytedance/seedance-2",
+  "payload": {
+    "prompt": "A young Nigerian woman at a laptop in a warm Yaba co-working space types quickly and confidently with both hands, glances at her screen, and a small pleased smile grows as what she is building comes together. Her shoulders relax. Background coworkers keep working quietly. Photorealistic, natural and subtle human motion, like a documentary shot. Locked-off camera with at most a very slow gentle push in: no pan, no cut, no zoom jump. The room, the lights, the plants, the window and the people in the background stay exactly as in the image, moving only slightly and naturally. She keeps her exact face, hair, skin tone, yellow top and proportions in every frame; no morphing, no extra fingers or hands, no new people, no new objects, no text, no logos. Warm, bright evening light.",
+    "aspect_ratio": "9:16",
+    "first_frame_url": "https://tempfile.redpandaai.co/kieai/803621/faceless-shorts/01-yaba-builder.png",
+    "resolution": "720p",
+    "duration": 4,
+    "generate_audio": false,
+    "web_search": false
+  },
+  "provider": "kie",
+  "task_id": "85ac2d14ea4087e2aa0e8297964d1cf8",
+  "source_url": "https://tempfile.aiquickdraw.com/seedance/1793554987707-f2ij1a8hkxl.mp4",
+  "credits": 164.0,
+  "created": "2026-11-01T18:43:11"
+}

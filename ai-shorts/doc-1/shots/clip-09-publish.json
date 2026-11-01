@@ -1,0 +1,17 @@
+{
+  "model": "bytedance/seedance-2",
+  "payload": {
+    "prompt": "The same young Nigerian woman at her laptop presses one key to publish her website, leans back slightly, and breaks into a proud, happy smile, giving a small celebratory fist pump close to her body, then looks back at her screen, still smiling. Background coworkers keep working quietly. Photorealistic, natural and subtle human motion, like a documentary shot. Locked-off camera with at most a very slow gentle push in: no pan, no cut, no zoom jump. The room, the lights, the plants, the window and the people in the background stay exactly as in the image, moving only slightly and naturally. She keeps her exact face, hair, skin tone, yellow top and proportions in every frame; no morphing, no extra fingers or hands, no new people, no new objects, no text, no logos. Warm, bright evening light.",
+    "aspect_ratio": "9:16",
+    "first_frame_url": "https://tempfile.redpandaai.co/kieai/803621/faceless-shorts/09-yaba-publish.png",
+    "resolution": "720p",
+    "duration": 5,
+    "generate_audio": false,
+    "web_search": false
+  },
+  "provider": "kie",
+  "task_id": "25afefcc5593fbcfbd56aa08f47a6d84",
+  "source_url": "https://tempfile.aiquickdraw.com/seedance/1793555040487-xw0o2ajx8bc.mp4",
+  "credits": 205.0,
+  "created": "2026-11-01T18:44:08"
+}
