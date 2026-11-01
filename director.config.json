@@ -1,0 +1,62 @@
+{
+  "_about": "Identity and defaults for the shorts-director skill. Change this file, not the skill, to use the repo for another brand. Visual identity (colours, fonts, logo files) is remotion/src/brand.ts and remotion/src/fonts.ts.",
+  "brand": {
+    "name": "Qodeup",
+    "legalName": "Qodeup Africa Ltd",
+    "site": "https://qodeupafrica.com",
+    "cornerMark": "Powered by Qodeup",
+    "aboutSource": "https://qodeupafrica.com/about"
+  },
+  "people": {
+    "leadFacilitator": { "name": "Orezi Emeotu", "spokenAs": "Orezi", "ttsRespelling": "Oh-reh-zee" }
+  },
+  "links": {
+    "utm": { "source": "shorts", "medium": "video", "campaignFromShortId": true },
+    "social": { "facebook": { "source": "facebook", "medium": "social" }, "instagram": { "linkInBio": true } }
+  },
+  "houseRules": [
+    "No em dashes or exclamation marks in anything a viewer reads or hears.",
+    "Images for a Nigerian audience cut across income levels, with nothing run down.",
+    "Bright, sharp contrast, never muted.",
+    "Urgency only from things that really count down; never an invented seat count.",
+    "Offer lines read like the teacher talking, not an advert, and promise only what the offer's own page promises.",
+    "No invented real person or business presented as real.",
+    "An AI voice never speaks as a real person in the first person."
+  ],
+  "styleScan": {
+    "envVar": "STYLE_SCAN",
+    "note": "tools/check_text.py runs the scanner named by STYLE_SCAN in .env. Without one it says so and exits 2."
+  },
+  "voices": {
+    "provider": "elevenlabs",
+    "model": "eleven_v4",
+    "settings": { "stability": 0.4, "similarity_boost": 0.8, "style": 0.35, "use_speaker_boost": true, "speed": 1.05 },
+    "alternativeForPidgin": { "model": "eleven_multilingual_v2", "settings": { "stability": 0.5, "style": 0.3 } },
+    "proven": {
+      "akpos": { "id": "UXyapCwN1QltDgDxgF4m", "lives": "ai-shorts/akpos/character.json" },
+      "segs": { "id": "JvYVKHK9a3ohjGBudnKo", "lives": "ai-shorts/segs/character.json" },
+      "customer-ify": { "id": "b8XX4QShLFkd3yZQlz8T", "picked": "2026-11-01, Akpos and Segs episode 2" },
+      "narrator-ifeoma-odumodu": { "id": "reGkImJki7uJOve2F4A0", "speed": 1.12, "picked": "2026-11-01, Qodeup documentaries" }
+    }
+  },
+  "providers": {
+    "stills": { "provider": "kie", "model": "nano-banana-pro", "resolution": "2K", "credits": 18, "tool": "tools/kie_image.py", "priced": "2026-11-01" },
+    "clips": {
+      "provider": "kie",
+      "model": "bytedance/seedance-2",
+      "defaultResolution": "720p",
+      "creditsPerSecondNoVideoInput": { "480p": 19, "720p": 41, "1080p": 102 },
+      "tool": "tools/gen_clip.py",
+      "priced": "2026-11-01"
+    },
+    "kieCreditUsd": 0.005,
+    "mouths": {
+      "default": "tools/mouth_sync.py",
+      "decided": "2026-11-01 lip-sync bakeoff",
+      "lost": ["Sync 2.0 Pro", "VEED Lipsync", "VEED Fabric", "Kling Avatar v2 Pro", "InfiniTalk (worth one retest from a frame where the listener's mouth starts closed)"]
+    }
+  },
+  "audio": { "masterLufs": -14, "truePeakDb": -1.5, "lra": 11 },
+  "phone": { "maxMb": 30, "tool": "tools/export_phone.py" },
+  "spend": { "showCostBeforeEverySpend": true, "ceiling": null }
+}

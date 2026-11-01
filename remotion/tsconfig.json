@@ -4,6 +4,7 @@
     "module": "ESNext",
     "jsx": "react-jsx",
     "esModuleInterop": true,
+    "resolveJsonModule": true,
     "moduleResolution": "bundler",
     "strict": true,
     "skipLibCheck": true,

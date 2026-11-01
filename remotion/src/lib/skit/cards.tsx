@@ -4,11 +4,12 @@ import { COLORS, LOGO } from '../../brand';
 import { FONT_BODY, FONT_HEADLINE } from '../../fonts';
 import { EASE_OUT, prog } from '../shorts';
 import type { VoLine } from '../shorts';
+import DIRECTOR from '../../../../director.config.json';
 
 // Shared by the skit series: the corner mark, the closing card and the voice-aware beds.
-// Words and links come from each episode's beats.json "endCard", never from here.
+// Words and links come from each episode's beats.json "endCard"; the corner mark comes from director.config.json.
 
-export const PoweredBy: React.FC<{ outAt: number; label?: string }> = ({ outAt, label = 'Powered by Qodeup' }) => {
+export const PoweredBy: React.FC<{ outAt: number; label?: string }> = ({ outAt, label = DIRECTOR.brand.cornerMark }) => {
   const f = useCurrentFrame();
   const a = prog(f, 0, 8) * (1 - prog(f, outAt - 4, outAt + 6));
   if (a <= 0.001) return null;

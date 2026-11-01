@@ -1,4 +1,27 @@
-# claude-faceless-shorts-creator
+# Shorts director
+
+**A faceless-shorts director you run with [Claude Code](https://claude.com/claude-code). It picks a format, writes the episode in a writers' room, and decides beat by beat how each moment is made: drawn in code, cut out from a generated still, or generated as a clip. It gets better with every short it makes.**
+
+Start a short by asking Claude for one ("make the next Akpos and Segs episode", "make a mini documentary about X"). The `shorts-director` skill in `.claude/skills/shorts-director/` takes it from there:
+
+1. **Writers' room:** three divergent premises, each judged as the buyer, and a pick with its reason. You choose.
+2. **Voice:** ElevenLabs, with auditions you pick by ear for pidgin and names, seated exactly.
+3. **Animatic:** stills on the real voice timeline with every gag drawn in code. Nothing is generated until you approve it.
+4. **Clips and mouths:** generated only where acting carries the beat, checked frame by frame, with mouths redrawn from the voice by `tools/mouth_sync.py`.
+5. **Sound and finish:** library beds and cues, mastered to -14 LUFS, a phone copy, every word checked against the style rules.
+6. **Improve:** each run is scored in `RUNS.md`, its lessons land in `LESSONS.md`, and repeated faults become changes to the skill that you approve.
+
+Two formats are proven so far: a character skit with dialogue and synced mouths (Akpos and Segs) and a photoreal mini documentary with sourced figures (Qodeup). The cost of every generation step is stated before it runs.
+
+**Make it yours.** Brand, people, links, house rules, voices and provider prices live in `director.config.json`. Colours, fonts and logos live in `remotion/src/brand.ts` and `remotion/src/fonts.ts`. Change those, not the skill.
+
+**Keys.** `ELEVENLABS_API_KEY` for voice, `KIE_API_KEY` for stills and clips on kie.ai (`FAL_KEY` and `GEMINI_API_KEY` for the alternatives), in `.env` or your environment. `STYLE_SCAN` points `tools/check_text.py` at your style scanner.
+
+**Built on Hasan Aboul Hasan's [claude-faceless-shorts-creator](https://github.com/hassancs91/claude-faceless-shorts-creator)** (MIT). His three tracks, Remotion kit, voice, image, clip and sound tools are the engines this director routes between, and his licence ships with them. His original README follows.
+
+---
+
+## The engines: claude-faceless-shorts-creator (by Hasan Aboul Hasan)
 
 **A faceless YouTube-Shorts factory you drive with [Claude Code](https://claude.com/claude-code).**
 Three production tracks in one repo — you just describe the video, and the right pipeline runs:
